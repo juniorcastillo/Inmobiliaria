@@ -29,6 +29,14 @@ if (!isset($_SESSION['contadoracceso'])) {
   <head>
     <meta charset="UTF-8">
     <title></title>
+    
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+      <link href="Style/Css.css" rel="stylesheet">
+      <!-- librerías opcionales que activan el soporte de HTML5 para IE8 --> 
+      <!--[if lt IE 9]> <script src="../../assets/js/html5shiv.js"></script> <script src="../../assets/js/respond.min.js">
+      </script> <![endif]-->
+    </head>
     <style>
 
       *{
@@ -123,8 +131,8 @@ if (!isset($_SESSION['contadoracceso'])) {
         <form action="#" method="GET">
 
           <input type="text" name="usuario" placeholder="Usuario" autofocus required><br> 
-          <input type="password" name="clave" placeholder="Clave" required><br>   
-          <input type="submit" value="Aceptar">
+          <input type="password" name="clave"  id="ejemplo_password_1" placeholder="Contraseña" required><br>   
+          <button type="submit" class="btn btn-default">Enviar</button>
 
         </form>   
   <?php

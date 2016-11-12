@@ -22,6 +22,8 @@ and open the template in the editor.
       // Comprueba si ya existe un cliente con el DNI introducido
       $consulta = $conexion->query("SELECT Referencia FROM propiedad WHERE Referencia =".$_POST['clave']);
       
+     ///////----------Compruebo que la clave no exista --///////////////////// 
+      
       if ($consulta->rowCount() > 0) {
       ?>
       <script>
@@ -31,6 +33,7 @@ and open the template in the editor.
       
       <?php
       } else {
+       //---------------------Añado el inmuble----------------------------------//
         
         $insercion = "INSERT INTO propiedad (Referencia, FechaAlta,Tipo,Operacion,Provincia ,Superficie,PrecioVenta,FechaVenta,Vendedor) "
          . "VALUES ('$_POST[clave]','$_POST[fechaalta] ','$_POST[tipo]','$_POST[operacion] ','$_POST[provincia]','$_POST[superficie]','$_POST[precioventa]','$_POST[fechaventa] ','$_POST[vendedor]')";
