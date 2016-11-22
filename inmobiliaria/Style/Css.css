@@ -25,16 +25,16 @@ h1{
 }
 
 table {
-    margin-left: 150px;
+    margin-left: 10px;
     font-size: 12px;
     width: 480px;
     text-align: left;
     border-collapse: collapse;
 }
 #vendedorTabla {
-    margin-left: 444px;
+    margin-left: 380px;
     font-size: 12px;
-    width: 480px;
+    width: 680px;
     text-align: left;
     border-collapse: collapse;
 }
@@ -67,4 +67,17 @@ a:link, a:visited {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+}
+.Centrado{
+    border: 1px solid #000000;
+    display: flex;
+    align-content:center;
+
+}
+#salir{
+ position: absolute;
+ left: 0px;
+ width:50px;
+ opacity: 0.7;
+  
 }

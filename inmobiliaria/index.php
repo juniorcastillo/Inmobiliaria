@@ -1,9 +1,24 @@
 <?php
 session_start();
+
+/* * ***********************************************************************
+  @Junior Miguel Castillo santana
+
+ * *********************************************************************** */
+
+
+$CuentaVendedor = " ";
+$contador = 0;
 $_SESSION['index'] = true;
+
+if (!isset($_SESSION['accesopermitido'])) {
+
+  $_SESSION['accesopermitido'] = false;
+}
 //-----------Compruebo si han iniciado session -------------------//
 if ($_SESSION['accesopermitido'] == true) {
   ?>
+
   <!DOCTYPE html>
 
   <html>
@@ -18,7 +33,8 @@ if ($_SESSION['accesopermitido'] == true) {
       </script> <![endif]-->
     </head>
     <body>
-
+      <div id="salir"> <a href="interfaz_usuario/index.php"><img src="interfaz_usuario/imagen/salir.png" alt="Smiley face" height="42" width="85"></a></div>
+     
       <?php
       // Conexión a la base de datos
       try {
@@ -43,6 +59,8 @@ if ($_SESSION['accesopermitido'] == true) {
             <th>Precio Venta</th>
             <th>Fecha Venta</th>
             <th><a href="Vendedor.php">Vendedor</a></th>
+            <th>Imagen</th>
+            <th colspan="2">Funciones de Admin</th>
 
 
 
@@ -61,27 +79,30 @@ if ($_SESSION['accesopermitido'] == true) {
               <td><?= $casa->PrecioVenta ?></td>
               <td><?= $casa->FechaVenta ?></td>
               <td><?= $casa->Vendedor ?></td>
+              <td><?= $casa->Imagen?></td>
               <!--*********************** Elimino jr estudiantes ********************************-->  
 
               <td><form action="baja_inmueble.php" method="GET">
                   <input type="hidden"  name="clave" value="<?= $casa->Referencia ?>" >
-                  <button type="submit" class="btn btn-default">Eliminar</button>
+                  <input type="hidden"  name="accion" value="eliminarInmueble" >
+                  <button type="submit" class="btn btn-danger">Eliminar</button>
                 </form>
               </td>
               <td><form action="Modificacion.php" method="GET">
                   <input type="hidden"  name="modificar" value="<?= $casa->Referencia ?>" >
-                  <button type="submit" class="btn btn-default">Modificar</button>
+                  <input type="hidden"  name="accion" value="modificarInmueble" >
+                  <button type="submit" class="btn btn-warning">Modificar</button>
                 </form>
               </td>
             </tr>
             <?php
           }
-        
           ?>
 
           <!-- *********************** Añado estudiantes nuevos jr************************* -->  
 
-          <tr><form action="Alta_inmueble.php" method="post">
+          <tr><form action="Alta.php" method="post">
+          
             <td>Referencia <input type="number" name="clave" size="1"  min="1" max="300" required ></td>
             <td>Fecha Alta <input type="date" name="fechaalta" required></td>
             <td>Tipo<input type="text" name="tipo" size="10"   required ></td>
@@ -90,9 +111,20 @@ if ($_SESSION['accesopermitido'] == true) {
             <td> Superficie <input type="number" name="superficie" size="10" min="100" max="10000" required></td>
             <td> Precio Venta <input type="number" name="precioventa" size="2" min="100" max="1000000" required></td>
             <td> Fecha Venta<input type="date" name="fechaventa" required></td>
-            <td> Vendedor <br><input type="number" name="vendedor" size="1"  min="1" max="3"  required></td>
+           
 
-            <td><button type="submit" class="btn btn-default">Añadir</button>
+            <td>
+              <?php
+              //Saco las cantidad de vendedores que hay                       
+              $CuentaVendedor = $conexion->query("SELECT * FROM vendedor");
+              while ($casa = $CuentaVendedor->fetchObject()) {
+                $contador+=1;
+              }
+              ?>
+
+              Vendedor <br><input type="number" name="vendedor" size="1"  min="1" max="<?= $contador ?>"  required></td>
+            <td><input type="file"  name="imagen"></td>
+            <td ><button type="submit"  name="altaInmueble" class="btn btn-success" width="160">Añadir</button>
           </form></td></tr>
 
         </table>
@@ -104,6 +136,7 @@ if ($_SESSION['accesopermitido'] == true) {
   </html>
   <?php
 } else {
+
 //--------------Si no ha iniciado session se envia a la pagina para que inicie session ------------------------- //
   echo '<script type="text/javascript">
            alert("iniciar sesion");
