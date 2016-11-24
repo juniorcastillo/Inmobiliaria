@@ -32,7 +32,7 @@ and open the template in the editor.
     <header class="clearfix">
       <div class="container">
         <div class="header-left">
-          <h1>Inmobiliaria Castillo</h1>
+          <h1 id="pagTitulo">Inmobiliaria Castillo</h1>
         </div>
         <div class="header-right">
           <label for="open">
@@ -73,48 +73,63 @@ and open the template in the editor.
     </section>
     <hr>
     <div id="mapa">
-      <h1>Contacto</h1>
+      <h1 class="Subtitulo">Contacto</h1>
       <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13191.136825829724!2d-4.602100384849979!3d36.580562168679165!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1479624687573"  id="googlemap" height="250" frameborder="0"  allowfullscreen></iframe>
       <form action="#" method="post" id="frm">
     </div>
     <div class="datosContacto">
-   
+
       <div id="contactoForm">
-        <table>
-          <form action="#frm" method="post" id="frm">
 
-
-            <tr>
-              <td>  <label for="nombre" class="fa">Nombre</label></td></tr>
-
-            <tr><td><input name="nombre" type="text" class="input-contacto"  title="El campo  'Nombre' no es válido"></td></tr>
-
-            <tr><td><label for="email" class="fa">E-mail</label></td></tr>
-
-            <tr><td> <input name="email" type="email" class="input-contacto" title="El campo  'E-mail' no es válido"></td></tr>
+        <form action="#frm" method="post" id="frm">
 
 
 
-            <tr><td> <label for="tno" class="fa">Teléfono</label></td></tr>
+          <div>  <label for="nombre" class="fa">Nombre</label></div>
 
-            <tr><td>  <input name="tno" type="text" class="input-contacto" value="" title="El campo  'Teléfono' no es válido"></td></tr>
+          <div><input name="nombre" type="text" class="input-contacto"  title="El campo  'Nombre' no es válido"></div>
+
+          <div> <label for="email" class="fa">E-mail</label></div>
+
+          <div> <input name="email" type="email" class="input-contacto" title="El campo  'E-mail' no es válido"></div>
+          <div> <label for="email" class="fa">Telefono</label></div>
+          <div> <input name="tno" type="text" class="input-contacto" value="" title="El campo  'Teléfono' no es válido"></div>
 
 
 
-            <tr><td> <label for="comentario" class="fa">Comentarios</label></td></tr>
+          <div><label for="comentario" class="fa">Comentarios</label></div>
 
-            <tr><td><textarea name="comentario"  title="El campo  'Comentarios' no es válido"></textarea></td></tr>
+          <div><textarea id="textarea_contacto" name="comentario"  title="El campo  'Comentarios' no es válido" rows="7"></textarea></div>
 
-            <tr><td><button type="button">Click Me!</button></td>
-            </tr>
-          </form>
+          <div>  <input type="submit" value="Enviar" style="padding: 10px; background-color: #555;"></div>
 
-        </table>
+        </form>
+
+
+      </div>
+
+      <div id="contactoForm">
+
+
+        <div class="direcciones">
+
+          <ul>
+            <li class="Subtitulo">INMOBILIARIA CASTILLO</li><br>
+
+            <li><i>MALAGA, CAMPANILLAS</i></li>
+
+            <li><i>29016 Málaga</i>  <span>(Málaga)</span></li>
+
+            <li>123 456 789</li>
+
+          </ul>
+        </div>
+
       </div>
 
 
     </div>
 
 
-</body>
+  </body>
 </html>

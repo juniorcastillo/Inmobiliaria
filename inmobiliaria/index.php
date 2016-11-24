@@ -101,7 +101,7 @@ if ($_SESSION['accesopermitido'] == true) {
 
           <!-- *********************** Añado estudiantes nuevos jr************************* -->  
 
-          <tr><form action="Alta.php" method="post">
+          <tr><form action="Alta.php" enctype="multipart/form-data" method="post">
           
             <td>Referencia <input type="number" name="clave" size="1"  min="1" max="300" required ></td>
             <td>Fecha Alta <input type="date" name="fechaalta" required></td>
@@ -123,7 +123,7 @@ if ($_SESSION['accesopermitido'] == true) {
               ?>
 
               Vendedor <br><input type="number" name="vendedor" size="1"  min="1" max="<?= $contador ?>"  required></td>
-            <td><input type="file"  name="imagen"></td>
+            <td><input type="file"  name="imagen" class="inputfile"></td>
             <td ><button type="submit"  name="altaInmueble" class="btn btn-success" width="160">Añadir</button>
           </form></td></tr>
 

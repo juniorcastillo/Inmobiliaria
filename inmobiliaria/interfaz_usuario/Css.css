@@ -87,6 +87,12 @@ h1{
   font-weight: 300;
   line-height: 40px;
 }
+h1#pagTitulo{
+  color:#aeb7abw;
+  text-shadow:1px 1px 0px rgb(230,230,230),
+    2px 2px 0px rgb(200,200,200);
+
+}
 a{
   text-decoration: none;
   color: white;
@@ -134,7 +140,7 @@ section {
 .section-title{
   font-size: 4em;
   margin-bottom: .3em;
-  text-shadow: 0 3px 0px black,
+  -webkit-text-shadow: 0 3px 0px black,
     0 4px 0px rgba(150,150,150,.5);
 }
 .section-tagline{
@@ -160,34 +166,100 @@ section {
 #main {
   max-width: 100%;
   width:100%;
+  height: 430px;
   background-image: url('imagen/fondo_2.jpg');
-  display: flex;	
-  flex-wrap:wrap;
-  justify-content:space-around; 
-}
-#main .imagen{
-  border:solid 2px #27368a;
-  float: left;
-  margin: 5px;
-  overflow: hidden;
-  max-width: 375px;
-  height: auto;
 
 
 }
-#main div.imagen img{
+#contenedorImagenes{
+  text-align: center;
+  width: 70%;
+  height: 400px;
+  margin: 0 auto;
+  margin-left:15%;
+  position: relative;
+  background-color: #122b40;
 
-  max-width: 100%;
-  height: 245px;
-  width: 350px;
-  border-radius: 25px;
-  margin:10px;
 
+}
 
+#imageness > img { 
+  width: 100%;
+  height:400px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: transparent;
+  opacity: 0;
+  z-index: 0;
+  -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+  backface-visibility: hidden;
+  -webkit-animation: animacionGaleria 42s linear infinite 0s;
+  -moz-animation: animacionGaleria 42s linear infinite 0s;
+  -o-animation: animacionGaleria 42s linear infinite 0s;
+  -ms-animation: animacionGaleria 42s linear infinite 0s;
+  animation: animacionGaleria 42s linear infinite 0s; 
+ 
+}
+
+#imageness > img:nth-child(2)  { 
+  -webkit-animation-delay: 6s;
+  -moz-animation-delay: 6s;
+  -o-animation-delay: 6s;
+  -ms-animation-delay: 6s;
+  animation-delay: 6s; 
+}
+#imageness > img:nth-child(3) { 
+  -webkit-animation-delay: 12s;
+  -moz-animation-delay: 12s;
+  -o-animation-delay: 12s;
+  -ms-animation-delay: 12s;
+  animation-delay: 12s; 
+}
+#imageness > img:nth-child(4) { 
+  -webkit-animation-delay: 18s;
+  -moz-animation-delay: 18s;
+  -o-animation-delay: 18s;
+  -ms-animation-delay: 18s;
+  animation-delay: 18s; 
+}
+#imageness > img:nth-child(5) { 
+  -webkit-animation-delay: 24s;
+  -moz-animation-delay: 24s;
+  -o-animation-delay: 24s;
+  -ms-animation-delay: 24s;
+  animation-delay: 24s; 
+}
+#imageness > img:nth-child(6) { 
+  -webkit-animation-delay: 30s;
+  -moz-animation-delay: 30s;
+  -o-animation-delay: 30s;
+  -ms-animation-delay: 30s;
+  animation-delay: 30s; 
+}
+#imageness > img:nth-child(7) { 
+  -webkit-animation-delay: 36s;
+  -moz-animation-delay: 36s;
+  -o-animation-delay: 36s;
+  -ms-animation-delay: 36s;
+  animation-delay: 36s; 
+}
+@-webkit-keyframes animacionGaleria { 
+  0% { opacity: 0;}
+  8% { opacity: 1;}
+  22% { opacity: 1; }
+  35% { opacity: 0; }
+  100% { opacity: 0; }
 }
 
 h3{
   text-align:center;
+
+}
+.Subtitulo{
+
+  font-weight: bold;
+
 
 }
 #mapa #googlemap{
@@ -203,26 +275,36 @@ h3{
 }
 #contactoForm{
   border: 2px solid #aeb7ab;
-  max-width: 503px;
-  position: absolute;
-  left: 35%;
-  top:480px;
+  width: 50%;
+  float:left;
 }
 #contactoForm .fa{
-  font-size: 2rem;
 
-
+  font-size: 150%;
 }
 
 #contactoForm .input-contacto{
-  width: 400px;
-  height: 40px;
+  width: 90%;
+  height: 30px;
 
 }
 
 input:hover ,input:focus{
   background-color:#F6ECF5;
+  box-shadow: 0px 0px 1px 2px #03A9F4;;
 
+}
+#textarea_contacto{
+  width: 90%;
+
+}
+.direcciones{
+  background-color: #aeb7ab;
+
+}
+.direcciones ul > li{
+  font-size: 20px;
+  list-style-type: none;
 
 }
 /* Portrait tablet to landscape and desktop */
@@ -363,4 +445,10 @@ input:hover ,input:focus{
     margin:0px;
 
   }
+  .direcciones ul > li{
+    font-size: 12px;
+
+
+  }
+
 }

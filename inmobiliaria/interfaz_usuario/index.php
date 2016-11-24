@@ -1,18 +1,15 @@
 <?php
-  session_start();
-/*************************************************************************
+session_start();
+/* * ***********************************************************************
  * @Junior Miguel Castillo santana             @Junior Miguel Castillo santana 
  * @Junior Miguel Castillo santana             @Junior Miguel Castillo santana 
  * @Junior Miguel Castillo santana             @Junior Miguel Castillo santana 
  * @Junior Miguel Castillo santana             @Junior Miguel Castillo santana 
  * @Junior Miguel Castillo santana             @Junior Miguel Castillo santana 
- *************************************************************************/
-  if(!isset($_SESSION['sesisonUser'])){
-   $_SESSION['sesisonUser']=false;
-    
-  }
-
-
+ * *********************************************************************** */
+if (!isset($_SESSION['sesisonUser'])) {
+  $_SESSION['sesisonUser'] = false;
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,17 +41,16 @@
             <a href="#">Works</a>
             <a href="Contacto.php">Contact</a>
             <?php
-           if( $_SESSION['sesisonUser']){
-             echo  '<a href="../control_Usuario.php?cerrar=cierro">Sign out</a>';
-           
-           }else{
-            ?>
-              
-            <a href="../control_Usuario.php">Login</a>
-            
-            <?php
-           }
-            ?>
+            if ($_SESSION['sesisonUser']) {
+              echo '<a href="../control_Usuario.php?cerrar=cierro">Sign out</a>';
+            } else {
+              ?>
+
+              <a href="../control_Usuario.php">Login</a>
+
+  <?php
+}
+?>
           </nav>
         </div>
       </div>
@@ -72,30 +68,22 @@
     </section>
     <section>
       <div id="main">
-         <div class="imagen"> <img  src="imagen/casa3.jpg" alt="Smiley face" >
-          <h3>IMAGEN 4</h3>
-          <span>123456789 - 12345678910 - 12345678910 - 1     2   3   4   5   6   7   8   9    10    11    12    1 3   1 4</span>
-        </div>
-        <div class="imagen"> <img  src="imagen/casa5.jpg" alt="Smiley face" >
-          <h3>IMAGEN 5</h3>
-          <span>123456789 - 12345678910 - 12345678910 - 1     2   3   4   5   6   7   8   9    10    1 1    12    1 3   1 4</span>
-        </div>
+        <div id="contenedorImagenes">
+        <div id="imageness">
+          <img  src="imagen/casa1.jpg" alt="Smiley face" >
 
-        <div class="imagen"> <img  src="imagen/casa6.jpg" alt="Smiley face" >
-          <h3>IMAGEN 6</h3>
-          <span>adfkjahdsjfosadhgfiadhfaihsdfjbAVSIUDHFUSADFHASUIDBFKJSD BLASCIOAS NO SON COMO TU LAS ESTYAS PEMSSANKFDDO OOLK FDPEFJBFIWALAN FJapujefdedenes 0ehn</span>
-        </div>
-        <div class="imagen"> <img  src="imagen/casa7.jpg" alt="Smiley face" >
-          <h3>IMAGEN 7</h3>
+          <img  src="imagen/casa2.jpg" alt="Smiley face" >
 
-        </div>
-        <div class="imagen"> <img  src="imagen/casa8.jpg" alt="Smiley face" >
-          <h3>IMAGEN 8</h3>
-        </div>
-        <div class="imagen"> <img  src="imagen/casa9.jpg" alt="Smiley face" >
-          <h3>IMAGEN 9</h3>
+          <img  src="imagen/casa3.jpg" alt="Smiley face" >
 
+          <img  src="imagen/casa4.jpg" alt="Smiley face" >
+
+          <img  src="imagen/casa5.jpg" alt="Smiley face" >
+
+          <img  src="imagen/casa6.jpg" alt="Smiley face" >
+          <img  src="imagen/casa7.jpg" alt="Smiley face" >
         </div>
+        </div> 
       </div>
     </section>
 
@@ -110,9 +98,8 @@
 </body>
 </html>
 <?php
-/*************************************************************************
-    @Junior Miguel Castillo santana
-   
- *************************************************************************/
+/* * ***********************************************************************
+  @Junior Miguel Castillo santana
 
+ * *********************************************************************** */
 ?>

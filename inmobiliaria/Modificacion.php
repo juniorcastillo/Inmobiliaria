@@ -69,7 +69,7 @@ if ($_SESSION['accesopermitido'] == true) {
         }
         ?>
         <h1>Modificacion</h1>
-        <table>
+        <table id="tableModi">
           <?php
          while ($casa = $datosMod->fetchObject()) {
             ?>
