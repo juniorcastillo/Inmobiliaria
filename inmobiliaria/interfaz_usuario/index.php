@@ -23,13 +23,20 @@ if (!isset($_SESSION['sesisonUser'])) {
 
   </head>
   <body>
+    <div id="logo">
 
+      <img  src="imagen/logo.PNG" alt="Smiley face" width="32" height="22">
+
+
+    </div>
     <header class="clearfix">
       <div class="container">
         <div class="header-left">
-          <h1>Inmobiliaria Castillo</h1>
+          <h1 id="pagTitulo">Inmobiliaria Castillo</h1>
         </div>
         <div class="header-right">
+
+
           <label for="open">
             <span class="hidden-desktop"></span>
           </label>
@@ -48,9 +55,9 @@ if (!isset($_SESSION['sesisonUser'])) {
 
               <a href="../control_Usuario.php">Login</a>
 
-  <?php
-}
-?>
+              <?php
+            }
+            ?>
           </nav>
         </div>
       </div>
@@ -69,29 +76,33 @@ if (!isset($_SESSION['sesisonUser'])) {
     <section>
       <div id="main">
         <div id="contenedorImagenes">
-        <div id="imageness">
-          <img  src="imagen/casa1.jpg" alt="Smiley face" >
+          <div id="imageness">
+            <img  src="imagen/casa1.jpg" alt="Smiley face" >
+            <img  src="imagen/casa5.jpg" alt="Smiley face" >
 
-          <img  src="imagen/casa2.jpg" alt="Smiley face" >
+            <img  src="imagen/casa2.jpg" alt="Smiley face" >
 
-          <img  src="imagen/casa3.jpg" alt="Smiley face" >
+            <img  src="imagen/casa3.jpg" alt="Smiley face" >
 
-          <img  src="imagen/casa4.jpg" alt="Smiley face" >
+            <img  src="imagen/casa5.jpg" alt="Smiley face" >
 
-          <img  src="imagen/casa5.jpg" alt="Smiley face" >
+            <img  src="imagen/casa6.jpg" alt="Smiley face" >
+            <img  src="imagen/casa7.jpg" alt="Smiley face" >
 
-          <img  src="imagen/casa6.jpg" alt="Smiley face" >
-          <img  src="imagen/casa7.jpg" alt="Smiley face" >
-        </div>
+            <img  src="imagen/casa3.jpg" alt="Smiley face" >
+          </div>
         </div> 
       </div>
     </section>
-
-    <aside>
-
-    </aside>
     <footer>
-
+      <div><a href="https://www.facebook.com/ "  target="_blank"><p id="Facebook" ></p></a></div>
+      
+      <div><a href="#">  <p id="Gmail" ></p></a></div>
+       
+      <div><a href="#"> <p  id="youtube"><span  class="span"></span></p></a></div>
+        
+       <div><a href="#"><p id="Twitter"><span  class="span"></span></p></a></div>
+        
     </footer>
   </body>
 </html>

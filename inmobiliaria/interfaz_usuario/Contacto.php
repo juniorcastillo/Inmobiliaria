@@ -80,10 +80,10 @@ and open the template in the editor.
     <div class="datosContacto">
 
       <div id="contactoForm">
+        <div id="frm">
+        <form action="#frm" method="post" >
 
-        <form action="#frm" method="post" id="frm">
-
-
+         
 
           <div>  <label for="nombre" class="fa">Nombre</label></div>
 
@@ -105,7 +105,7 @@ and open the template in the editor.
 
         </form>
 
-
+        </div>
       </div>
 
       <div id="contactoForm">
