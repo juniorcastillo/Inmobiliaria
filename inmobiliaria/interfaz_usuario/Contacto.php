@@ -29,14 +29,14 @@ and open the template in the editor.
     <link rel="stylesheet" type="text/css" href="Css.css">
   </head>
   <body>
-    <header class="clearfix">
+    <header class="limpiador">
       <div class="container">
         <div class="header-left">
           <h1 id="pagTitulo">Inmobiliaria Castillo</h1>
         </div>
         <div class="header-right">
           <label for="open">
-            <span class="hidden-desktop"></span>
+            <span class="spanMenu"></span>
           </label>
           <input type="checkbox" name="" id="open">
           <nav>
@@ -60,7 +60,7 @@ and open the template in the editor.
         </div>
       </div>
     </header>
-    <section class="clearfix">
+    <section class="limpiador">
       <div class="container">
         <div class="section-left">
           <h1 class="section-title">Virvir bien es tu opciòn</h1>
@@ -101,7 +101,7 @@ and open the template in the editor.
 
           <div><textarea id="textarea_contacto" name="comentario"  title="El campo  'Comentarios' no es válido" rows="7"></textarea></div>
 
-          <div>  <input type="submit" value="Enviar" style="padding: 10px; background-color: #555;"></div>
+          <div>  <input type="submit" value="Enviar" style="padding: 10px; background-color: #555; cursor:pointer;"></div>
 
         </form>
 
@@ -129,7 +129,18 @@ and open the template in the editor.
 
 
     </div>
-
+       <footer>
+      <div><a href="https://www.facebook.com/ "  target="_blank"><p id="Facebook" ></p></a></div>
+      
+      <div><a href="#">  <p id="Gmail" ></p></a></div>
+       
+      <div><a href="#"> <p  id="youtube"><span  class="span"></span></p></a></div>
+        
+       <div><a href="#"><p id="Twitter"><span  class="span"></span></p></a></div>
+       
+     
+        
+    </footer>
 
   </body>
 </html>

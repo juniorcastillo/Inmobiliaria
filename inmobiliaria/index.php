@@ -26,15 +26,22 @@ if ($_SESSION['accesopermitido'] == true) {
       <meta charset="UTF-8">
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
       <link href="Style/Css.css" rel="stylesheet">
       <!-- librerías opcionales que activan el soporte de HTML5 para IE8 --> 
       <!--[if lt IE 9]> <script src="../../assets/js/html5shiv.js"></script> <script src="../../assets/js/respond.min.js">
       </script> <![endif]-->
     </head>
     <body>
-      <div id="salir"> <a href="interfaz_usuario/index.php"><img src="interfaz_usuario/imagen/salir.png" alt="Smiley face" height="42" width="85"></a></div>
-     
+      <div id="salir"> <a href="interfaz_usuario/index.php"><img src="interfaz_usuario/imagen/salir.png" alt="Smiley face" height="45" width="69" style="border-radius: 25px;"></a></div>
+
       <?php
       // Conexión a la base de datos
       try {
@@ -79,7 +86,8 @@ if ($_SESSION['accesopermitido'] == true) {
               <td><?= $casa->PrecioVenta ?></td>
               <td><?= $casa->FechaVenta ?></td>
               <td><?= $casa->Vendedor ?></td>
-              <td><?= $casa->Imagen?></td>
+              <td> <img  src="<?= $casa->Imagen ?>" alt="casa" width="70"  height="40"></td>
+
               <!--*********************** Elimino jr estudiantes ********************************-->  
 
               <td><form action="baja_inmueble.php" method="GET">
@@ -102,7 +110,7 @@ if ($_SESSION['accesopermitido'] == true) {
           <!-- *********************** Añado estudiantes nuevos jr************************* -->  
 
           <tr><form action="Alta.php" enctype="multipart/form-data" method="post">
-          
+
             <td>Referencia <input type="number" name="clave" size="1"  min="1" max="300" required ></td>
             <td>Fecha Alta <input type="date" name="fechaalta" required></td>
             <td>Tipo<input type="text" name="tipo" size="10"   required ></td>
@@ -111,7 +119,7 @@ if ($_SESSION['accesopermitido'] == true) {
             <td> Superficie <input type="number" name="superficie" size="10" min="100" max="10000" required></td>
             <td> Precio Venta <input type="number" name="precioventa" size="2" min="100" max="1000000" required></td>
             <td> Fecha Venta<input type="date" name="fechaventa" required></td>
-           
+
 
             <td>
               <?php

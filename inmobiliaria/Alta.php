@@ -54,10 +54,10 @@ and open the template in the editor.
         //---------------------Añado el inmuble----------------------------------//
         
       $img=$_FILES["imagen"]["name"];
-      move_uploaded_file($_FILES["imagen"]["tmp_name"], "interfaz_usuario/imagen/" .  $img );
+      move_uploaded_file($_FILES["imagen"]["tmp_name"], "interfaz_usuario/imagen/".$img );
      
         $insercion = "INSERT INTO propiedad (Referencia, FechaAlta,Tipo,Operacion,Provincia ,Superficie,PrecioVenta,FechaVenta,Vendedor,Imagen) "
-                . "VALUES ('$_POST[clave]','$_POST[fechaalta] ','$_POST[tipo]','$_POST[operacion] ','$_POST[provincia]','$_POST[superficie]','$_POST[precioventa]','$_POST[fechaventa] ','$_POST[vendedor] ','  $img ')";
+                . "VALUES ('$_POST[clave]','$_POST[fechaalta] ','$_POST[tipo]','$_POST[operacion] ','$_POST[provincia]','$_POST[superficie]','$_POST[precioventa]','$_POST[fechaventa] ','$_POST[vendedor] ','interfaz_usuario/imagen/$img')";
        
         
 

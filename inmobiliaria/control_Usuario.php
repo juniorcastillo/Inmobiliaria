@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-/*************************************************************************
+/* * ***********************************************************************
  *    @Junior Miguel Castillo santana                                    *
  *                                                                       *   
- *************************************************************************/
+ * *********************************************************************** */
 
 //--------------------------- Conexión a la base de datos  ----------------------------------------------------
 try {
@@ -21,22 +21,20 @@ $usuario = $conexion->query("SELECT * FROM control_acceso order by 1");
 
 //**********************Cierro la sesion*******************************************//
 
-if(isset($_REQUEST['cerrar'])){
-    session_destroy();
-    echo '<script type="text/javascript">                
+if (isset($_REQUEST['cerrar'])) {
+  session_destroy();
+  echo '<script type="text/javascript">                
                   alert("Sesion cerrada");
             </script>';
-   
-    echo '<div class="alert alert-success" class="Centrado">
+
+  echo '<div class="alert alert-success" class="Centrado">
                   <strong>Bye, Siempre seras Bienvenido!</strong></div>'
-        . '<script type="text/javascript"> function redireccionar(){window.location="interfaz_usuario/index.php";}'
-        . 'setTimeout ("redireccionar()", 2000); //tiempo expresado en milisegundos </script> ';
-  
+  . '<script type="text/javascript"> function redireccionar(){window.location="interfaz_usuario/index.php";}'
+  . 'setTimeout ("redireccionar()", 2000); //tiempo expresado en milisegundos </script> ';
 }
 //*************Inicializo variables de sesiones********************************************// 
-if(!isset($_SESSION['accesopermitido']) ){
-  $_SESSION['accesopermitido']=false;
-  
+if (!isset($_SESSION['accesopermitido'])) {
+  $_SESSION['accesopermitido'] = false;
 }
 
 if (!isset($_SESSION['contadoracceso'])) {
@@ -56,73 +54,77 @@ if (!isset($_SESSION['index'])) {
     <title></title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="Style/Css.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
     <style>
       body{
 
 
-        background-color: #e3e3e3;
+        background-image: url(http://www.jonaga.com/imagenes/fondo%20pagina%20fijo.jpg);
       }
 
     </style>
   </head>
-  <?php
+<?php
 //No entra si la contraseña no se ha enviado  
-  if (isset($_REQUEST['clave'])) {
-    $_SESSION['contadoracceso'] += 1;
-    $usuariointro = $_REQUEST['usuario'];
-    $claveintro = $_REQUEST['clave'];
+if (isset($_REQUEST['clave'])) {
+  $_SESSION['contadoracceso'] += 1;
+  $usuariointro = $_REQUEST['usuario'];
+  $claveintro = $_REQUEST['clave'];
 
-    //**********************************************************************************************//     
-    //-----------------*****Compruebo que la clave y el usuario son correcto*****-------------------//
-    //**********************************************************************************************//  
-   
-        
+  //**********************************************************************************************//     
+  //-----------------*****Compruebo que la clave y el usuario son correcto*****-------------------//
+  //**********************************************************************************************//  
 //------Compruebo las claves de los profesores que estan registrados @JR y sus nombres y si son correctos entro como userP -------//
 
 
-    while ($login = $usuario->fetchObject()) {
+  while ($login = $usuario->fetchObject()) {
 
-      if (($usuariointro == $login->Usuario) && ($claveintro == $login->Contraseña) && ("admin" == $login->Rol)) {
-        $_SESSION['sesisonUser']=true;
-        $_SESSION['mal'] = false;
-        $_SESSION['accesopermitido'] = true;
-        // $_SESSION['mal'] ==false; //Comprueba si esta mala la contraeña
-        //----------------Envio a las personas a las pagina de inicio --------------//
-        if ($_SESSION['index'] == true) {
-          echo '<div class="alert alert-success" class="Centrado">
-                  <strong>Bienvenido!</strong> ' . $login->Usuario . ' </div>' .
-          header("refresh:5; url=index.php");
-          ;
-        } else {
-          $_SESSION['sesisonUser']=true;
-          $_SESSION['mal'] = false;//booleana que comprueba que la contraseña es buena o mala
-          echo '<div class="alert alert-success" class="Centrado">
-               <strong>Bienvenido!</strong> ' . $login->Usuario . ' </div>'
-              .'<script type="text/javascript"> function redireccionar(){window.location="index.php";}'
-              .'setTimeout ("redireccionar()", 5000); //tiempo expresado en milisegundos </script> ';
-        }//cierro el else 
-      } else if (($usuariointro == $login->Usuario) && ($claveintro == $login->Contraseña) && ("user" == $login->Rol)) {
-        $_SESSION['accesopermitido'] = true;
-        $_SESSION['sesisonUser'] = true;
-        $_SESSION['mal'] = false;
+    if (($usuariointro == $login->Usuario) && ($claveintro == $login->Contraseña) && ("admin" == $login->Rol)) {
+      $_SESSION['sesisonUser'] = true;
+      $_SESSION['mal'] = false;
+      $_SESSION['accesopermitido'] = true;
+      // $_SESSION['mal'] ==false; //Comprueba si esta mala la contraeña
+      //----------------Envio a las personas a las pagina de inicio --------------//
+      if ($_SESSION['index'] == true) {
         echo '<div class="alert alert-success" class="Centrado">
+                  <strong>Bienvenido!</strong> ' . $login->Usuario . ' </div>' .
+        header("refresh:5; url=index.php");
+        ;
+      } else {
+        $_SESSION['sesisonUser'] = true;
+        $_SESSION['mal'] = false; //booleana que comprueba que la contraseña es buena o mala
+        echo '<div class="alert alert-success" class="Centrado">
+               <strong>Bienvenido!</strong> ' . $login->Usuario . ' </div>'
+        . '<script type="text/javascript"> function redireccionar(){window.location="index.php";}'
+        . 'setTimeout ("redireccionar()", 5000); //tiempo expresado en milisegundos </script> ';
+      }//cierro el else 
+    } else if (($usuariointro == $login->Usuario) && ($claveintro == $login->Contraseña) && ("user" == $login->Rol)) {
+      $_SESSION['accesopermitido'] = true;
+      $_SESSION['sesisonUser'] = true;
+      $_SESSION['mal'] = false;
+      echo '<div class="alert alert-success" class="Centrado">
               <strong>Bienvenido!</strong> ' . $login->Usuario . ' </div>'
-              .'<script type="text/javascript"> function redireccionar(){window.location="interfaz_usuario/index.php";}'
-              .'setTimeout ("redireccionar()", 5000); //tiempo expresado en milisegundos </script> ';
-      }
-    }//cierro el while
-   if( $_SESSION['mal']){
+      . '<script type="text/javascript"> function redireccionar(){window.location="interfaz_usuario/index.php";}'
+      . 'setTimeout ("redireccionar()", 5000); //tiempo expresado en milisegundos </script> ';
+    }
+  }//cierro el while
+  if ($_SESSION['mal']) {
     echo '<script>
             alert("Usuario o Contraseña Incorrecto");
          
          </script>';
-   }
-    
-  }//cierro el JRif principal
-  ?>
+  }
+}//cierro el JRif principal
+?>
 </head>
 <body>
   <?php
@@ -178,9 +180,9 @@ if (!isset($_SESSION['index'])) {
       </div>
     </div>
 
-    <?php
-  }//Si no ha iniciado sesion @JR(Es el cierre del if)
-  ?>
+  <?php
+}//Si no ha iniciado sesion @JR(Es el cierre del if)
+?>
 
 
 </body>

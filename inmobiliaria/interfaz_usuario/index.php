@@ -18,7 +18,7 @@ if (!isset($_SESSION['sesisonUser'])) {
   <head>
     <title>Inmobiliaria Castillo</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="Css.css">
 
   </head>
@@ -29,7 +29,7 @@ if (!isset($_SESSION['sesisonUser'])) {
 
 
     </div>
-    <header class="clearfix">
+    <header class="limpiador">
       <div class="container">
         <div class="header-left">
           <h1 id="pagTitulo">Inmobiliaria Castillo</h1>
@@ -38,14 +38,14 @@ if (!isset($_SESSION['sesisonUser'])) {
 
 
           <label for="open">
-            <span class="hidden-desktop"></span>
+            <span class="spanMenu"></span>
           </label>
           <input type="checkbox" name="" id="open">
           <nav>
             <a href="#">Home</a>
-            <a href="#">Inspiration</a>
-            <a href="#">Articles</a>
-            <a href="#">Works</a>
+            <a href="Articulo.php">Inspiration</a>
+            <a href="Articulo.php">Articles</a>
+            <a href="Articulo.php">Works</a>
             <a href="Contacto.php">Contact</a>
             <?php
             if ($_SESSION['sesisonUser']) {
@@ -62,7 +62,7 @@ if (!isset($_SESSION['sesisonUser'])) {
         </div>
       </div>
     </header>
-    <section class="clearfix">
+    <section class="limpiador">
       <div class="container">
         <div class="section-left">
           <h1 class="section-title">Virvir bien es tu opciòn</h1>
@@ -73,9 +73,10 @@ if (!isset($_SESSION['sesisonUser'])) {
         </div>
       </div>
     </section>
-    <section>
+    
       <div id="main">
         <div id="contenedorImagenes">
+          <div id="respn"></div>
           <div id="imageness">
             <img  src="imagen/casa1.jpg" alt="Smiley face" >
             <img  src="imagen/casa5.jpg" alt="Smiley face" >
@@ -86,14 +87,14 @@ if (!isset($_SESSION['sesisonUser'])) {
 
             <img  src="imagen/casa5.jpg" alt="Smiley face" >
 
-            <img  src="imagen/casa6.jpg" alt="Smiley face" >
-            <img  src="imagen/casa7.jpg" alt="Smiley face" >
+            <img  src="imagen/casa1.jpg" alt="Smiley face" >
+            <img  src="imagen/casa9.jpg" alt="Smiley face" >
 
-            <img  src="imagen/casa3.jpg" alt="Smiley face" >
+           
           </div>
         </div> 
       </div>
-    </section>
+  
     <footer>
       <div><a href="https://www.facebook.com/ "  target="_blank"><p id="Facebook" ></p></a></div>
       
@@ -102,7 +103,9 @@ if (!isset($_SESSION['sesisonUser'])) {
       <div><a href="#"> <p  id="youtube"><span  class="span"></span></p></a></div>
         
        <div><a href="#"><p id="Twitter"><span  class="span"></span></p></a></div>
-        
+       
+     
+     
     </footer>
   </body>
 </html>
