@@ -34,7 +34,7 @@ if ($_SESSION['accesopermitido'] == true) {
 
       <!-- Latest compiled and minified JavaScript -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-      <link href="Style/Css.css" rel="stylesheet">
+      <link href="Style_Admin/Css.css" rel="stylesheet">
       <!-- librerías opcionales que activan el soporte de HTML5 para IE8 --> 
       <!--[if lt IE 9]> <script src="../../assets/js/html5shiv.js"></script> <script src="../../assets/js/respond.min.js">
       </script> <![endif]-->
@@ -43,13 +43,9 @@ if ($_SESSION['accesopermitido'] == true) {
       <div id="salir"> <a href="interfaz_usuario/index.php"><img src="interfaz_usuario/imagen/salir.png" alt="Smiley face" height="45" width="69" style="border-radius: 25px;"></a></div>
 
       <?php
-      // Conexión a la base de datos
-      try {
-        $conexion = new PDO("mysql:host=localhost;dbname=inmobiliaria;charset=utf8", "root", "");
-      } catch (PDOException $e) {
-        echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
-        die("Error: " . $e->getMessage());
-      }
+     // Conexión a la base de datos
+      require_once 'Modelo/Conectar.php';
+      $conexion = Inmobiliaria::conectar();
 
       $consulta = $conexion->query("SELECT * FROM propiedad order by 1");
       ?>

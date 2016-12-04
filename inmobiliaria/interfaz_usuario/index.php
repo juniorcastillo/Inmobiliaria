@@ -19,7 +19,8 @@ if (!isset($_SESSION['sesisonUser'])) {
     <title>Inmobiliaria Castillo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="Css.css">
+    <link rel="stylesheet" type="text/css" href="Style/Main.css">
+    
 
   </head>
   <body>
@@ -76,7 +77,7 @@ if (!isset($_SESSION['sesisonUser'])) {
     
       <div id="main">
         <div id="contenedorImagenes">
-          <div id="respn"></div>
+          
           <div id="imageness">
             <img  src="imagen/casa1.jpg" alt="Smiley face" >
             <img  src="imagen/casa5.jpg" alt="Smiley face" >

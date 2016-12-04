@@ -7,13 +7,9 @@ session_start();
  * *********************************************************************** */
 
 //--------------------------- Conexión a la base de datos  ----------------------------------------------------
-try {
-  $conexion = new PDO("mysql:host=localhost;dbname=inmobiliaria;charset=utf8", "root", "");
-} catch (PDOException $e) {
-  echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
-  die("Error: " . $e->getMessage());
-}
+require_once 'Modelo/Conectar.php';
 //Consulta a la base de datos
+$conexion = Inmobiliaria::conectar();
 $usuario = $conexion->query("SELECT * FROM control_acceso order by 1");
 
 

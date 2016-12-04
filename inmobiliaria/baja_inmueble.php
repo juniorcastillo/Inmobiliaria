@@ -29,15 +29,9 @@ if ($_SESSION['accesopermitido'] == true) {
     
      <?php
      
-      // Conexión a la base de datos
-      try {
-       $conexion = new PDO("mysql:host=localhost;dbname=inmobiliaria;charset=utf8", "root", "");
-       
-      } catch (PDOException $e) {
-        echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
-        die ("Error: " . $e->getMessage());
-        
-      }
+     // Conexión a la base de datos
+      require_once 'Modelo/Conectar.php';
+      $conexion = Inmobiliaria::conectar();
       
     //Guardo la accion que elige el administrador  
       $accion= $_REQUEST['accion'];
