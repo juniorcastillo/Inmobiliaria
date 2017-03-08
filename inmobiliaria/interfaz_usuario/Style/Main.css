@@ -1,0 +1,527 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02-dic-2016, 11:02:19
+    Author     : USER
+*/
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02-dic-2016, 10:50:10
+    Author     : Junior Castillo
+*/
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 04-dic-2016, 10:23:13
+    Author     : Junior Castillo
+*/
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  -webkit-box-sizing: border-box; }
+  *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box; }
+
+html {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 12px; }
+
+body {
+  background: url("brushed_alu.png"); }
+
+.limpiador:before {
+  display: table;
+  line-height: 0;
+  content: ""; }
+.limpiador:after {
+  display: table;
+  line-height: 0;
+  content: "";
+  clear: both; }
+
+.container {
+  width: 80%;
+  margin: 0 auto; }
+
+header {
+  width: 100%;
+  height: auto;
+  background: black; }
+
+.header-left, .header-right {
+  position: relative;
+  color: white;
+  float: left; }
+
+.header-left {
+  width: 30%; }
+
+.header-right {
+  width: 70%;
+  text-align: right; }
+  .header-right label {
+    position: absolute;
+    top: -3.7em;
+    right: 0;
+    cursor: pointer; }
+  .header-right span {
+    position: relative;
+    width: 2em;
+    height: 2em;
+    background: rgba(255, 255, 255, 0.3);
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease; }
+    .header-right span:hover {
+      background: rgba(255, 255, 255, 0.6); }
+    .header-right span:before {
+      content: '';
+      position: absolute;
+      width: 2em;
+      height: .5em;
+      top: 4px;
+      left: 0;
+      background: black; }
+    .header-right span:after {
+      content: '';
+      position: absolute;
+      width: 2em;
+      height: .5em;
+      top: 4px;
+      left: 0;
+      background: black;
+      top: 14px; }
+
+#open {
+  display: none; }
+
+h1 {
+  font-weight: 300;
+  line-height: 40px; }
+  h1#pagTitulo {
+    color: #F6ECF5;
+    text-shadow: 1px 1px 0px #e6e6e6, 2px 2px 0px #c8c8c8; }
+
+a {
+  text-decoration: none;
+  color: white; }
+
+nav > a {
+  position: relative;
+  display: inline-block;
+  font-size: 100%;
+  line-height: 40px;
+  padding: 0 2em;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  transition: all .3s ease; }
+  nav > a:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: black; }
+
+.spanMenu {
+  display: none; }
+
+section {
+  width: 100%;
+  height: auto;
+  background-image: -o-linear-gradient(#36a6ff 0%, #0e0a10 100%);
+  background-image: -webkit-linear-gradient(#36a6ff 0%, #0e0a10 100%);
+  background-image: linear-gradient(#36a6ff 0%, #0e0a10 100%); }
+
+.section-left, .section-right {
+  float: left; }
+
+.section-left {
+  width: 70%;
+  padding: 3em 0; }
+
+.section-right {
+  width: 30%; }
+
+.section-title, .section-tagline {
+  color: white;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: all .4s ease;
+  -moz-transition: all .4s ease;
+  -o-transition: all .4s ease;
+  transition: all .4s ease; }
+
+.section-title {
+  font-size: 4em;
+  margin-bottom: .3em;
+  -webkit-text-shadow: 0 3px 0px black, 0 4px 0px rgba(150, 150, 150, 0.5);
+  -moz-text-shadow: 0 3px 0px black, 0 4px 0px rgba(150, 150, 150, 0.5); }
+
+.section-tagline {
+  font-size: 1em; }
+
+.learn-more {
+  display: table;
+  margin: 3em auto 0;
+  padding: 1em 6em;
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.8);
+  -ms-box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.8);
+  background: #EAAF00;
+  font-size: 1.2em; }
+  .learn-more:hover {
+    background: #EAAF00;
+    background: -webkit-radial-gradient(ellipse cover, red, #f80, #ffc);
+    background: -ms-radial-gradient(ellipse cover, red, #f80, #ffc);
+    background: -o-radial-gradient(ellipse cover, red, #f80, #ffc); }
+  .learn-more:active {
+    -webkit-box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.8);
+    padding: 2em 7em;
+    -webkit-transition: padding 5s ease; }
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02-dic-2016, 10:51:03
+    Author     : Junior Castillo Santana
+*/
+#main {
+  max-width: 100%;
+  width: 100%;
+  height: 483px;
+  background-color: #c4e3f3; }
+
+#contenedorImagenes {
+  text-align: center;
+  width: 89%;
+  max-height: 480px;
+  margin: 0 auto;
+  margin-left: 5.5%;
+  position: relative;
+  background-color: #003399; }
+
+#imageness > img {
+  width: 100%;
+  height: 480px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: transparent;
+  opacity: 0;
+  z-index: 0;
+  -webkit-backface-visibility: hidden;
+  /* Chrome, Safari, Opera */
+  backface-visibility: hidden;
+  -webkit-animation: Galeria 42s linear infinite 0s;
+  -moz-animation: Galeria 42s linear infinite 0s;
+  -o-animation: Galeria 42s linear infinite 0s;
+  -ms-animation: Galeria 42s linear infinite 0s;
+  animation: Galeria 42s linear infinite 0s; }
+  #imageness > img:nth-child(2) {
+    -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay: 6s; }
+  #imageness > img:nth-child(3) {
+    -webkit-animation-delay: 12s;
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s; }
+  #imageness > img:nth-child(4) {
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    -ms-animation-delay: 18s;
+    animation-delay: 18s; }
+  #imageness > img:nth-child(5) {
+    -webkit-animation-delay: 24s;
+    -moz-animation-delay: 24s;
+    -o-animation-delay: 24s;
+    -ms-animation-delay: 24s;
+    animation-delay: 24s; }
+  #imageness > img:nth-child(6) {
+    -webkit-animation-delay: 30s;
+    -moz-animation-delay: 30s;
+    -o-animation-delay: 30s;
+    -ms-animation-delay: 30s;
+    animation-delay: 30s; }
+  #imageness > img:nth-child(7) {
+    -webkit-animation-delay: 36s;
+    -moz-animation-delay: 36s;
+    -o-animation-delay: 36s;
+    -ms-animation-delay: 36s;
+    animation-delay: 36s; }
+
+@-webkit-keyframes Galeria {
+  0% {
+    opacity: 0; }
+  8% {
+    opacity: 1; }
+  22% {
+    opacity: 1; }
+  35% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+@keyframes Galeria {
+  0% {
+    opacity: 0; }
+  8% {
+    opacity: 1; }
+  22% {
+    opacity: 1; }
+  35% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+h3 {
+  text-align: center; }
+
+.Subtitulo {
+  font-weight: bold; }
+
+#mapa #googlemap {
+  width: 100%; }
+
+.datosContacto {
+  background-color: #c4e3f3;
+  height: 370px; }
+
+#contactoForm {
+  width: 49%;
+  margin-left: 1%;
+  float: left; }
+  #contactoForm #frm {
+    border-style: solid;
+    border-color: #3c3c3c;
+    border-top-style: none;
+    border-left-style: none;
+    border-bottom-style: none; }
+  #contactoForm .fa {
+    font-size: 150%; }
+  #contactoForm .input-contacto {
+    width: 90%;
+    height: 30px;
+    background-color: #F6ECF5; }
+
+input:hover, input:focus {
+  background-color: #F6ECF5;
+  box-shadow: 0px 0px 1px 2px #122b40;
+  -webkit-box-shadow: 0px 0px 1px 2px #122b40; }
+
+#textarea_contacto {
+  width: 90%;
+  background-color: #F6ECF5; }
+
+.direcciones {
+  background-color: #aeb7ab;
+  margin-top: 10px;
+  margin-left: 1%;
+  width: 70%; }
+  .direcciones ul > li {
+    font-size: 20px;
+    list-style-type: none; }
+
+#logo {
+  position: absolute;
+  left: 10px;
+  top: 10px; }
+
+footer {
+  width: 100%;
+  max-height: 50px;
+  background-color: #0b0b2d;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end; }
+  footer p {
+    background-image: url(../imagen/Sprites.png);
+    background-size: 181px 85px;
+    background-repeat: no-repeat;
+    width: 31px;
+    height: 35px;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transition: background-position 1s;
+    /* For Safari 3.1 to 6.0 */
+    margin: 5px; }
+
+#Facebook {
+  background-position: -38px -1px; }
+
+#Gmail {
+  background-position: -75px -1px; }
+
+#youtube {
+  background-position: -112px -2px; }
+
+#Twitter {
+  background-position: 0px -2px; }
+
+#Facebook:hover {
+  background-position: -38px -45px;
+  cursor: pointer; }
+
+#Gmail:hover {
+  background-position: -75px -44px;
+  cursor: pointer; }
+
+#youtube:hover {
+  background-position: -112px -45px;
+  cursor: pointer; }
+
+#Twitter:hover {
+  background-position: 0px -45px;
+  cursor: pointer; }
+
+/* Portrait tablet to landscape and desktop */
+/* Small monitor */
+@media (max-width: 979px) {
+  nav > a {
+    padding: 0 1.5em;
+    font-size: 100%; }
+
+  .section-left, .section-right {
+    width: 100%; }
+
+  .section-left {
+    text-align: center; }
+
+  .section-right {
+    padding: 0 0 2em; }
+
+  .section-title {
+    font-size: 4em;
+    margin-bottom: .2em; }
+
+  .learn-more {
+    margin: 0 auto; } }
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  .container {
+    width: 95%; }
+
+  nav > a {
+    padding: 0 2em; }
+
+  h1 {
+    padding: .5em 0; }
+
+  .header-left, .header-right {
+    width: 100%;
+    text-align: center; }
+
+  .section-left, .section-right {
+    width: 100%; }
+
+  .section-left {
+    text-align: center;
+    padding: 2em 0; }
+
+  .section-right {
+    padding: 1em 0 2em; }
+
+  .section-title {
+    font-size: 3em;
+    margin-bottom: .2em; }
+
+  .section-tagline {
+    font-size: 1.3em; }
+
+  .learn-more {
+    margin: 0 auto; }
+
+  #main div.imagen img, .imagen {
+    margin: 0px; } }
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  body {
+    padding: 0 .5em; }
+
+  .container {
+    width: 90%; }
+
+  nav {
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: all .3s ease;
+    -webkit-transition: all .3s ease; }
+
+  input[type="checkbox"]:checked + nav {
+    height: 255px; }
+
+  nav > a {
+    padding: 0 1em;
+    display: block;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.1); }
+
+  h1 {
+    padding: .5em 0; }
+
+  .header-left, .header-right {
+    width: 100%;
+    text-align: center; }
+
+  .section-left, .section-right {
+    width: 100%; }
+
+  .section-left {
+    text-align: center;
+    padding: 1em 0; }
+
+  .section-right {
+    text-align: center;
+    padding: 1em 0 2em; }
+
+  .section-title {
+    font-size: 2.4em;
+    margin-bottom: 0; }
+
+  .section-tagline {
+    font-size: 1em; }
+
+  .learn-more {
+    display: table;
+    margin: 0 auto; }
+
+  .spanMenu {
+    display: block; }
+
+  #main div.imagen img {
+    max-width: 100%;
+    border-radius: 25px;
+    margin: 0px; }
+
+  .direcciones ul > li {
+    font-size: 12px; }
+
+  #imageness > img {
+    width: 100%;
+    -webkit-transition: height 5s;
+    height: 340px; }
+
+  #main {
+    -webkit-transition: height 5s;
+    max-height: 360px; } }
+
+/*# sourceMappingURL=Main.css.map */
