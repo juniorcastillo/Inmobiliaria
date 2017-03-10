@@ -61,7 +61,11 @@ and open the template in the editor.
 
         </div>
       </div>
-
+       <!-- CAPA DE DIALOGO NUEVO USUARIO -->
+      <div id="dialogoNuevoUsuario" class="dialogo" title="Nuevo usuario">
+        <?php include "../Vista/formulario_nuevoUsuario.php";
+        ?>
+      </div>
       <!-- CAPA DE DIALOGO BORRAR USUARIO -->
       <div id="dialogoborrarUsuario" class="dialogo" title="Eliminar Usuario">
         <p>¿Esta seguro que desea eliminar el usuario?</p>
