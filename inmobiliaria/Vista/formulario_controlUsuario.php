@@ -58,7 +58,7 @@
                     <p class="help-block">(if this is a private computer)</p>
                   </div>
                   <input type="submit" class="btn btn-success btn-block" value="Iniciar"/>
-                  <a href="#" class="btn btn-default btn-block">Help to login</a>
+                  <a href="../Vista/interfaz_usuario/index.php" class="btn btn-default btn-block">Go to the main page</a>
                 </form>
               </div>
             </div>

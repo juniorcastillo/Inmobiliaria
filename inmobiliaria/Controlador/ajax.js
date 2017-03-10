@@ -360,8 +360,8 @@ function load(page) {
             },
             telefonoNuevoUsuario: {
                 required: true,
-                 minlength: 9
-             
+                minlength: 9
+
             },
             fechaNuevoUsuario: {
                 required: true,
@@ -373,7 +373,7 @@ function load(page) {
             },
             rolNuevoUsuario: {
                 required: true
-                
+
             }
         },
         messages: {
@@ -388,7 +388,7 @@ function load(page) {
             },
             direccionNuevoUsuario: {
                 required: "Campo telefono obligatorio",
-             
+
             },
             telefonoNuevoUsuario: {
                 required: "Campo telefono obligatorio",
@@ -396,7 +396,7 @@ function load(page) {
             },
             fechaNuevoUsuario: {
                 required: "Campo telefono obligatorio"
-                
+
             },
             emailNuevoUsuario: {
                 required: "Campo telefono obligatorio",
@@ -404,7 +404,7 @@ function load(page) {
             },
             rolNuevoUsuario: {
                 required: "Campo telefono obligatorio",
-               
+
             }
 
         }
@@ -427,11 +427,11 @@ function load(page) {
                         telefonoNuevoUsuario: $("#telefonoNuevoUsuario").val(),
                         fechaNuevoUsuario: $("#fechaNuevoUsuario").val(),
                         emailNuevoUsuario: $("#emailNuevoUsuario").val(),
-                         rolNuevoUsuario: $("#rolNuevoUsuario").val()
+                        rolNuevoUsuario: $("#rolNuevoUsuario").val()
                                 //Campio los valores antes de que actualize
                     }, function (data, status) {
-                       //   $(".container-fluid").html(data);
-                      load(1);
+                        //   $(".container-fluid").html(data);
+                        load(1);
 
                     })//get			
 
@@ -543,7 +543,7 @@ function load(page) {
 
 
                     $.post("../Controlador/modificar_usuario.php", {
-                        idModificarUsuario: idusuario,
+                        idModificarUsuario: $("#idModificarUsuario").val(),
                         nombreModificarUsuario: $("#nombreModificarUsuario").val(),
                         passwordModificarUsuario: $("#passwordModificarUsuario").val(),
                         direccionModificarUsuario: $("#direccionModificarUsuario").val(),
@@ -551,10 +551,10 @@ function load(page) {
                         fechaAltaModificarUsuario: $("#fechaaltaModificarUsuario").val()
                                 //Campio los valores antes de que actualize
                     }, function (data, status) {
-                        //  $(".container-fluid").html(data);
+                        // $(".container-fluid").html(data);
                         //Cambio los dadtos al instante 
                         $("#usuario_" + idusuario + " td.nombreUsuario").html($("#nombreModificarUsuario").val());
-                        $("#usuario_" + idusuario + " td.passwordUsuario").html($("#passwordModificarUsuario").val());
+                        $("#usuario_" + idusuario + " td.passwordUsaurio").html($("#passwordModificarUsuario").val());
                         $("#usuario_" + idusuario + " td.direccionUsuario").html($("#direccionModificarUsuario").val());
                         $("#usuario_" + idusuario + " td.telefonoUsuario").html($("#telefonoModificarUsuario").val());
                         $("#usuario_" + idusuario + " td.fechaaltaUsuario").html($("#fechaaltaModificarUsuario").val());

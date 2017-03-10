@@ -50,11 +50,11 @@ if (!isset($_SESSION['sesisonUser'])) {
             <a href="Contacto.php">Contact</a>
             <?php
             if ($_SESSION['sesisonUser']) {
-              echo '<a href="../control_Usuario.php?cerrar=cierro">Sign out</a>';
+              echo '<a href="../../Controlador/control_usuario.php?cerrar=true">Sign out</a>';
             } else {
               ?>
 
-              <a href="../control_Usuario.php">Login</a>
+            <a href="../formulario_controlUsuario.php">Login</a>
 
               <?php
             }

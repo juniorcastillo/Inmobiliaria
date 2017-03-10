@@ -94,17 +94,17 @@ class Usuario {
         require_once 'conexion.php';
         $conexion = Inmobiliaria::conectar();
 
-        $modificacion = "UPDATE usuario SET  id=\"$this->id\",nombre=\"$this->nombre\",password=\"$this->password\",direccion=\"$this->direccion\",telefono=\"$this->telefono\",fecha_alta=\"$this->fecha_alta\"";
+        $modificacion = "UPDATE usuario SET  id=\"$this->id\",nombre=\"$this->nombre\",password=\"$this->password\",direccion=\"$this->direccion\",telefono=\"$this->telefono\",fecha_alta=\"$this->fecha_alta\" Where id=\"$this->id\"";
         echo $modificacion . " Esta es la consulta";
         $conexion->exec($modificacion);
     }
 
 //*********************** Comprueba si el usuario existe ne la base de datos **************************************//
     //Devuelve 0 si el usuario no existe y 1 si existe
-    public static function controlUsuario() {
+    public static function controlUsuario($e,$c) {
         require_once 'conexion.php';
         $conexion = Inmobiliaria::conectar();
-        $existenciaUsuario = "SELECT * FROM usuario";
+        $existenciaUsuario = "SELECT * FROM usuario WHERE email LIKE '%$e' and password LIKE '%$c'";
         $consulta = $conexion->query($existenciaUsuario);
          $listadoUsuario = [];
          while ($registro = $consulta->fetchObject()) {

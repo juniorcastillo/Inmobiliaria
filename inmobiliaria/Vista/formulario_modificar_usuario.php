@@ -8,7 +8,7 @@
   <div id="td"> <input type="text" name="nombre" class="fecha" id="nombreModificarUsuario"></div>
 
   <div id="th">Contraseña</div>
-  <div id="td"><input type="number" name="password" id="passwordModificarUsuario" value="" size="10" ></div>
+  <div id="td"><input type="text" name="password" id="passwordModificarUsuario" value="" size="10" ></div>
 
 
 
