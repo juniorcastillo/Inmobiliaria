@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-03-2017 a las 13:15:51
+-- Tiempo de generación: 10-03-2017 a las 10:37:31
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -101,8 +101,20 @@ CREATE TABLE `usuario` (
   `password` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
   `direccion` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` int(9) NOT NULL,
-  `fecha_alta` date NOT NULL
+  `fecha_alta` date NOT NULL,
+  `email` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `rol` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nombre`, `password`, `direccion`, `telefono`, `fecha_alta`, `email`, `rol`) VALUES
+(0, 'Junior Miguel', '123456789', 'Calle por casa', 546598745, '2006-05-06', 'junior--45@hotmail.com', 1),
+(3, 'Jhoseline Albania', '123456789', 'calle su casa', 123456789, '2017-03-01', 'jhoseline@hotmail.com', 0),
+(4, 'pepe', 'pepe12345', 'Calle pepe', 123456789, '2017-03-01', 'pepe@pepe.com', 2),
+(5, 'Miguel Angel', '123456789', 'El pais', 123456789, '2017-03-16', 'miguel@miguel.com', 2);
 
 -- --------------------------------------------------------
 
@@ -176,7 +188,7 @@ ALTER TABLE `tipo`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `visita`
 --
