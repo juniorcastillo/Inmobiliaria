@@ -73,7 +73,7 @@ class Usuario {
     $conexion = Inmobiliaria::conectar();
     $insercion = "INSERT INTO usuario( nombre, password,direccion,telefono, fecha_alta,email,rol) "
             . "VALUES (\"" . $this->nombre . "\", \"" .$this->password . "\", \"" . $this->direccion . "\", \"" . $this->telefono . "\", \"" . $this->fecha_alta . "\", \"" . $this->email . "\", \"" . $this->rol ."\")";
-    echo $insercion;
+   // echo $insercion;
 
     $conexion->exec($insercion);
   }
@@ -95,7 +95,7 @@ class Usuario {
         $conexion = Inmobiliaria::conectar();
 
         $modificacion = "UPDATE usuario SET  id=\"$this->id\",nombre=\"$this->nombre\",password=\"$this->password\",direccion=\"$this->direccion\",telefono=\"$this->telefono\",fecha_alta=\"$this->fecha_alta\" Where id=\"$this->id\"";
-        echo $modificacion . " Esta es la consulta";
+       // echo $modificacion . " Esta es la consulta";
         $conexion->exec($modificacion);
     }
 
@@ -113,7 +113,18 @@ class Usuario {
 
         return $listadoUsuario;
     }
+//***************** Compruebo que el usuario que queremos registrar no existe*********************************//
 
+     public static function validarUsuario($e) {
+        require_once 'conexion.php';
+        $conexion = Inmobiliaria::conectar();
+        $existenciaUsuario = "SELECT * FROM usuario WHERE email LIKE '%$e'";
+        $consulta = $conexion->query($existenciaUsuario);
+         //SI EXISTEN FILAS GUARDA LA CANTIDAD DE FILA
+        $numrows =  $consulta ->rowCount();
+        return $numrows;
+    } 
+    
 //************************** Borra el usuario seleccionado ***********************************//
 
     public function delete() {

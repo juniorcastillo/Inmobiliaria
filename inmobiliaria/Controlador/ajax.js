@@ -2,7 +2,6 @@
 $(document).ready(function () {
     var idtipo;
     var idinmueble;
-
 //---------Ordenar por el Valor del select --------------------------------------//
 
 //Ordenar
@@ -69,9 +68,11 @@ $(document).ready(function () {
         autoOpen: false,
         resizable: false,
         modal: true,
+
         buttons: {
             "Guardar": function () {
                 if ($("#formulario_alta").valid()) {
+                
                     $.post("../Controlador/anadir.php", {
                         idNuevo: $("#idNuevo").val(),
                         fechaAltaNuevo: $("#fechaAltaNuevo").val(),
@@ -79,11 +80,14 @@ $(document).ready(function () {
                         direccionNuevo: $("#direccionNuevo").val(),
                         operacionNuevo: $("#operacionNuevo").val(),
                         provinciaNuevo: $("#provinciaNuevo").val(),
+                        img: $("input[name='file']").val(),
                         tipoNuevo: $("select#idtiponuevo").val()
-                                //Campio los valores antes de que actualize
+                                //Campio los valores antes de que actualize++
+                                 
                     }, function (data, status) {
-                        //$(".container-fluid").html(data);
-                        load(1);
+                          imagen();
+                        $(".container-fluid").html(data);
+                        //load(1);
 
                     })//get			
 
@@ -92,13 +96,28 @@ $(document).ready(function () {
             },
             "Cancelar": function () {
                 $(this).dialog("close");
-
             }
         }//buttons
     });
     $(document).on("click", "#nuevo", function () {
         $("#dialogonuevo").dialog("open")
     });
+    
+    function imagen() {
+        var formData = new FormData($("#formulario_alta")[0]);
+        var ruta = "../Controlador/anadir.php";
+        $.ajax({
+            url: ruta,
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (datos)
+            {
+                $("#respuesta").html(datos);
+            }
+        });
+    };
 
     //------------Fin de nuevo---------------------------------------
 
@@ -118,12 +137,7 @@ $(document).ready(function () {
     $("#fechaAltaModificar").datepicker({
         dateFormat: "dd-mm-yy"
     });
-
-
-
-
-
-});//Fin Ready
+}); //Fin Ready
 //--- PAGINACION -------------------------------------------------
 //--------------------------------------------------------------------------------------------------
 ////document ready
@@ -177,7 +191,7 @@ function load(page) {
                 $(this).dialog("close");
             }
         }//buttons
-    });//Fin de dialogo borrar
+    }); //Fin de dialogo borrar
 
     //Evento click que pulsa el boton borrar
     $(document).on("click", "#borrar", function () {
@@ -231,7 +245,7 @@ function load(page) {
             idtipo: "El campo Mensaje es obligatorio.",
         }
 
-    });//FIn de la validacion 
+    }); //FIn de la validacion 
 
     //---------------------------------------------------------------------------------------------
     //-----MODIFICAR EL INMUEBLE-----------------------------------------------
@@ -265,7 +279,6 @@ function load(page) {
                         $("#inmueble_" + idinmueble + " td.provincia").html($("#provinciaModificar").val());
                         $("#inmueble_" + idinmueble + " td.idtipo").html($("#tipoModificar").val());
                         $("#inmueble_" + idinmueble + " td.visita").html($("#visitaModificar").val());
-
                     })//get			
 
                     $(this).dialog("close");
@@ -275,7 +288,7 @@ function load(page) {
                 $(this).dialog("close");
             }
         }//buttons
-    });//Fin de dialogo modificar
+    }); //Fin de dialogo modificar
 
     //Boton Modificar	
     //Pinto los datos de cada campo
@@ -299,15 +312,11 @@ function load(page) {
         //Para que me seleccione el idtipomodificar
         var idtipomodificar = $(this).parent().siblings("td.idtipo").attr("name");
         $("#tipoModificar option[value='" + idtipomodificar + "']").attr("selected", true);
-
         //Visita
         $("#visitaModificar").val($(this).parent().siblings("td.visita").html());
         //Muestro el dialogo
         $("#dialogomodificar").dialog("open");
-
     });
-
-
 //----------------------------------------------------
 
 
@@ -332,7 +341,7 @@ function load(page) {
                 function (data) {
                     //vuelve a pintar el listado
                     $("#contenedor").html(data);
-                });//get
+                }); //get
 
     });
 //************************************************************************************************//
@@ -388,7 +397,6 @@ function load(page) {
             },
             direccionNuevoUsuario: {
                 required: "Campo telefono obligatorio",
-
             },
             telefonoNuevoUsuario: {
                 required: "Campo telefono obligatorio",
@@ -403,13 +411,12 @@ function load(page) {
                 email: "Email invalido"
             },
             rolNuevoUsuario: {
-                required: "Campo telefono obligatorio",
-
+                required: "Campo telefono obligatorio"
             }
 
         }
 
-    });//FIn de la validacion 
+    }); //FIn de la validacion 
 
 //--------Dialogo de nuevo usuario -------------------------------//
     $("#dialogoNuevoUsuario").dialog({
@@ -432,7 +439,6 @@ function load(page) {
                     }, function (data, status) {
                         //   $(".container-fluid").html(data);
                         load(1);
-
                     })//get			
 
                     $(this).dialog("close");
@@ -440,14 +446,12 @@ function load(page) {
             },
             "Cancelar": function () {
                 $(this).dialog("close");
-
             }
         }//buttons
     });
     $(document).on("click", "#nuevo", function () {
         $("#dialogoNuevoUsuario").dialog("open")
     });
-
     //------------Fin de nuevo usuario---------------------------------------
 
 //----------Borrar Usuario---------------------------------//
@@ -471,7 +475,7 @@ function load(page) {
                 $(this).dialog("close");
             }
         }//buttons
-    });//Fin de dialogo borrar
+    }); //Fin de dialogo borrar
 
     //Evento click que pulsa el boton borrar
     $(document).on("click", "#borrar", function () {
@@ -480,7 +484,7 @@ function load(page) {
         idusuario = $(this).parents("tr").data("idusuario");
         //Accion para mostrar el dialogo de borrar
         $("#dialogoborrarUsuario").dialog("open");
-    });//Fin de la gestion borrar
+    }); //Fin de la gestion borrar
 
 
 //---------- Modificar Usuario ---------------------------------//  
@@ -529,7 +533,7 @@ function load(page) {
             }
         }
 
-    });//FIn de la validacion 
+    }); //FIn de la validacion 
 
 //---------Inicio de dialogo modificar Usuario--------------------//
 
@@ -558,7 +562,6 @@ function load(page) {
                         $("#usuario_" + idusuario + " td.direccionUsuario").html($("#direccionModificarUsuario").val());
                         $("#usuario_" + idusuario + " td.telefonoUsuario").html($("#telefonoModificarUsuario").val());
                         $("#usuario_" + idusuario + " td.fechaaltaUsuario").html($("#fechaaltaModificarUsuario").val());
-
                     })//get			
 
                     $(this).dialog("close");
@@ -568,7 +571,7 @@ function load(page) {
                 $(this).dialog("close");
             }
         }//buttons
-    });//Fin de dialogo modificar
+    }); //Fin de dialogo modificar
 
 //---- Inicio del boton modificar Usuario	
     //Pinto los datos de cada campo
@@ -578,8 +581,6 @@ function load(page) {
         idusuario = $(this).parents("tr").data("idusuario");
         //muentra el valor de esa fila 
         $("#idModificarUsuario").val($(this).parent().siblings("td.idUsuario").html());
-
-
         //Nombre del usuario
         $("#nombreModificarUsuario").val($(this).parent().siblings("td.nombreUsuario").html());
         //Contraseña usuario
@@ -594,9 +595,7 @@ function load(page) {
         $("#fechaaltaModificarUsuario").val($(this).parent().siblings("td.fechaaltaUsuario").html());
         //Muestro el dialogo
         $("#dialogomodificarUsuario").dialog("open");
-
     });
-
     ///Date piker 
 //Muestro un formulario hecho con jquery
     $("#fechaaltaModificarUsuario").datepicker({
@@ -604,6 +603,4 @@ function load(page) {
         dateFormat: 'dd-mm-yy'
 
     });
-
-
 }

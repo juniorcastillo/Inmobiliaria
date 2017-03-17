@@ -8,7 +8,7 @@ session_start();
  * @Junior Miguel Castillo santana             @Junior Miguel Castillo santana 
  * 
  *  <div> <label for="email" class="fa">Telefono</label></div>
-                        <div> <input name="tel" type="tel" class="input-contacto" placeholder="Tu telefono...." title="El campo  'Teléfono' no es válido"></div>
+  <div> <input name="tel" type="tel" class="input-contacto" placeholder="Tu telefono...." title="El campo  'Teléfono' no es válido"></div>
 
 
  * *********************************************************************** */
@@ -32,8 +32,20 @@ and open the template in the editor.
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="Style/Main.css">
+        <script src="svg/snap.svg-min.js"></script>
+        <script src="svg/codigo.js"></script>
+        
     </head>
     <body>
+
+
+        <div id="logo">
+
+            <svg width="800px" height="600px" id="svg">
+            </svg>
+
+
+        </div>
         <header class="limpiador">
             <div class="container">
                 <div class="header-left">
@@ -56,7 +68,7 @@ and open the template in the editor.
                         } else {
                             ?>
 
-                            <a href="../control_Usuario.php">Login</a>
+                            <a href="../formulario_controlUsuario.php">Login</a>
 
                             <?php
                         }
@@ -80,13 +92,13 @@ and open the template in the editor.
         <div id="mapa">
             <h1 class="Subtitulo">Contacto</h1>
             <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13191.136825829724!2d-4.602100384849979!3d36.580562168679165!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1479624687573"  id="googlemap" height="250" frameborder="0"  allowfullscreen></iframe>
-           
+
         </div>
         <div class="datosContacto">
 
             <div id="contactoForm">
                 <div id="frm">
-                  <form method="POST" action="http://formspree.io/proyectofinaldaw2@gmail.com">
+                    <form method="POST" action="http://formspree.io/proyectofinaldaw2@gmail.com">
 
 
 
@@ -97,21 +109,21 @@ and open the template in the editor.
                         <div> <label for="email" class="fa">E-mail</label></div>
 
                         <div> <input type="email" name="email" placeholder="Tu email...." class="input-contacto" ></div>
-                        
-                        
-                         <div> <label for="email" class="fa">Telefono</label></div>
+
+
+                        <div> <label for="email" class="fa">Telefono</label></div>
 
                         <div> <input type="tel" name="number" placeholder="Tu email...." class="input-contacto" ></div>
-                       
-                         <div><label for="comentario" class="fa">Comentarios</label></div>
+
+                        <div><label for="comentario" class="fa">Comentarios</label></div>
 
                         <div><textarea id="textarea_contacto" name="message"  placeholder="Escriba su mensaje...." rows="7"></textarea></div>
 
                         <div>  <input type="submit" style="padding: 10px; background-color: #555; cursor:pointer;"></div>
 
                     </form>
-                    
-                    
+
+
 
                 </div>
             </div>
@@ -149,6 +161,13 @@ and open the template in the editor.
 
 
         </footer>
-
+        <audio id="sonido">
+            <source src="sonido/sonido.mp3 " type="audio/mpeg " />
+            <source src="sonido/sonido.ogg " type="audio/ogg " />
+        </audio>
+        
+        <script>
+             document.getElementById('sonido').play();
+        </script>
     </body>
 </html>

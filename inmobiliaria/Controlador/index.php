@@ -37,7 +37,7 @@ if($_SESSION['accesopermitido']){
   <body>
     <div id="accion" class="contenedorInmueble">
       <header>
-
+    
         <ul>
           <li id="homeMenu"><a href="#" >Inmueble</a></li>
           <li id="usuarioMenu"><a href="usuario.php" >Usuario</a></li>

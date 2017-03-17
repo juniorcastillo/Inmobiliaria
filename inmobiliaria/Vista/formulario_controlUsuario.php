@@ -15,7 +15,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
 
     <style>
       body{
@@ -57,7 +57,7 @@
                     </label>
                     <p class="help-block">(if this is a private computer)</p>
                   </div>
-                  <input type="submit" class="btn btn-success btn-block" value="Iniciar"/>
+                  <input type="submit" class="btn btn-success btn-block" value="Sign in"/>
                   <a href="../Vista/interfaz_usuario/index.php" class="btn btn-default btn-block">Go to the main page</a>
                 </form>
               </div>
@@ -72,7 +72,7 @@
                 <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li>
                 <li><a href="#"><u>Read more</u></a></li>
               </ul>
-              <p><a href="#" class="btn btn-info btn-block">Yes please, register now!</a></p>
+              <p><a href="./formulario_registroUsuario.php" class="btn btn-info btn-block">Yes please, register now!</a></p>
             </div>
           </div>
         </div>

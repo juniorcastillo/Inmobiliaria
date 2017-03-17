@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-03-2017 a las 10:37:31
+-- Tiempo de generación: 17-03-2017 a las 23:14:50
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -34,26 +34,27 @@ CREATE TABLE `inmueble` (
   `operacion` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `provincia` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `idtipo` int(11) NOT NULL,
-  `visita` smallint(6) NOT NULL DEFAULT '0'
+  `visita` smallint(6) NOT NULL DEFAULT '0',
+  `img` varchar(250) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `inmueble`
 --
 
-INSERT INTO `inmueble` (`idinmueble`, `fecha`, `precio`, `direccion`, `operacion`, `provincia`, `idtipo`, `visita`) VALUES
-(26, '2017-04-01', 500, 'Los alcarrizos/ Invi', 'Venta', 'Santo Domingo', 4, 1),
-(27, '2017-03-10', 106, 'La calle primera', 'Alquiler', 'Malaga', 2, 3),
-(28, '2017-01-08', 106, 'Mi casa', 'Alquiler', 'Malaga', 2, 0),
-(29, '2017-12-01', 2000000, 'Mi casa', 'Alquiler', 'Malaga', 2, 0),
-(30, '2017-12-01', 2000000, 'Mi casa', 'Alquiler', 'Malaga', 2, 1),
-(31, '2017-01-12', 300, 'malaga', 'xvbxx', 'xcvxc', 2, 5),
-(32, '2017-01-12', 2, 'vcx', 'VEnta', 'xcvxcv', 2, 0),
-(33, '0000-00-00', 0, '', '', '', 1, 0),
-(42, '2017-01-06', 10000, 'Santo Domingo', 'Alquiler', 'Malaga', 1, 0),
-(43, '2017-01-05', 101, 'ssfd', 'sdfas', 'fsdf', 1, 0),
-(44, '2017-01-03', 100, 'xcv', 'ZXCVzx', 'xcvz', 1, 0),
-(45, '2017-01-10', 100, 'asdgf', 'sadfga', 'asdf', 1, 0);
+INSERT INTO `inmueble` (`idinmueble`, `fecha`, `precio`, `direccion`, `operacion`, `provincia`, `idtipo`, `visita`, `img`) VALUES
+(26, '2017-03-01', 500, 'Los alcarrizos/ Invi', 'Venta', 'Santo Domingo', 4, 1, ''),
+(27, '2017-10-03', 106, 'La calle primera', 'Alquiler', 'Malaga', 2, 3, ''),
+(28, '2017-01-08', 106, 'Mi casa', 'Alquiler', 'Malaga', 2, 0, ''),
+(29, '2017-12-01', 2000000, 'Mi casa', 'Alquiler', 'Malaga', 2, 0, ''),
+(30, '2017-12-01', 2000000, 'Mi casa', 'Alquiler', 'Malaga', 2, 1, ''),
+(31, '2017-01-12', 300, 'malaga', 'xvbxx', 'xcvxc', 2, 5, ''),
+(32, '2017-01-12', 2, 'vcx', 'VEnta', 'xcvxcv', 2, 0, ''),
+(33, '0000-00-00', 0, '', '', '', 1, 0, ''),
+(42, '2017-01-06', 10000, 'Santo Domingo', 'Alquiler', 'Malaga', 1, 0, ''),
+(43, '2017-01-05', 101, 'ssfd', 'sdfas', 'fsdf', 1, 0, ''),
+(44, '2017-01-03', 100, 'xcv', 'ZXCVzx', 'xcvz', 1, 0, ''),
+(45, '2017-01-10', 100, 'asdgf', 'sadfga', 'asdf', 1, 0, '');
 
 -- --------------------------------------------------------
 
@@ -111,10 +112,16 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `password`, `direccion`, `telefono`, `fecha_alta`, `email`, `rol`) VALUES
-(0, 'Junior Miguel', '123456789', 'Calle por casa', 546598745, '2006-05-06', 'junior--45@hotmail.com', 1),
-(3, 'Jhoseline Albania', '123456789', 'calle su casa', 123456789, '2017-03-01', 'jhoseline@hotmail.com', 0),
+(0, 'Junior Miguel', 'junior', 'Calle por casa', 546598745, '2006-05-06', 'junior--45@hotmail.com', 1),
+(2, 'josefa', '', 'mi casa', 1234567898, '2017-03-02', 'parita@hotmail.com', 2),
+(3, 'Jhoseline Albania', 'jhoseline', 'En su casa', 123456789, '2017-03-16', 'jhoseline@hotmail.com', 2),
 (4, 'pepe', 'pepe12345', 'Calle pepe', 123456789, '2017-03-01', 'pepe@pepe.com', 2),
-(5, 'Miguel Angel', '123456789', 'El pais', 123456789, '2017-03-16', 'miguel@miguel.com', 2);
+(14, 'pepito', 'junior', 'mi casita', 1234567898, '0000-00-00', 'pito@pito.com', 2),
+(15, 'Juan Carlos Castillo Santana', 'juan', 'Santo Domingo/Los alcarrizos', 102354898, '0000-00-00', 'juan@juan.com', 2),
+(16, 'cara', 'º', '', 0, '0000-00-00', 'fjasjbdf', 2),
+(17, 'Luis Daniel', '123456789', 'mi casa', 1234567898, '0000-00-00', 'luis@hotmail.com', 2),
+(18, 'jose luis', '123456789', 'mi casita', 1234567898, '0000-00-00', 'jose@hotmail.com', 2),
+(19, 'junior miguel', 'juniorcastillo', 'junior', 123456789, '2017-03-17', 'tacota@hotmail.com', 2);
 
 -- --------------------------------------------------------
 
@@ -188,7 +195,7 @@ ALTER TABLE `tipo`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT de la tabla `visita`
 --

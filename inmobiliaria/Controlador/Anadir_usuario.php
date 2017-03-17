@@ -1,10 +1,28 @@
 <?php
-//error_reporting(E_ALL ^ E_NOTICE);//Que me notifique de todos los errores menso de la notice
+
+error_reporting(E_ALL ^ E_NOTICE); //Que me notifique de todos los errores menso de la notice
 require_once '../Modelo/Usuario.php';
+ $validar = Usuario::validarUsuario($_REQUEST['emailNuevoUsuario']);
+//echo $_GET['nombreNuevoUsuario'] . " ESte es el Rol del usuario";
+$fecha = date("Y") . "-" . date("m") . "-" . date("d");
 
-echo $_GET['rolNuevoUsuario'] . " ESte es el Rol del usuario";
-$Anadir_usuario = new Usuario("",$_GET['nombreNuevoUsuario'],$_GET['contrasenaNuevoUsuario'],$_GET['direccionNuevoUsuario'],$_GET['telefonoNuevoUsuario'],$_GET['fechaNuevoUsuario'],$_GET['emailNuevoUsuario'],$_GET['rolNuevoUsuario']);
-$Anadir_usuario->insertUsuario();
+if (isset($_GET['rolNuevoUsuario'])) {
 
-//echo '<script type="text/javascript" src="ajax.js"></script>';
-//include "../Modelo/index.php";
+    $Anadir_usuario = new Usuario("", $_REQUEST['nombreNuevoUsuario'], $_REQUEST['contrasenaNuevoUsuario'], $_REQUEST['direccionNuevoUsuario'], $_REQUEST['telefonoNuevoUsuario'], $_REQUEST['fechaNuevoUsuario'], $_REQUEST['emailNuevoUsuario'], $_REQUEST['rolNuevoUsuario']);
+    $Anadir_usuario->insertUsuario();
+} else {
+    $rol = 2;
+
+   
+    if ($validar == 1) {
+
+        echo "<b>El email " . $_REQUEST['emailNuevoUsuario'] . " existe</b>";
+    } else {
+
+
+        echo "exito";
+        $Anadir_usuario = new Usuario("", $_REQUEST['nombreNuevoUsuario'], $_REQUEST['contrasenaNuevoUsuario'], $_REQUEST['direccionNuevoUsuario'], $_REQUEST['telefonoNuevoUsuario'],$fecha, $_REQUEST['emailNuevoUsuario'], $rol);
+        $Anadir_usuario->insertUsuario();
+    }
+}
+
