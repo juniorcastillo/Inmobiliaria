@@ -66,19 +66,17 @@ class Usuario {
         return $this->rol;
     }
 
-    
     //Inserto una fila
-  public function insertUsuario() {
-    require_once 'conexion.php';
-    $conexion = Inmobiliaria::conectar();
-    $insercion = "INSERT INTO usuario( nombre, password,direccion,telefono, fecha_alta,email,rol) "
-            . "VALUES (\"" . $this->nombre . "\", \"" .$this->password . "\", \"" . $this->direccion . "\", \"" . $this->telefono . "\", \"" . $this->fecha_alta . "\", \"" . $this->email . "\", \"" . $this->rol ."\")";
-   // echo $insercion;
+    public function insertUsuario() {
+        require_once 'conexion.php';
+        $conexion = Inmobiliaria::conectar();
+        $insercion = "INSERT INTO usuario( nombre, password,direccion,telefono, fecha_alta,email,rol) "
+                . "VALUES (\"" . $this->nombre . "\", \"" . $this->password . "\", \"" . $this->direccion . "\", \"" . $this->telefono . "\", \"" . $this->fecha_alta . "\", \"" . $this->email . "\", \"" . $this->rol . "\")";
+        // echo $insercion;
 
-    $conexion->exec($insercion);
-  }
+        $conexion->exec($insercion);
+    }
 
-    
     //-----------Cuenta cuantos usuarios hay creados----------------//
     public static function cuentaUsuario() {
         require_once 'conexion.php';
@@ -95,36 +93,37 @@ class Usuario {
         $conexion = Inmobiliaria::conectar();
 
         $modificacion = "UPDATE usuario SET  id=\"$this->id\",nombre=\"$this->nombre\",password=\"$this->password\",direccion=\"$this->direccion\",telefono=\"$this->telefono\",fecha_alta=\"$this->fecha_alta\" Where id=\"$this->id\"";
-       // echo $modificacion . " Esta es la consulta";
+        // echo $modificacion . " Esta es la consulta";
         $conexion->exec($modificacion);
     }
 
 //*********************** Comprueba si el usuario existe ne la base de datos **************************************//
     //Devuelve 0 si el usuario no existe y 1 si existe
-    public static function controlUsuario($e,$c) {
-        require_once 'conexion.php';
-        $conexion = Inmobiliaria::conectar();
-        $existenciaUsuario = "SELECT * FROM usuario WHERE email LIKE '%$e' and password LIKE '%$c'";
-        $consulta = $conexion->query($existenciaUsuario);
-         $listadoUsuario = [];
-         while ($registro = $consulta->fetchObject()) {
-            $listadoUsuario[] = new Usuario($registro->id, $registro->nombre, $registro->password, $registro->direccion, $registro->telefono, $registro->fecha_alta,$registro->email,$registro->rol);
-        }
-
-        return $listadoUsuario;
-    }
-//***************** Compruebo que el usuario que queremos registrar no existe*********************************//
-
-     public static function validarUsuario($e) {
+    public static function controlUsuario($e) {
         require_once 'conexion.php';
         $conexion = Inmobiliaria::conectar();
         $existenciaUsuario = "SELECT * FROM usuario WHERE email LIKE '%$e'";
         $consulta = $conexion->query($existenciaUsuario);
-         //SI EXISTEN FILAS GUARDA LA CANTIDAD DE FILA
-        $numrows =  $consulta ->rowCount();
+        $listadoUsuario = [];
+        while ($registro = $consulta->fetchObject()) {
+            $listadoUsuario[] = new Usuario($registro->id, $registro->nombre, $registro->password, $registro->direccion, $registro->telefono, $registro->fecha_alta, $registro->email, $registro->rol);
+        }
+
+        return $listadoUsuario;
+    }
+
+//***************** Compruebo que el usuario que queremos registrar no existe*********************************//
+
+    public static function validarUsuario($e) {
+        require_once 'conexion.php';
+        $conexion = Inmobiliaria::conectar();
+        $existenciaUsuario = "SELECT * FROM usuario WHERE email LIKE '%$e'";
+        $consulta = $conexion->query($existenciaUsuario);
+        //SI EXISTEN FILAS GUARDA LA CANTIDAD DE FILA
+        $numrows = $consulta->rowCount();
         return $numrows;
-    } 
-    
+    }
+
 //************************** Borra el usuario seleccionado ***********************************//
 
     public function delete() {
@@ -137,18 +136,20 @@ class Usuario {
 
 //****Hace un lista de todos los usuarios dados de alta***//
 
-    public static function listadoUsuario() {
+    public static function listadoUsuario($o, $p) {
         require_once 'conexion.php';
         $conexion = Inmobiliaria::conectar();
         include 'pagination.php'; //incluir el archivo de paginación
         include 'cuenta_listado_usuario.php';
-        $seleccion = "SELECT * from usuario ORDER BY 1 LIMIT $offset,$per_page";
+        $ordenar = $o;
+        $forma = $p;
+        $seleccion = "SELECT * from usuario ORDER BY $ordenar $forma LIMIT $offset,$per_page";
         $consulta = $conexion->query($seleccion);
 
         $listadoUsuario = [];
 //Creo un nuevo objeto 
         while ($registro = $consulta->fetchObject()) {
-            $listadoUsuario[] = new Usuario($registro->id, $registro->nombre, $registro->password, $registro->direccion, $registro->telefono, $registro->fecha_alta,$registro->email,$registro->rol);
+            $listadoUsuario[] = new Usuario($registro->id, $registro->nombre, $registro->password, $registro->direccion, $registro->telefono, $registro->fecha_alta, $registro->email, $registro->rol);
         }
 
         return $listadoUsuario;

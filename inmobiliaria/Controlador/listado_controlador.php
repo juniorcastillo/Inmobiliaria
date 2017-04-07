@@ -21,7 +21,7 @@ if ($action == 'inmueble') {
    
     require_once '../Modelo/usuario.php';
   
-    $data['listadoUsuario'] = Usuario::listadoUsuario();
+    $data['listadoUsuario'] = Usuario::listadoUsuario($o,$p);
     include '../Modelo/cuenta_listado_usuario.php';
     include "../Vista/listado_usuario.php";
   

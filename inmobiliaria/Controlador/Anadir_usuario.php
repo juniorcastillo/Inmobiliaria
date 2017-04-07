@@ -7,8 +7,9 @@ require_once '../Modelo/Usuario.php';
 $fecha = date("Y") . "-" . date("m") . "-" . date("d");
 
 if (isset($_GET['rolNuevoUsuario'])) {
-
-    $Anadir_usuario = new Usuario("", $_REQUEST['nombreNuevoUsuario'], $_REQUEST['contrasenaNuevoUsuario'], $_REQUEST['direccionNuevoUsuario'], $_REQUEST['telefonoNuevoUsuario'], $_REQUEST['fechaNuevoUsuario'], $_REQUEST['emailNuevoUsuario'], $_REQUEST['rolNuevoUsuario']);
+    $contrase=$_REQUEST['contrasenaNuevoUsuario'];
+    $hash= password_hash($contrase, PASSWORD_DEFAULT);
+    $Anadir_usuario = new Usuario("", $_REQUEST['nombreNuevoUsuario'], $hash, $_REQUEST['direccionNuevoUsuario'], $_REQUEST['telefonoNuevoUsuario'], $_REQUEST['fechaNuevoUsuario'], $_REQUEST['emailNuevoUsuario'], $_REQUEST['rolNuevoUsuario']);
     $Anadir_usuario->insertUsuario();
 } else {
     $rol = 2;
@@ -18,10 +19,10 @@ if (isset($_GET['rolNuevoUsuario'])) {
 
         echo "<b>El email " . $_REQUEST['emailNuevoUsuario'] . " existe</b>";
     } else {
-
-
+        $contrase=$_REQUEST['contrasenaNuevoUsuario'];
+        $hash= password_hash($contrase, PASSWORD_DEFAULT);
         echo "exito";
-        $Anadir_usuario = new Usuario("", $_REQUEST['nombreNuevoUsuario'], $_REQUEST['contrasenaNuevoUsuario'], $_REQUEST['direccionNuevoUsuario'], $_REQUEST['telefonoNuevoUsuario'],$fecha, $_REQUEST['emailNuevoUsuario'], $rol);
+        $Anadir_usuario = new Usuario("", $_REQUEST['nombreNuevoUsuario'], $hash, $_REQUEST['direccionNuevoUsuario'], $_REQUEST['telefonoNuevoUsuario'],$fecha, $_REQUEST['emailNuevoUsuario'], $rol);
         $Anadir_usuario->insertUsuario();
     }
 }

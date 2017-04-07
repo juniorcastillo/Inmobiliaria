@@ -13,7 +13,10 @@ registro. Luego esos datos se enviarán a una página que ejecutará INSERT.
 */
 
 body {
-  background-image: url(http://www.jonaga.com/imagenes/fondo%20pagina%20fijo.jpg);
+ /* background-image: url(http://seguridad-alimentaria-global.com/images/fondo-web.jpg);*/
+ 
+ background-color: #C5D4F7;
+ 
   /*background-color: #125598;*/
   font-family: Arial, Helvetica, sans-serif;
   padding: 0px;

@@ -351,7 +351,8 @@ input:hover, input:focus {
 #logo {
   position: absolute;
   left: 10px;
-  top: 10px; }
+  top: 10px;
+height:100px;}
 
 footer {
   width: 100%;

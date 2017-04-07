@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-03-2017 a las 23:14:50
+-- Tiempo de generación: 07-04-2017 a las 12:02:06
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -53,8 +53,7 @@ INSERT INTO `inmueble` (`idinmueble`, `fecha`, `precio`, `direccion`, `operacion
 (33, '0000-00-00', 0, '', '', '', 1, 0, ''),
 (42, '2017-01-06', 10000, 'Santo Domingo', 'Alquiler', 'Malaga', 1, 0, ''),
 (43, '2017-01-05', 101, 'ssfd', 'sdfas', 'fsdf', 1, 0, ''),
-(44, '2017-01-03', 100, 'xcv', 'ZXCVzx', 'xcvz', 1, 0, ''),
-(45, '2017-01-10', 100, 'asdgf', 'sadfga', 'asdf', 1, 0, '');
+(44, '2017-03-01', 100, 'xcv', 'ZXCVzx', 'xcvz', 1, 1, '');
 
 -- --------------------------------------------------------
 
@@ -99,7 +98,7 @@ INSERT INTO `tipo` (`idtipo`, `nombre`) VALUES
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `nombre` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
-  `password` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `direccion` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` int(9) NOT NULL,
   `fecha_alta` date NOT NULL,
@@ -112,16 +111,14 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `password`, `direccion`, `telefono`, `fecha_alta`, `email`, `rol`) VALUES
-(0, 'Junior Miguel', 'junior', 'Calle por casa', 546598745, '2006-05-06', 'junior--45@hotmail.com', 1),
-(2, 'josefa', '', 'mi casa', 1234567898, '2017-03-02', 'parita@hotmail.com', 2),
-(3, 'Jhoseline Albania', 'jhoseline', 'En su casa', 123456789, '2017-03-16', 'jhoseline@hotmail.com', 2),
-(4, 'pepe', 'pepe12345', 'Calle pepe', 123456789, '2017-03-01', 'pepe@pepe.com', 2),
-(14, 'pepito', 'junior', 'mi casita', 1234567898, '0000-00-00', 'pito@pito.com', 2),
-(15, 'Juan Carlos Castillo Santana', 'juan', 'Santo Domingo/Los alcarrizos', 102354898, '0000-00-00', 'juan@juan.com', 2),
-(16, 'cara', 'º', '', 0, '0000-00-00', 'fjasjbdf', 2),
-(17, 'Luis Daniel', '123456789', 'mi casa', 1234567898, '0000-00-00', 'luis@hotmail.com', 2),
-(18, 'jose luis', '123456789', 'mi casita', 1234567898, '0000-00-00', 'jose@hotmail.com', 2),
-(19, 'junior miguel', 'juniorcastillo', 'junior', 123456789, '2017-03-17', 'tacota@hotmail.com', 2);
+(0, 'Junior Miguel', '$2y$10$2nLqWGx3EOEwIbzYyVQ7XOujxxaci9Qp31f5FTIQtXOgvVlwt9W1e', 'Calle por casa', 546598745, '2006-05-06', 'junior--45@hotmail.com', 1),
+(2, 'pepito', '$2y$10$KU9PvgeAB23cfmXt4YqzYuw0W0JYw2430E1bgQ42Yfr6uIP8baCsa', 'mi casa', 1234567898, '2017-03-02', 'parita@hotmail.com', 2),
+(3, 'Jhoseline Albania', '$2y$10$EqejIXr3bUAhFLUGhKjW6u83Ut6R4EY21JZ3vhMluEEzEHo9AQPmK', 'En su casa', 123456789, '2017-03-16', 'jhoseline@hotmail.com', 2),
+(4, 'pepe', '$2y$10$LaR/6wENi6dSeossCqqQ0exVjDfE2xGJ8xERWyIDemb6XjkgR7WyG', 'Calle pepe', 123456789, '2017-03-06', 'pepe@pepe.com', 2),
+(5, 'pepito', '$2y$10$pdqfr3BJbFRL6MEEQzDRnOBLkcvRAUCeIi7f1O7rnGQ7fDei/VqU6', 'mi casita', 1234567898, '2017-04-12', 'pito@pito.com', 2),
+(7, 'Luis Daniel', '$2y$10$B7I8u9ScagImeKhWk1H1iOb8nH4wBHcFC3QYjzYZYgYf78GzFep8a', 'mi casa', 1234567898, '2017-04-06', 'luis@hotmail.com', 2),
+(16, 'Miguel Angel Castillo Santana', '$2y$10$AXEz/0I0LvUI4AGVXtAe7.F3hMoKUZtGXFRvnN2trCmXohd9d9cdG', 'C/ invi Los Alcarrizos', 123456789, '2017-04-12', 'miguel@hotmail.com', 2),
+(17, 'caquita seca', '$2y$10$2q8Wevf72dUfu4Lo0B4KaOMUo6AW831m11auidjhhXcqZPgW9ZAlm', 'caquita calle mojon', 1235658779, '2017-04-07', 'caca@caca.com', 2);
 
 -- --------------------------------------------------------
 
@@ -180,7 +177,7 @@ ALTER TABLE `visita`
 -- AUTO_INCREMENT de la tabla `inmueble`
 --
 ALTER TABLE `inmueble`
-  MODIFY `idinmueble` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `idinmueble` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT de la tabla `listavisita`
 --
@@ -195,7 +192,7 @@ ALTER TABLE `tipo`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT de la tabla `visita`
 --

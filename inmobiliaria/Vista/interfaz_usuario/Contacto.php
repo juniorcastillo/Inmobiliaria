@@ -37,12 +37,12 @@ and open the template in the editor.
         
     </head>
     <body>
+      <div id="logo">
+
+            <svg width="60px" height="60px" id="svg">
+       </svg>
 
 
-        <div id="logo">
-
-            <svg width="800px" height="600px" id="svg">
-            </svg>
 
 
         </div>
@@ -108,12 +108,15 @@ and open the template in the editor.
 
                         <div> <label for="email" class="fa">E-mail</label></div>
 
-                        <div> <input type="email" name="email" placeholder="Tu email...." class="input-contacto" ></div>
+                        <div> 
+                             <input type="email"  name="email" class="input-contacto" id="email"
+                           placeholder="Email" size="5">
+                         </div>
 
 
                         <div> <label for="email" class="fa">Telefono</label></div>
 
-                        <div> <input type="tel" name="number" placeholder="Tu email...." class="input-contacto" ></div>
+                        <div> <input type="tel" name="number" placeholder="Tu telefono...." class="input-contacto" ></div>
 
                         <div><label for="comentario" class="fa">Comentarios</label></div>
 
@@ -161,13 +164,6 @@ and open the template in the editor.
 
 
         </footer>
-        <audio id="sonido">
-            <source src="sonido/sonido.mp3 " type="audio/mpeg " />
-            <source src="sonido/sonido.ogg " type="audio/ogg " />
-        </audio>
-        
-        <script>
-             document.getElementById('sonido').play();
-        </script>
+       
     </body>
 </html>

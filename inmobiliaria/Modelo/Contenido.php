@@ -83,7 +83,7 @@ class Contenido {
         require_once 'conexion.php';
         $conexion = Inmobiliaria::conectar();
         $insercion = "INSERT INTO inmueble (idinmueble,fecha,precio,direccion,operacion,provincia,idtipo,visita) "
-                . "VALUES (\"" . $this->referencia . "\", \"" . $this->fecha_alta . "\", \"" . $this->precio . "\", \"" . $this->direccion . "\", \"" . $this->operacion . "\", \"" . $this->provincia . "\", \"" . $this->tipo . "\", \"" . $this->visita ."\", \"" . $this->img . "\")";
+                . "VALUES (\"" . $this->referencia . "\", \"" . $this->fecha_alta . "\", \"" . $this->precio . "\", \"" . $this->direccion . "\", \"" . $this->operacion . "\", \"" . $this->provincia . "\", \"" . $this->tipo . "\", \"" . $this->visita . "\", \"" . $this->img . "\")";
 
         //echo $insercion;
 
@@ -135,7 +135,7 @@ class Contenido {
         $listado = [];
 //Creo un nuevo objeto 
         while ($registro = $consulta->fetchObject()) {
-            $listado[] = new contenido($registro->idinmueble, $registro->FechaAlta, $registro->precio, $registro->direccion, $registro->operacion, $registro->provincia, $registro->idtipo, $registro->visita, $registro->nombretipo,$registro->img);
+            $listado[] = new contenido($registro->idinmueble, $registro->FechaAlta, $registro->precio, $registro->direccion, $registro->operacion, $registro->provincia, $registro->idtipo, $registro->visita, $registro->nombretipo, $registro->img);
         }
 
         return $listado;

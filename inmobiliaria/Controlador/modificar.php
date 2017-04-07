@@ -11,6 +11,7 @@ $originalDate = "$_POST[fechaAltaModificar]"; //Cambio el formato de la fecha pa
 $newDate = date("Y-m-d", strtotime($originalDate));
 //echo "$newDate ". " Esta es la fecha <br>"; 
 //$img=" ";
+;
 $inmueble_Modificar = new Contenido($_POST[idModificar], $newDate, $_POST[precioModificar],$_POST[direccionModificar], $_POST[operacionModificar], $_POST[provinciaModificar],$_POST[tipoModificar], $_POST[visitaModificar]);
 //echo "Este es el vendedor $_POST[vendedorModificar] <br>";
 $inmueble_Modificar->update();

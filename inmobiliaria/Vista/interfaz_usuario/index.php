@@ -26,7 +26,7 @@ if (!isset($_SESSION['sesisonUser'])) {
     <body>
         <div id="logo">
 
-            <svg width="800px" height="600px" id="svg">
+            <svg width="60px" height="60px" id="svg">
             </svg>
 
 
@@ -67,7 +67,7 @@ if (!isset($_SESSION['sesisonUser'])) {
         <section class="limpiador">
             <div class="container">
                 <div class="section-left">
-                    <h1 class="section-title">Vivir bien es tu opciòn</h1>
+                    <h1 class="section-title">Live well is your choice</h1>
 
                 </div>
                 <div class="section-right">

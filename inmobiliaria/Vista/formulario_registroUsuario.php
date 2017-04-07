@@ -29,11 +29,12 @@ and open the template in the editor.
             }   
             .registro h3{
                 margin-left: 10px;
+                  margin-left: 15%;
             }  
             .registro div.form-group{
                 margin-top: 30px;
                 width:50%;
-                margin-left: 10px;
+                margin-left: 20%;
             }
             .registro div.form-group #boton{
                 padding: 10px 60px 10px 60px;
@@ -84,7 +85,7 @@ and open the template in the editor.
                             maxlength: "La contraseña es muy larga"
                         },
                         direccionNuevoUsuario: {
-                            required: "Campo telefono obligatorio",
+                            required: "Campo direccion obligatorio",
                         },
                         telefonoNuevoUsuario: {
                             required: "Campo telefono obligatorio",
@@ -92,7 +93,7 @@ and open the template in the editor.
                         },
                         
                         emailNuevoUsuario: {
-                            required: "Campo telefono obligatorio",
+                            required: "Campo email obligatorio",
                             email: "Email invalido"
                         }
 
