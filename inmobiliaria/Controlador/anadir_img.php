@@ -2,7 +2,6 @@
 if (isset($_REQUEST['id_inmueble'])) {
     $id_casa = $_REQUEST['id_inmueble'];
 }
-
 ?>
 
 
@@ -16,8 +15,11 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title> </title>
-        <link href="../Vista/Style_Admin/Css.css" rel="stylesheet">
-      
+       
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+         <link href="../Vista/Style_Admin/Css.css" rel="stylesheet">
+
     </head>
     <body>
         <header>
@@ -28,13 +30,14 @@ and open the template in the editor.
                 <li><a href="#">Interfaz_usuario</a></li>
                 <li style="float:right"><a href="./control_usuario.php?cerrar=true">Sign out</a></li>
             </ul><br><br>
-          
-          
+
+
         </header>
         <br>     <br>     <br>     <br>     <br>    
 
         <?php
         require_once '../Modelo/Imagen.php';
+        //Reco el valor del array mandado por el formulario con los datos de las imagenes.
         if (isset($_FILES['imagen'])) {
 
             $cantidad = count($_FILES["imagen"]["tmp_name"]);
@@ -46,8 +49,15 @@ and open the template in the editor.
                     $nombre = "./image/" . $_FILES["imagen"]["name"][$i];
                     move_uploaded_file($_FILES["imagen"]["tmp_name"][$i], $nombre);
                     $prioridad = 2;
-                    $imagen_Anadir = new Imagen("", $nombre, $prioridad, $_REQUEST['inmueble']);
-                    $imagen_Anadir->insertIMG();
+                    $validar = Imagen::validarIMG($nombre, $_REQUEST['inmueble']);
+
+                    //comprobar que la imagen no se repita
+                    if ($validar <= 0) {
+                        $imagen_Anadir = new Imagen("", $nombre, $prioridad, $_REQUEST['inmueble']);
+                        $imagen_Anadir->insertIMG();
+                    } else {
+                        echo '<div style="color:red">Existe una imagen con ese nombre,cambiarlo y intentelo de nuevo </div>';
+                    }
                     $nombre = "";
                     $prioridad = "";
                     $_REQUEST['inmueble'] = "";
@@ -55,19 +65,18 @@ and open the template in the editor.
                 } else
                     $validar = false;
             }
-        }else{
-      
+        }else {
             ?>
 
-            <form method="post" action="?" enctype="multipart/form-data">
-                <input type="file" name="imagen[]" value="" multiple><br>
+            <form method="post" action="#" enctype="multipart/form-data" id="foto">
+                <input type="file" class="btn btn-info" name="imagen[]" value="" multiple required><br>
                 <input type="hidden" name="inmueble" value="<?= $id_casa ?>">
-                <input type="submit" value="Subir Imagen">
+                <button type="submit" class="btn btn-success">Enviar</button>
             </form>
 
             <?php
         }
-        
+
         if (isset($_FILES['imagen']) && $validar == true) {
             ?>
             <?php

@@ -119,3 +119,6 @@ table{text-align: center;}
   margin-top: 10px;
   margin-right: 10px;
 }
+#foto [type=file]{
+    margin-left:36%;
+}

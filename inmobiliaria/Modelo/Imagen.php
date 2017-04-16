@@ -58,11 +58,11 @@ class imagen {
     }
 //***************** Compruebo que las imagenes no se repitan*********************************//
 
-    public static function validarIMG($e) {
+    public static function validarIMG($n,$i) {
         require_once 'conexion.php';
         $conexion = Inmobiliaria::conectar();
-        $existenciaUsuario = "SELECT * FROM usuario WHERE email LIKE '%$e'";
-        $consulta = $conexion->query($existenciaUsuario);
+        $existenciaimagen = "SELECT * FROM imagen WHERE nombre_img LIKE '%$n' and id_inmueble LIKE '%$i'";
+        $consulta = $conexion->query($existenciaimagen);
         //SI EXISTEN FILAS GUARDA LA CANTIDAD DE FILA
         $numrows = $consulta->rowCount();
         return $numrows;
