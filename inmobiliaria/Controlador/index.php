@@ -72,10 +72,10 @@ if ($_SESSION['accesopermitido']) {
                     <div id="dialogoborrar" class="dialogo" title="Eliminar Inmueble">
                         <p>¿Esta seguro que desea eliminar el inmueble?</p>
                     </div>
-    <?php
-    require_once '../Modelo/Tipo.php';
-    $data['listadoTipo'] = Tipo::getListTipo();
-    ?>
+                    <?php
+                        require_once '../Modelo/Tipo.php';
+                        $data['listadoTipo'] = Tipo::getListTipo();
+                    ?>
                     <!-- CAPA DE DIALOGO MODIFICAR INMUEBLE -->
                     <div id="dialogomodificar" class="dialogo" title="Modificar Inmueble">
                     <?php include "../Vista/inmueble_formulario_modificar.php";

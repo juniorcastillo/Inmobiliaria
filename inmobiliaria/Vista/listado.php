@@ -30,7 +30,7 @@
       <td class="visita"><?= $casa->getVisita() ?></td>
 
       <td class="accion"> <button id="borrar" type="button" class="btn btn-danger">Delete</button>
-        &nbsp; <button id="modificar" type="button" class="btn btn-warning" >Change</button></td>
+          &nbsp; <button id="modificar" type="button" class="btn btn-warning" >Change</button> &nbsp;<a href="./anadir_img.php?id_inmueble=<?=$casa->getId()?>" id="link_img"><button type="button" class="btn btn-info">subir_img</button></a></td>
 
     </tr>
 

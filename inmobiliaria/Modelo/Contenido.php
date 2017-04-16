@@ -22,10 +22,10 @@ class Contenido {
     private $tipo;
     private $visita;
     private $nombreTipo;
-    private $img;
+
 
     //, $fecha_alta, $tipo, $operacion, $provincia, $superficie, $precio, $imagen, $vendedor
-    function __construct($idinmueble, $fecha_alta, $precio, $direccion, $operacion, $provincia, $tipo, $visita, $nombreTipo, $img) {
+    function __construct($idinmueble, $fecha_alta, $precio, $direccion, $operacion, $provincia, $tipo, $visita, $nombreTipo) {
         $this->referencia = $idinmueble;
         $this->fecha_alta = $fecha_alta;
         $this->precio = $precio;
@@ -35,7 +35,7 @@ class Contenido {
         $this->tipo = $tipo;
         $this->visita = $visita;
         $this->nombreTipo = $nombreTipo;
-        $this->img = $img;
+
     }
 
     public function getId() {
@@ -74,16 +74,13 @@ class Contenido {
         return $this->nombreTipo;
     }
 
-    public function getImg() {
-        return $this->img;
-    }
 
 //Inserto una fila
     public function insert() {
         require_once 'conexion.php';
         $conexion = Inmobiliaria::conectar();
         $insercion = "INSERT INTO inmueble (idinmueble,fecha,precio,direccion,operacion,provincia,idtipo,visita) "
-                . "VALUES (\"" . $this->referencia . "\", \"" . $this->fecha_alta . "\", \"" . $this->precio . "\", \"" . $this->direccion . "\", \"" . $this->operacion . "\", \"" . $this->provincia . "\", \"" . $this->tipo . "\", \"" . $this->visita . "\", \"" . $this->img . "\")";
+                . "VALUES (\"" . $this->referencia . "\", \"" . $this->fecha_alta . "\", \"" . $this->precio . "\", \"" . $this->direccion . "\", \"" . $this->operacion . "\", \"" . $this->provincia . "\", \"" . $this->tipo . "\", \"" . $this->visita . "\")";
 
         //echo $insercion;
 
@@ -129,13 +126,13 @@ class Contenido {
         include 'pagination.php'; //incluir el archivo de paginación
         include 'listadoPag.php';
 
-        $seleccion = "SELECT p.idinmueble,DATE_FORMAT(p.fecha,'%d/%m/%Y') as FechaAlta,p.idtipo,p.operacion,p.provincia,p.direccion,p.precio,p.visita,p.img,t.nombre as nombretipo  FROM inmueble p , tipo t WHERE p.idtipo = t.idtipo ORDER BY  $ordenar $forma LIMIT $offset,$per_page";
+        $seleccion = "SELECT p.idinmueble,DATE_FORMAT(p.fecha,'%d/%m/%Y') as FechaAlta,p.idtipo,p.operacion,p.provincia,p.direccion,p.precio,p.visita,t.nombre as nombretipo  FROM inmueble p , tipo t WHERE p.idtipo = t.idtipo ORDER BY  $ordenar $forma LIMIT $offset,$per_page";
         $consulta = $conexion->query($seleccion);
 
         $listado = [];
 //Creo un nuevo objeto 
         while ($registro = $consulta->fetchObject()) {
-            $listado[] = new contenido($registro->idinmueble, $registro->FechaAlta, $registro->precio, $registro->direccion, $registro->operacion, $registro->provincia, $registro->idtipo, $registro->visita, $registro->nombretipo, $registro->img);
+            $listado[] = new contenido($registro->idinmueble, $registro->FechaAlta, $registro->precio, $registro->direccion, $registro->operacion, $registro->provincia, $registro->idtipo, $registro->visita, $registro->nombretipo);
         }
 
         return $listado;

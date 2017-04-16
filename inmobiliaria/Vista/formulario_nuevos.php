@@ -7,7 +7,6 @@
       <div id="th">  Direccion</div><div id="td"> <input type="text" name="direccion" size="10" id="direccionNuevo" required><br></div>
       <div id="th">Operacion</div><div id="td"> <input type="text" name="operacion" size="10" id="operacionNuevo" required ><br></div>
       <div id="th"> Provincia</div><div><input type="text" name="provincia" size="10" id="provinciaNuevo" required><br></div><br>
-       <div id="th">Subir imagen</div><div id="td">  <input type="file" name="file"></div>
       <div id="th"> Tipo<select placeholder="Tipo" name="idtipo" id="idtiponuevo" >
           <?php
           //Esta es la imagen --><td class="imagen"> $casa->getImagen()</td> <th>Imagen</th>

@@ -72,7 +72,7 @@
                 <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li>
                 <li><a href="#"><u>Read more</u></a></li>
               </ul>
-              <p><a href="./formulario_registroUsuario.php" class="btn btn-info btn-block">Yes please, register now!</a></p>
+              <p><a href="./formulario_registroUsuario.php" class="btn btn-info btn-block">Sign in!</a></p>
             </div>
           </div>
         </div>

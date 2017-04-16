@@ -103,21 +103,7 @@ $(document).ready(function () {
         $("#dialogonuevo").dialog("open")
     });
     
-    function imagen() {
-        var formData = new FormData($("#formulario_alta")[0]);
-        var ruta = "../Controlador/anadir.php";
-        $.ajax({
-            url: ruta,
-            type: "POST",
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function (datos)
-            {
-                $("#respuesta").html(datos);
-            }
-        });
-    };
+
 
     //------------Fin de nuevo---------------------------------------
 
