@@ -77,26 +77,44 @@ if (!isset($_SESSION['sesisonUser'])) {
         </section>
 
         <div id="main">
+
             <div id="contenedorImagenes">
-
                 <div id="imageness">
-                    <img  src="imagen/casa1.jpg" alt="Smiley face" >
-                    <img  src="imagen/casa5.jpg" alt="Smiley face" >
+                    <?php
+                    require_once '../../Modelo/Imagen.php';
+                    $data['listado'] = Imagen::list_galeriaIMG();
+                    //Esta es la imagen --><td class="imagen"> $casa->getImagen()</td> <th>Imagen</th>
+                    foreach ($data['listado'] as $casa) {
+                        ?>
 
-                    <img  src="imagen/casa2.jpg" alt="Smiley face" >
+                    <img  src="../../Controlador/<?= $casa->getnomreIMG()?>" alt="Smiley face" >
+                       
 
-                    <img  src="imagen/casa3.jpg" alt="Smiley face" >
-
-                    <img  src="imagen/casa5.jpg" alt="Smiley face" >
-
-                    <img  src="imagen/casa1.jpg" alt="Smiley face" >
-                    <img  src="imagen/casa9.jpg" alt="Smiley face" >
-
-
+                        <?php
+                    }
+                    ?>
                 </div>
             </div> 
         </div>
-        <div id="casa_disponibles"></div>
+        <div id="casa_disponibles">
+            <h1 style="font-family: fantasy">Ventas</h1>  
+            <div id="venta">   
+                <?php
+                   
+                    $data['list_venta'] = Imagen::list_ventaIMG();
+                    //Esta es la imagen --><td class="imagen"> $casa->getImagen()</td> <th>Imagen</th>
+                    foreach ($data['list_venta'] as $casa) {
+                        ?>
+    
+                      <img src="../../Controlador/<?= $casa->getnomreIMG()?>" alt="Venta">
+                       
+
+                        <?php
+                    }
+                    ?>
+            </div>
+          
+        </div>
 
 
         <footer>

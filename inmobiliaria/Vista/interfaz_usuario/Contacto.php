@@ -34,13 +34,29 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="Style/Main.css">
         <script src="svg/snap.svg-min.js"></script>
         <script src="svg/codigo.js"></script>
-        
+        <script>
+            function initMap() {
+                var myLatLng = {lat: -25.363, lng: 131.044};
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 4,
+                    center: myLatLng
+                });
+
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: 'Hello World!'
+                });
+            }
+        </script>
+
     </head>
     <body>
-      <div id="logo">
+        <div id="logo">
 
             <svg width="60px" height="60px" id="svg">
-       </svg>
+            </svg>
 
 
 
@@ -91,8 +107,7 @@ and open the template in the editor.
         <hr>
         <div id="mapa">
             <h1 class="Subtitulo">Contacto</h1>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13191.136825829724!2d-4.602100384849979!3d36.580562168679165!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1479624687573"  id="googlemap" height="250" frameborder="0"  allowfullscreen></iframe>
-
+            <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1HPMISPBzwsWQecJwSMt0KNbTO18"  id="googlemap" height="250" frameborder="0"  allowfullscreen></iframe>
         </div>
         <div class="datosContacto">
 
@@ -104,14 +119,14 @@ and open the template in the editor.
 
                         <div>  <label for="nombre" class="fa">Nombre</label></div>
 
-                        <div><input type="text" name="name" class="input-contacto" placeholder="Tu nombre...." ></div>
+                        <div><input type="text" name="name" class="input-contacto" placeholder="Tu nombre...." required></div>
 
                         <div> <label for="email" class="fa">E-mail</label></div>
 
                         <div> 
-                             <input type="email"  name="email" class="input-contacto" id="email"
-                           placeholder="Email" size="5">
-                         </div>
+                            <input type="email"  name="email" class="input-contacto" id="email"
+                                   placeholder="Email" size="5" required>
+                        </div>
 
 
                         <div> <label for="email" class="fa">Telefono</label></div>
@@ -120,7 +135,7 @@ and open the template in the editor.
 
                         <div><label for="comentario" class="fa">Comentarios</label></div>
 
-                        <div><textarea id="textarea_contacto" name="message"  placeholder="Escriba su mensaje...." rows="7"></textarea></div>
+                        <div><textarea id="textarea_contacto" name="message"  placeholder="Escriba su mensaje...." rows="7" required></textarea></div>
 
                         <div>  <input type="submit" style="padding: 10px; background-color: #555; cursor:pointer;"></div>
 
@@ -164,6 +179,6 @@ and open the template in the editor.
 
 
         </footer>
-       
+
     </body>
 </html>

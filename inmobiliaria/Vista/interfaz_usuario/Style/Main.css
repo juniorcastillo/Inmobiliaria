@@ -174,7 +174,22 @@ section {
 /**
     Created on : 02-dic-2016, 10:51:03
     Author     : Junior Castillo Santana*/
+#casa_disponibles{
+    background-color: #F6ECF5;
+    display: block;
+    width: 100%;
+    height: 500px;
+}
+#casa_disponibles #venta{
+ width: 100%;
+}
 
+#casa_disponibles #venta img{
+  float: left;
+  width: 20%;
+  height: 150px;
+  margin: 1% 0% 0% 2%;
+}
 #main {
   max-width: 100%;
   width: 100%;
@@ -244,13 +259,6 @@ section {
   -ms-animation-delay: 36s;
   animation-delay: 36s; }
 
-
-#casa_disponibles{
-  background-color: #F6ECF5;
-  width: 100%;
-  height: 200px;
-
-}
 
 @-webkit-keyframes Galeria {
   0% {

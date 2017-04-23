@@ -29,7 +29,7 @@ and open the template in the editor.
             }   
             .registro h3{
                 margin-left: 10px;
-                  margin-left: 15%;
+                margin-left: 15%;
             }  
             .registro div.form-group{
                 margin-top: 30px;
@@ -42,7 +42,7 @@ and open the template in the editor.
             }
         </style>
 
-      
+
         <script>
             $(document).ready(function () {
 
@@ -68,7 +68,7 @@ and open the template in the editor.
                             minlength: 9
 
                         },
-                        
+
                         emailNuevoUsuario: {
                             required: true,
                             email: true
@@ -91,7 +91,7 @@ and open the template in the editor.
                             required: "Campo telefono obligatorio",
                             minlength: "El numero no es correcto"
                         },
-                        
+
                         emailNuevoUsuario: {
                             required: "Campo email obligatorio",
                             email: "Email invalido"
@@ -145,7 +145,10 @@ and open the template in the editor.
         </script>
     </head>
     <body class="registro"> 
+      
+     
         <h1 >Inmobiliaria Castillo</h1><br><br>
+      
         <h3>Registrarse como usuario</h3>
         <hr>
         <form class="form-horizontal" role="form" id="formularioRegistro">
@@ -196,11 +199,12 @@ and open the template in the editor.
 
             <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-10">
-                    <button type="submit" class="btn btn-default" id="boton"><strong>Entrar</strong></button>
+                    <button type="submit" class="btn btn-success" id="boton"><strong>Send</strong></button>
                 </div>
             </div>
         </form>
+        
         <hr>
-
+        <a class="btn btn-default" href="./formulario_controlUsuario.php" role="button">back</a><br>
     </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
 if (isset($_REQUEST['id_inmueble'])) {
     $id_casa = $_REQUEST['id_inmueble'];
+    
 }
 ?>
 
@@ -38,6 +39,7 @@ and open the template in the editor.
         <?php
         require_once '../Modelo/Imagen.php';
         //Reco el valor del array mandado por el formulario con los datos de las imagenes.
+        $cantidad=0;
         if (isset($_FILES['imagen'])) {
 
             $cantidad = count($_FILES["imagen"]["tmp_name"]);
@@ -46,23 +48,25 @@ and open the template in the editor.
                 //Comprobamos si el fichero es una imagen
                 if ($_FILES['imagen']['type'][$i] == 'image/png' || $_FILES['imagen']['type'][$i] == 'image/jpeg') {
 
-                    $nombre = "./image/" . $_FILES["imagen"]["name"][$i];
+                    $nombre = "../Vista/image/" . $_FILES["imagen"]["name"][$i];
                     move_uploaded_file($_FILES["imagen"]["tmp_name"][$i], $nombre);
                     $prioridad = 2;
-                    $validar = Imagen::validarIMG($nombre, $_REQUEST['inmueble']);
+                    $validado = Imagen::validarIMG($nombre, $_REQUEST['inmueble']);
 
                     //comprobar que la imagen no se repita
-                    if ($validar <= 0) {
+                    if ($validado <= 0) {
+                        echo '<div style="color:green">La imagen con el nombre<strong> '.$_FILES["imagen"]["name"][$i]. '</strong>, se a Añadido correctamente. </div>';
+                    
                         $imagen_Anadir = new Imagen("", $nombre, $prioridad, $_REQUEST['inmueble']);
                         $imagen_Anadir->insertIMG();
+                         $validar = true;
                     } else {
-                        echo '<div style="color:red">Existe una imagen con ese nombre,cambiarlo y intentelo de nuevo </div>';
+                        echo '<div style="color:red">Existe una imagen con el nombre<strong> '.$_FILES["imagen"]["name"][$i]. '</strong>, cambiarlo y intentelo otra vez. </div>';
                     }
-                    $nombre = "";
-                    $prioridad = "";
-                    $_REQUEST['inmueble'] = "";
+                    
                     $validar = true;
                 } else
+                    echo '<div style="color:red">Lo siento, esto no es una imagen <strong> '.$_FILES["imagen"]["name"][$i]. '</strong>. cambiarlo y intentelo otra vez. </div>';
                     $validar = false;
             }
         }else {
@@ -77,19 +81,18 @@ and open the template in the editor.
             <?php
         }
 
-        if (isset($_FILES['imagen']) && $validar == true) {
             ?>
             <?php
-            $cantidad = count($_FILES["imagen"]["tmp_name"]);
+          
 
             for ($i = 0; $i < $cantidad; $i++) {
-                $nombre = "./image/" . $_FILES["imagen"]["name"][$i];
+                $nombre = "../Vista/image/" . $_FILES["imagen"]["name"][$i];
                 ?>
                 <h1><?php echo $_FILES["imagen"]["name"][$i] ?></h1>
-                <img src="<?php echo $nombre ?>" width="100">
+                <img src="<?php echo $nombre ?>" width="200">
                 <?php
             }
-        }
+      
         ?>
     </body>
 </html>

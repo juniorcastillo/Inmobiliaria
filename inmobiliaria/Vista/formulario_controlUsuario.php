@@ -42,7 +42,7 @@
                   <form id="loginForm" method="POST" action="../Controlador/control_usuario.php" >
                   <div class="form-group">
                     <label for="username" class="control-label">Username</label>
-                    <input type="email" class="form-control"  id="username" name="usuario" required   title="Please enter you username" placeholder="example@gmail.com"  >
+                    <input type="email" class="form-control"  id="username" name="usuario" required   title="Please enter you username" placeholder="example@gmail.com" autofocus >
                     <span class="help-block"></span>
                   </div>
                   <div class="form-group">
@@ -58,7 +58,7 @@
                     <p class="help-block">(if this is a private computer)</p>
                   </div>
                   <input type="submit" class="btn btn-success btn-block" value="Sign in"/>
-                  <a href="../Vista/interfaz_usuario/index.php" class="btn btn-default btn-block">Go to the main page</a>
+                  <a href="../Vista/interfaz_usuario/index.php" class="btn btn-default btn-block">Homepage</a>
                 </form>
               </div>
             </div>
@@ -72,7 +72,7 @@
                 <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li>
                 <li><a href="#"><u>Read more</u></a></li>
               </ul>
-              <p><a href="./formulario_registroUsuario.php" class="btn btn-info btn-block">Sign in!</a></p>
+              <p><a href="./formulario_registroUsuario.php" class="btn btn-info btn-block">Sign up!</a></p>
             </div>
           </div>
         </div>

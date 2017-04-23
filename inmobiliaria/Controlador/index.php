@@ -33,7 +33,7 @@ if ($_SESSION['accesopermitido']) {
                     <ul>
                         <li id="homeMenu"><a href="#" >Inmueble</a></li>
                         <li id="usuarioMenu"><a href="usuario.php" >Usuario</a></li>
-                        <li><a href="#">Interfaz_usuario</a></li>
+                        <li><a href="../Vista/interfaz_usuario/index.php">Interfaz_usuario</a></li>
                         <li style="float:right"><a href="./control_usuario.php?cerrar=true">Sign out</a></li>
                     </ul><br>
                 </header>
