@@ -1,6 +1,5 @@
- 
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -28,7 +27,7 @@
   </head>
 
 
-<body>
+<body style="background-color: #C5D4F7;">
 <div id="login-overlay" class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

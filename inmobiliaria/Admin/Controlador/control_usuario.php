@@ -12,14 +12,9 @@ $_SESSION['accesopermitido'] = false;
 $_SESSION['sesisonUser'] = false;
 $tamano = 0;
 if (isset($_REQUEST['cerrar'])) {
-
+   
     session_destroy();
-
-    echo '<script type="text/javascript">                
-                      alert("Sesion cerrada");
-             </script>';
-
-    header("refresh:0; url=../Vista/formulario_controlUsuario.php");
+    include "../Vista/dialogo_cerrar_sesion.php";
 } else {//Si no le dan a cerrar sesion 
     // echo "Usuario-->" . $_REQUEST['usuario'] .  " Contraseña-->". $_REQUEST['clave'] ;
     // $usuariointro = $_REQUEST['usuario'];
@@ -28,7 +23,7 @@ if (isset($_REQUEST['cerrar'])) {
     require_once '../Modelo/Usuario.php';
 
     $validar = Usuario::validarUsuario($_REQUEST['usuario']);
-    if ($validar > 0) {//Compruebo que el usuario introducido existe
+    if ($validar >= 1) {//Compruebo que el usuario introducido existe
         $data['listadoTipo'] = Usuario::controlUsuario($_REQUEST['usuario']);
 
 
@@ -37,24 +32,23 @@ if (isset($_REQUEST['cerrar'])) {
             $usuario->getEmailUsuario();
             $usuario->getPasswordUsuario();
             $hash = $usuario->getPasswordUsuario();
-            if (password_verify($_REQUEST['clave'], $hash)) {
+            if (password_verify($_REQUEST['clave'], $hash)) {//Verifico que la clave sea correcta
                 $_SESSION['sesisonUser'] = true;
 
 
-                if ($usuario->getRolUsuario() == 1) {
+                if ($usuario->getRolUsuario() == 1) {//valido si el usuario es administrador 
                     $_SESSION['accesopermitido'] = true;
                     header("refresh:3; url=./index.php");
                     include "../Vista/formulario_controlUsuario.php";
                     echo '<div class="alert alert-success navbar-fixed-top">
-                                      <strong>Bienvenido! '.$_REQUEST['usuario'].'</strong>
+                                      <strong>Bienvenido! ' . $_REQUEST['usuario'] . '</strong>
                                       </div>';
-                } else {
-
+                } else {//Si el usuario no es administrador
                     header("refresh:3; url=../../Interfaz_Usuario/Controlador/home.php");
+                    include "../Vista/formulario_controlUsuario.php";
                     echo '<div class="alert alert-success navbar-fixed-top">
                                       <strong>Usuarion o contraseña son correctos.</strong>
                                       </div>';
-                    include "../Vista/formulario_controlUsuario.php";
                 }
 
                 //fin del foreach

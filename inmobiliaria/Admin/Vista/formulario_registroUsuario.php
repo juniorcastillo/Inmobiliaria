@@ -19,7 +19,7 @@ and open the template in the editor.
             body{
 
 
-                background-image: url(http://www.jonaga.com/imagenes/fondo%20pagina%20fijo.jpg);
+            background-color: #C5D4F7;
             }
 
             .registro h1{
@@ -120,8 +120,11 @@ and open the template in the editor.
                             success: function (datos)
                             {
                                 if (datos == "exito") {
-                                    console.log("Eso entro");
-                                    window.location = "./formulario_controlUsuario.php";
+                                    setTimeout(function(){
+                                       window.location = "./formulario_controlUsuario.php";
+                                     }, 3000);
+                                   
+                                      $(".registro").html('<div class="alert alert-success"><strong>Se ha Añadido correctamente. Bienvenido!</strong></div>');
                                 } else {
                                     $("#respuesta").html(datos);
                                 }
@@ -130,6 +133,7 @@ and open the template in the editor.
                         });
 
                         return false; // Evitar ejecutar el submit del formulario.
+                        
                     }
 
                 });
