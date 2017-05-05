@@ -1,1 +1,1 @@
- <?php header("Location: Controlador/index.php");
+ <?php header("Location: Admin/Controlador/index.php");

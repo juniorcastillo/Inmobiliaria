@@ -31,9 +31,9 @@ and open the template in the editor.
         <title>Inmobiliaria Castillo</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="Style/Main.css">
-        <script src="svg/snap.svg-min.js"></script>
-        <script src="svg/codigo.js"></script>
+        <link rel="stylesheet" type="text/css" href="../Vista/Style/Main.css">
+        <script src="../Vista/svg/snap.svg-min.js"></script>
+        <script src="../Vista/svg/codigo.js"></script>
         <script>
             function initMap() {
                 var myLatLng = {lat: -25.363, lng: 131.044};
@@ -73,18 +73,18 @@ and open the template in the editor.
                     </label>
                     <input type="checkbox" name="" id="open">
                     <nav>
-                        <a href="index.php">Home</a>
+                        <a href="../Controlador/home.php">Home</a>
                         <a href="#">Inspiration</a>
                         <a href="#">Articles</a>
                         <a href="#">Works</a>
                         <a href="#">Contact</a>
                         <?php
                         if ($_SESSION['sesisonUser']) {
-                            echo '<a href="../control_Usuario.php?cerrar=cierro">Sign out</a>';
+                            echo '<a href="../../Admin/Controlador/control_usuario.php?cerrar=true">Sign out</a>';
                         } else {
                             ?>
 
-                            <a href="../formulario_controlUsuario.php">Login</a>
+                            <a href="../../Admin/Vista/formulario_controlUsuario.php">Login</a>
 
                             <?php
                         }

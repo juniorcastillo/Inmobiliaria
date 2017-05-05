@@ -13,15 +13,14 @@ if (!isset($_SESSION['sesisonUser'])) {
 ?>
 
 <!DOCTYPE html>
-
 <html>
     <head>
         <title>Inmobiliaria Castillo</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="Style/Main.css">
-        <script src="svg/snap.svg-min.js"></script>
-        <script src="svg/codigo.js"></script>
+        <link rel="stylesheet" type="text/css" href="../Vista/Style/Main.css">
+        <script src="../Vista/svg/snap.svg-min.js"></script>
+        <script src="../Vista/svg/codigo.js"></script>
     </head>
     <body>
         <div id="logo">
@@ -48,14 +47,14 @@ if (!isset($_SESSION['sesisonUser'])) {
                         <a href="Articulo.php">Inspiration</a>
                         <a href="Articulo.php">Articles</a>
                         <a href="Articulo.php">Works</a>
-                        <a href="Contacto.php">Contact</a>
+                        <a href="../Vista/Contacto.php">Contact</a>
                         <?php
                         if ($_SESSION['sesisonUser']) {
-                            echo '<a href="../../Controlador/control_usuario.php?cerrar=true">Sign out</a>';
+                            echo '<a href="../../Admin/Controlador/control_usuario.php?cerrar=true">Sign out</a>';
                         } else {
                             ?>
 
-                            <a href="../formulario_controlUsuario.php">Login</a>
+                        <a href="../../Admin/Vista/formulario_controlUsuario.php">Login</a>
 
                             <?php
                         }
@@ -81,13 +80,13 @@ if (!isset($_SESSION['sesisonUser'])) {
             <div id="contenedorImagenes">
                 <div id="imageness">
                     <?php
-                    require_once '../../Modelo/Imagen.php';
+                   
                     $data['listado'] = Imagen::list_galeriaIMG();
                     //Esta es la imagen --><td class="imagen"> $casa->getImagen()</td> <th>Imagen</th>
                     foreach ($data['listado'] as $casa) {
                         ?>
 
-                    <img  src="../../Controlador/<?= $casa->getnomreIMG()?>" alt="Smiley face" >
+                    <img  src="../../Admin/Controlador/<?= $casa->getnomreIMG()?>" alt="Galeria" >
                        
 
                         <?php
@@ -106,7 +105,7 @@ if (!isset($_SESSION['sesisonUser'])) {
                     foreach ($data['list_venta'] as $casa) {
                         ?>
     
-                      <img src="../../Controlador/<?= $casa->getnomreIMG()?>" alt="Venta">
+                      <img src="../../Admin/Controlador/<?= $casa->getnomreIMG()?>" alt="Venta">
                        
 
                         <?php

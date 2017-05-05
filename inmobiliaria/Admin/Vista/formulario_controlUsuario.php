@@ -58,7 +58,7 @@
                     <p class="help-block">(if this is a private computer)</p>
                   </div>
                   <input type="submit" class="btn btn-success btn-block" value="Sign in"/>
-                  <a href="../Vista/interfaz_usuario/index.php" class="btn btn-default btn-block">Homepage</a>
+                  <a href="../../Interfaz_Usuario/Controlador/home.php" class="btn btn-default btn-block">Homepage</a>
                 </form>
               </div>
             </div>
