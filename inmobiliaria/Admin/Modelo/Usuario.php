@@ -136,23 +136,44 @@ class Usuario {
 
 //****Hace un lista de todos los usuarios dados de alta***//
 
-    public static function listadoUsuario($o, $p) {
+    public static function listadoUsuario($b, $o, $p) {
         require_once 'conexion.php';
         $conexion = Inmobiliaria::conectar();
         include 'pagination.php'; //incluir el archivo de paginación
         include 'cuenta_listado_usuario.php';
         $ordenar = $o;
         $forma = $p;
-        $seleccion = "SELECT * from usuario ORDER BY $ordenar $forma LIMIT $offset,$per_page";
-        $consulta = $conexion->query($seleccion);
+        $nombre_buscar = $b; //el nombre que se mada por ajax
+        $listadoUsuario = []; //se guarda los valores de la consulta
+        //Si el buscador no esta vacio 
+        if (!empty($nombre_buscar)) {
+            $query = "SELECT * from usuario WHERE nombre LIKE '%" . $nombre_buscar . "%' ORDER BY $ordenar $forma LIMIT $offset,$per_page";
+            //echo "$query";
+            $sql = $conexion->query($query);
 
-        $listadoUsuario = [];
-//Creo un nuevo objeto 
-        while ($registro = $consulta->fetchObject()) {
-            $listadoUsuario[] = new Usuario($registro->id, $registro->nombre, $registro->password, $registro->direccion, $registro->telefono, $registro->fecha_alta, $registro->email, $registro->rol);
-        }
+            $contar = $sql->rowCount();
 
-        return $listadoUsuario;
-    }
+            if ($contar == 0) {
+                echo "<h2>No se han encontrado resultados para '<b>" . $b . "</b>'.</h2>";
+                return $listadoUsuario;
+               
+            } else {
+                while ($registro = $sql->fetchObject()) {
+                    $listadoUsuario[] = new Usuario($registro->id, $registro->nombre, $registro->password, $registro->direccion, $registro->telefono, $registro->fecha_alta, $registro->email, $registro->rol);
+                }
+                return $listadoUsuario;
+            }//fin else
+        } else {// Muestra todos los datos
+            $seleccion = "SELECT * from usuario ORDER BY $ordenar $forma LIMIT $offset,$per_page";
+            $consulta = $conexion->query($seleccion);
+
+            //Creo un nuevo objeto 
+            while ($registro = $consulta->fetchObject()) {
+                $listadoUsuario[] = new Usuario($registro->id, $registro->nombre, $registro->password, $registro->direccion, $registro->telefono, $registro->fecha_alta, $registro->email, $registro->rol);
+            }
+
+            return $listadoUsuario;
+        }//fin else
+    }//fin listado usuario
 
 }

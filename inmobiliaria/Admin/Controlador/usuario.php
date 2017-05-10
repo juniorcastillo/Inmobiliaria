@@ -36,7 +36,8 @@ if ($_SESSION['accesopermitido']) {
                     <li style="float:right"><a href="./control_usuario.php?cerrar=true">Sign out</a></li>
                 </ul>
             </header><br>
-
+              <input type="text" id="busqueda" />
+           
             <div id="seleccion"> <b>Order By</b>  <select name="campos" id="campos">
                     <option value="1">Id</option>
                     <option value="2">Nombre</option>

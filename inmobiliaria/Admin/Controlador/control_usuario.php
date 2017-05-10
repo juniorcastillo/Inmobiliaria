@@ -46,8 +46,8 @@ if (isset($_REQUEST['cerrar'])) {
                 } else {//Si el usuario no es administrador
                     header("refresh:3; url=../../Interfaz_Usuario/Controlador/home.php");
                     include "../Vista/formulario_controlUsuario.php";
-                    echo '<div class="alert alert-success navbar-fixed-top">
-                                      <strong>Usuarion o contraseña son correctos.</strong>
+                      echo '<div class="alert alert-success navbar-fixed-top">
+                                      <strong>Bienvenido! ' . $_REQUEST['usuario'] . '</strong>
                                       </div>';
                 }
 

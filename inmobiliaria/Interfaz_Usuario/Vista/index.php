@@ -86,7 +86,7 @@ if (!isset($_SESSION['sesisonUser'])) {
                     foreach ($data['listado'] as $casa) {
                         ?>
 
-                    <img  src="../../Admin/Controlador/<?= $casa->getnomreIMG()?>" alt="Galeria" >
+                    <img  src="../../Admin/Controlador/<?= $casa->getnomreIMG()?>" alt="<?= $casa->getnomreIMG()?>" >
                        
 
                         <?php
@@ -105,7 +105,7 @@ if (!isset($_SESSION['sesisonUser'])) {
                     foreach ($data['list_venta'] as $casa) {
                         ?>
     
-                      <img src="../../Admin/Controlador/<?= $casa->getnomreIMG()?>" alt="Venta">
+                      <img src="../../Admin/Controlador/<?= $casa->getnomreIMG()?>" alt="<?= $casa->getnomreIMG()?>">
                        
 
                         <?php

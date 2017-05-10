@@ -2,6 +2,7 @@
 $(document).ready(function () {
     var idtipo;
     var idinmueble;
+    var consulta;
 //---------Ordenar por el Valor del select --------------------------------------//
 
 //Ordenar
@@ -72,7 +73,7 @@ $(document).ready(function () {
         buttons: {
             "Guardar": function () {
                 if ($("#formulario_alta").valid()) {
-                
+
                     $.post("../Controlador/anadir.php", {
                         idNuevo: $("#idNuevo").val(),
                         fechaAltaNuevo: $("#fechaAltaNuevo").val(),
@@ -83,9 +84,9 @@ $(document).ready(function () {
                         img: $("input[name='file']").val(),
                         tipoNuevo: $("select#idtiponuevo").val()
                                 //Campio los valores antes de que actualize++
-                                 
+
                     }, function (data, status) {
-                          imagen();
+                        imagen();
                         $(".container-fluid").html(data);
                         //load(1);
 
@@ -102,7 +103,7 @@ $(document).ready(function () {
     $(document).on("click", "#nuevo", function () {
         $("#dialogonuevo").dialog("open")
     });
-    
+
 
 
     //------------Fin de nuevo---------------------------------------
@@ -126,6 +127,9 @@ $(document).ready(function () {
 }); //Fin Ready
 //--- PAGINACION -------------------------------------------------
 //--------------------------------------------------------------------------------------------------
+//
+
+
 ////document ready
 //Carga la pagina
 function load(page) {
@@ -154,6 +158,54 @@ function load(page) {
             $("#loader").html("");
         }
     })//Ajax
+    //
+    //
+
+
+    /**********************************************************************************/
+//********************** Buscador de usuarios ***************************************//
+    /*************************************************************************************/
+    //comprobamos si se pulsa una tecla
+    $("#busqueda").keyup(function (e) {
+        var ordena_Formas = $("select#forma").val();
+        var ordena_Campos = $("select#campos").val();
+        var accion = "";
+        //Compruebo que en que pag estoy actualmente
+        if ($("div#accion").hasClass("contenedorInmueble")) {
+            accion = "inmueble";
+            // alert("si funciona");
+        }
+        if ($("div#accion").hasClass("contenedorUsuario")) {
+            accion = "usuario";
+            // alert("si funciona");
+        }
+        //Cojo el valor de del input buscador
+        consulta = $("#busqueda").val();
+        var parametros_buscador = {"action": accion, "page": page, "ordenar": ordena_Campos, "forma": ordena_Formas, "consultab": consulta};
+        $("#loader").fadeIn('slow');
+        //obtenemos el texto introducido en el campo de búsqueda
+
+        //hace la búsqueda                                                                                  
+        $.ajax({
+
+            url: 'listado_controlador.php',
+            data: parametros_buscador,
+            dataType: "html",
+            beforeSend: function () {
+                //imagen de carga
+                $("#loader").html("<img src='../Vista/img/loader.gif'>");
+            },
+
+            success: function (data) {
+                $(".outer_div").html(data).fadeIn('slow');
+                $("#loader").html("");
+            }
+        });
+    });
+
+
+
+
 //-----------Fin de la carga del listad--------------------------------------
 //--------------------------------------------------------------------------------------------
 //-----------Comienzo DIALOGO DE BORRADO ------------------------------------------
@@ -316,6 +368,7 @@ function load(page) {
     function fin() {
         $("#cargando").hide();
     }
+
 //-------AutoCompleta -------------//
 //AUTOCOMPLETADO
     $(document).on("keypress keyup", "#buscadireccion", function () {
