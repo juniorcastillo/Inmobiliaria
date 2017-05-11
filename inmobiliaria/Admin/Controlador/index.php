@@ -8,7 +8,7 @@ if ($_SESSION['accesopermitido']) {
     <html lang="en">
         <head>
             <meta charset="utf-8">
-           
+
             <title>Inmobiliaria Castillo</title>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -29,7 +29,7 @@ if ($_SESSION['accesopermitido']) {
         <body >
             <div id="accion" class="contenedorInmueble" >
                 <header>
-       
+
                     <ul>
                         <li id="homeMenu"><a href="#" >Inmueble</a></li>
                         <li id="usuarioMenu"><a href="usuario.php" >Usuario</a></li>
@@ -37,26 +37,34 @@ if ($_SESSION['accesopermitido']) {
                         <li style="float:right"><a href="./control_usuario.php?cerrar=true">Sign out</a></li>
                     </ul><br>
                 </header>
-                  <input type="text" id="busqueda" />
-                <div id="seleccion"> <b>Order By</b>  <select name="campos" id="campos">
-                        <option value="1">Id</option>
-                        <option value="2">Fecha</option>
-                        <option value="7">Tipo</option>
+                <div id="funciones">
+                    
+                    <div class="funciones-flex" style="cursor:pointer; width:30px; "><img src="../Vista/img/nuevo.png" width="30" height="30" id="nuevo" title="Nuevo Inmueble"></div>
+                    <div class="funciones-flex"><b>Buscar Operaciones</b><br><input type="text" id="busqueda"/></div>
+                    <div id="seleccion" class="funciones-flex"> <b>Order By</b><br> 
+                        <select name="campos" id="campos">
+                            <option value="1">Id</option>
+                            <option value="2">Fecha</option>
+                            <option value="7">Tipo</option>
 
-                        <option value="5">Operacion</option>
-                        <option value="3">Precio</option>
+                            <option value="5">Operacion</option>
+                            <option value="3">Precio</option>
 
-                    </select>
-                    <select name="forma" id="forma">
-                        <option value="ASC">Asc</option>
-                        <option value="DESC">Desc</option>
+                        </select>
+                        <select name="forma" id="forma">
+                            <option value="ASC">Asc</option>
+                            <option value="DESC">Desc</option>
 
-                    </select></div>
+                        </select>
+                    </div>
+
+
+                </div>
 
 
                 <div class="container-fluid">
 
-                    <div style="cursor:pointer; width:30px; "><img src="../Vista/img/nuevo.png" width="30" height="30" id="nuevo" title="Nuevo Inmueble"></div>
+
 
                     <hr>
 
@@ -74,19 +82,19 @@ if ($_SESSION['accesopermitido']) {
                         <p>¿Esta seguro que desea eliminar el inmueble?</p>
                     </div>
                     <?php
-                        require_once '../Modelo/Tipo.php';
-                        $data['listadoTipo'] = Tipo::getListTipo();
+                    require_once '../Modelo/Tipo.php';
+                    $data['listadoTipo'] = Tipo::getListTipo();
                     ?>
                     <!-- CAPA DE DIALOGO MODIFICAR INMUEBLE -->
                     <div id="dialogomodificar" class="dialogo" title="Modificar Inmueble">
-                    <?php include "../Vista/inmueble_formulario_modificar.php";
-                    ?>
+                        <?php include "../Vista/inmueble_formulario_modificar.php";
+                        ?>
                     </div>
 
                     <!-- CAPA DE DIALOGO NUEVO INMUEBLE -->
                     <div id="dialogonuevo" class="dialogo" title="Nuevo Inmueble">
-    <?php include "../Vista/formulario_nuevos.php";
-    ?>
+                        <?php include "../Vista/formulario_nuevos.php";
+                        ?>
                     </div>
 
                 </div>

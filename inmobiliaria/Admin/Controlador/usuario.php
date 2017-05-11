@@ -32,29 +32,33 @@ if ($_SESSION['accesopermitido']) {
                 <ul>
                     <li id="homeMenu"><a href="index.php" >Inmueble</a></li>
                     <li id="usuarioMenu"><a href="#" >Usuario</a></li>
-                      <li><a href="../Vista/interfaz_usuario/index.php">Interfaz_usuario</a></li>
+                    <li><a href="../Vista/interfaz_usuario/index.php">Interfaz_usuario</a></li>
                     <li style="float:right"><a href="./control_usuario.php?cerrar=true">Sign out</a></li>
                 </ul>
             </header><br>
-              <input type="text" id="busqueda" />
-           
-            <div id="seleccion"> <b>Order By</b>  <select name="campos" id="campos">
-                    <option value="1">Id</option>
-                    <option value="2">Nombre</option>
-                    <option value="4">Direccion</option>
+            <div id="funciones">
+                <div class="funciones-flex" style="cursor:pointer; width:30px; "><img src="../Vista/img/nuevo.png" width="30" height="30" id="nuevo" title="Nuevo Inmueble"></div>
+                <div class="funciones-flex"><b>Buscar Nombre</b><br> <input type="text" id="busqueda" /></div>
 
-                    <option value="6">Fecha</option>
+                <div id="seleccion" class="funciones-flex"> <b>Order By</b><br> <select name="campos" id="campos">
+                        <option value="1">Id</option>
+                        <option value="2">Nombre</option>
+                        <option value="4">Direccion</option>
+
+                        <option value="6">Fecha</option>
 
 
-                </select>
-                <select name="forma" id="forma">
-                    <option value="ASC">Asc</option>
-                    <option value="DESC">Desc</option>
+                    </select>
+                    <select name="forma" id="forma">
+                        <option value="ASC">Asc</option>
+                        <option value="DESC">Desc</option>
 
-                </select></div>
+                    </select></div>
+
+            </div>
+
 
             <div class="container-fluid">
-                <div style="cursor:pointer; width:30px; "><img src="../Vista/img/nuevo.png" width="30" height="30" id="nuevo" title="Nuevo Inmueble"></div>
 
                 <hr>
                 <!-- Muestra los datos -->

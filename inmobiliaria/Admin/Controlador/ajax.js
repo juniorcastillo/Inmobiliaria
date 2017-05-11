@@ -37,7 +37,7 @@ $(document).ready(function () {
             direccion: {
                 required: true
             },
-           
+
             provincia: {
                 required: true
             },
@@ -141,9 +141,9 @@ function load(page) {
         accion = "usuario";
         // alert("si funciona");
     }
-     consulta = $("#busqueda").val();
-     var parametros = {"action": accion, "page": page, "ordenar": ordena_Campos, "forma": ordena_Formas, "consultab": consulta};
-       
+    consulta = $("#busqueda").val();
+    var parametros = {"action": accion, "page": page, "ordenar": ordena_Campos, "forma": ordena_Formas, "consultab": consulta};
+
     //var parametros = {"action": accion, "page": page, "ordenar": ordena_Campos, "forma": ordena_Formas};
     $("#loader").fadeIn('slow');
     $.ajax({
@@ -256,10 +256,9 @@ function load(page) {
                 required: true,
             },
             operacion: {
-               
+
                 required: true,
-          
-            
+
             },
             provincia: {
                 required: true
@@ -343,11 +342,11 @@ function load(page) {
         //direccion del inmueble
         $("#direModificar").val($(this).parent().siblings("td.direccion").html());
         //operacion este sera un select
-        $('#operacionModificar > option[value="'+$(this).parent().siblings("td.operacion").html()+'"]').attr('selected', 'selected');
-    
+        $('#operacionModificar > option[value="' + $(this).parent().siblings("td.operacion").html() + '"]').attr('selected', 'selected');
+
         //provincia 
-        $('#provinciaModificar > option[value="'+$(this).parent().siblings("td.provincia").html()+'"]').attr('selected', 'selected');
-    
+        $('#provinciaModificar > option[value="' + $(this).parent().siblings("td.provincia").html() + '"]').attr('selected', 'selected');
+
         //Tipo de inmueble
         //Para que me seleccione el idtipomodificar
         var idtipomodificar = $(this).parent().siblings("td.idtipo").attr("name");
