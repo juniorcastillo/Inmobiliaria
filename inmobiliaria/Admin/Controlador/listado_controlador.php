@@ -11,7 +11,7 @@ $b=(isset($_REQUEST['consultab']) && $_REQUEST['consultab'] != NULL) ? $_REQUEST
 if ($action == 'inmueble') {
   // Obtiene todas las propiedades
   require_once '../Modelo/Contenido.php';
-  $data['listado'] = Contenido::getListInmueble($o,$p);
+  $data['listado'] = Contenido::getListInmueble($b,$o,$p);
   include '../Modelo/listadoPag.php';
 
   include '../Vista/listado.php';
@@ -21,7 +21,6 @@ if ($action == 'inmueble') {
 }  elseif ($action == 'usuario') {
    
     require_once '../Modelo/usuario.php';
-  
     $data['listadoUsuario'] = Usuario::listadoUsuario($b,$o,$p);
     include '../Modelo/cuenta_listado_usuario.php';
     include "../Vista/listado_usuario.php";

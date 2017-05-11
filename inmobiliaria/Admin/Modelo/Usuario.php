@@ -1,9 +1,9 @@
 <?php
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Esta es la clase Usuario.
+ * La que se encarga de hacer todos los procesos de gestion de los usuarios.
+ * 
  */
 
 /**
@@ -77,14 +77,22 @@ class Usuario {
         $conexion->exec($insercion);
     }
 
-    //-----------Cuenta cuantos usuarios hay creados----------------//
-    public static function cuentaUsuario() {
+    //****************************** Cuenta cuantos usuarios hay creados ************************//
+    public static function cuentaUsuario($b) {
         require_once 'conexion.php';
         $conexion = Inmobiliaria::conectar();
-        $count_query = $conexion->query("SELECT * FROM usuario");
-        //SI EXISTEN FILAS GUARDA LA CANTIDAD DE FILA
-        $numrows = $count_query->rowCount();
-        return $numrows;
+        if (empty($b)) {
+            $count_query = $conexion->query("SELECT * FROM usuario");
+            //SI EXISTEN FILAS GUARDA LA CANTIDAD DE FILA
+            $numrows = $count_query->rowCount();
+            return $numrows;
+        }else{
+             $count_query = $conexion->query("SELECT * FROM usuario WHERE nombre LIKE '%" . $b . "%'");
+            //SI EXISTEN FILAS GUARDA LA CANTIDAD DE FILA
+            $numrows = $count_query->rowCount();
+            return $numrows;
+        }
+        
     }
 
 //************************* MOdifica el usuario que se desee *****************************************************//
@@ -156,7 +164,6 @@ class Usuario {
             if ($contar == 0) {
                 echo "<h2>No se han encontrado resultados para '<b>" . $b . "</b>'.</h2>";
                 return $listadoUsuario;
-               
             } else {
                 while ($registro = $sql->fetchObject()) {
                     $listadoUsuario[] = new Usuario($registro->id, $registro->nombre, $registro->password, $registro->direccion, $registro->telefono, $registro->fecha_alta, $registro->email, $registro->rol);
@@ -174,6 +181,7 @@ class Usuario {
 
             return $listadoUsuario;
         }//fin else
-    }//fin listado usuario
+    }//Fin del setter
 
+//fin listado usuario
 }

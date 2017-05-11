@@ -6,7 +6,7 @@
     $adjacents = 3; //brecha entre páginas después de varios adyacentes
     $offset = ($page - 1) * $per_page;
     //Cuenta el número total de filas de la tabla*/
-    $numrows=Usuario::cuentaUsuario();
+    $numrows=Usuario::cuentaUsuario($b);//los datos del buscador.
     $total_pages = ceil($numrows / $per_page);
     $reload = 'usuario.php'; //parametro que envio a el metodo 
     // consulta principal para recuperar los datos

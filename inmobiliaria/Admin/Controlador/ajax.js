@@ -37,10 +37,7 @@ $(document).ready(function () {
             direccion: {
                 required: true
             },
-            operacion: {
-                minlength: 5,
-                maxlength: 8
-            },
+           
             provincia: {
                 required: true
             },
@@ -58,7 +55,6 @@ $(document).ready(function () {
                 minlength: "Debes instroduccir mas digitos"
             },
             direccion: "El campo direccion esta vacio",
-            operacion: "El campo operacion esta vacio",
             provincia: "El campo provincia esta vacio",
             idtipo: "El campo   esta vacio",
         }
@@ -79,8 +75,8 @@ $(document).ready(function () {
                         fechaAltaNuevo: $("#fechaAltaNuevo").val(),
                         precioNuevo: $("#precioNuevo").val(),
                         direccionNuevo: $("#direccionNuevo").val(),
-                        operacionNuevo: $("#operacionNuevo").val(),
-                        provinciaNuevo: $("#provinciaNuevo").val(),
+                        operacionNuevo: $("select#operacionNuevo").val(),
+                        provinciaNuevo: $("select#provinciaNuevo").val(),
                         img: $("input[name='file']").val(),
                         tipoNuevo: $("select#idtiponuevo").val()
                                 //Campio los valores antes de que actualize++
@@ -145,7 +141,10 @@ function load(page) {
         accion = "usuario";
         // alert("si funciona");
     }
-    var parametros = {"action": accion, "page": page, "ordenar": ordena_Campos, "forma": ordena_Formas};
+     consulta = $("#busqueda").val();
+     var parametros = {"action": accion, "page": page, "ordenar": ordena_Campos, "forma": ordena_Formas, "consultab": consulta};
+       
+    //var parametros = {"action": accion, "page": page, "ordenar": ordena_Campos, "forma": ordena_Formas};
     $("#loader").fadeIn('slow');
     $.ajax({
         url: 'listado_controlador.php',
@@ -163,7 +162,7 @@ function load(page) {
 
 
     /**********************************************************************************/
-//********************** Buscador de usuarios ***************************************//
+//********************** Buscador de usuarios Y inmueble***************************************//
     /*************************************************************************************/
     //comprobamos si se pulsa una tecla
     $("#busqueda").keyup(function (e) {
@@ -257,9 +256,10 @@ function load(page) {
                 required: true,
             },
             operacion: {
+               
                 required: true,
-                minlength: 5,
-                maxlength: 8
+          
+            
             },
             provincia: {
                 required: true
@@ -302,8 +302,8 @@ function load(page) {
                         fechaAltaModificar: $("#fechaAltaModificar").val(),
                         precioModificar: $("#precioModificar").val(),
                         direccionModificar: $("#direModificar").val(),
-                        operacionModificar: $("#operacionModificar").val(),
-                        provinciaModificar: $("#provinciaModificar").val(),
+                        operacionModificar: $("select#operacionModificar").val(),
+                        provinciaModificar: $("select#provinciaModificar").val(),
                         tipoModificar: $("#tipoModificar").val(),
                         visitaModificar: $("#visitaModificar").val()
                                 //Campio los valores antes de que actualize
@@ -313,8 +313,8 @@ function load(page) {
                         $("#inmueble_" + idinmueble + " td.alta").html($("#fechaAltaModificar").val());
                         $("#inmueble_" + idinmueble + " td.precio").html($("#precioModificar").val());
                         $("#inmueble_" + idinmueble + " td.direccion").html($("#direModificar").val());
-                        $("#inmueble_" + idinmueble + " td.operacion").html($("#operacionModificar").val());
-                        $("#inmueble_" + idinmueble + " td.provincia").html($("#provinciaModificar").val());
+                        $("#inmueble_" + idinmueble + " td.operacion").html($("select#operacionModificar").val());
+                        $("#inmueble_" + idinmueble + " td.provincia").html($("select#provinciaModificar").val());
                         $("#inmueble_" + idinmueble + " td.idtipo").html($("#tipoModificar").val());
                         $("#inmueble_" + idinmueble + " td.visita").html($("#visitaModificar").val());
                     })//get			
@@ -343,9 +343,11 @@ function load(page) {
         //direccion del inmueble
         $("#direModificar").val($(this).parent().siblings("td.direccion").html());
         //operacion este sera un select
-        $("#operacionModificar").val($(this).parent().siblings("td.operacion").html());
+        $('#operacionModificar > option[value="'+$(this).parent().siblings("td.operacion").html()+'"]').attr('selected', 'selected');
+    
         //provincia 
-        $("#provinciaModificar").val($(this).parent().siblings("td.provincia").html());
+        $('#provinciaModificar > option[value="'+$(this).parent().siblings("td.provincia").html()+'"]').attr('selected', 'selected');
+    
         //Tipo de inmueble
         //Para que me seleccione el idtipomodificar
         var idtipomodificar = $(this).parent().siblings("td.idtipo").attr("name");

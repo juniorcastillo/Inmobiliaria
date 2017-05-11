@@ -12,7 +12,7 @@ $_SESSION['accesopermitido'] = false;
 $_SESSION['sesisonUser'] = false;
 $tamano = 0;
 if (isset($_REQUEST['cerrar'])) {
-   
+
     session_destroy();
     include "../Vista/dialogo_cerrar_sesion.php";
 } else {//Si no le dan a cerrar sesion 
@@ -39,26 +39,30 @@ if (isset($_REQUEST['cerrar'])) {
                 if ($usuario->getRolUsuario() == 1) {//valido si el usuario es administrador 
                     $_SESSION['accesopermitido'] = true;
                     header("refresh:3; url=./index.php");
+                    echo '<br>';
                     include "../Vista/formulario_controlUsuario.php";
                     echo '<div class="alert alert-success navbar-fixed-top">
                                       <strong>Bienvenido! ' . $_REQUEST['usuario'] . '</strong>
                                       </div>';
                 } else {//Si el usuario no es administrador
                     header("refresh:3; url=../../Interfaz_Usuario/Controlador/home.php");
+                    echo '<br>';
                     include "../Vista/formulario_controlUsuario.php";
-                      echo '<div class="alert alert-success navbar-fixed-top">
+
+                    echo '<div class="alert alert-success navbar-fixed-top">
                                       <strong>Bienvenido! ' . $_REQUEST['usuario'] . '</strong>
-                                      </div>';
+                                      </div><br>';
                 }
 
                 //fin del foreach
             } else {
                 $_SESSION['accesopermitido'] = false;
                 header("refresh:1; url=../Vista/formulario_controlUsuario.php");
+                echo '<br>';
                 include "../Vista/formulario_controlUsuario.php";
                 echo '  <div class="alert alert-danger navbar-fixed-top">
                  <strong>Contraseña incorrecta!</strong>
-                </div>';
+                </div><br>';
             }//fin else usuario o contraseña incorrecto
         }//fin del forech
     } else {
@@ -66,6 +70,7 @@ if (isset($_REQUEST['cerrar'])) {
 
 
         header("refresh:1; url=../Vista/formulario_controlUsuario.php");
+        echo '<br>';
         include "../Vista/formulario_controlUsuario.php";
         echo '  <div class="alert alert-danger navbar-fixed-top">
                  <strong>Usuario No existe!</strong>

@@ -29,7 +29,7 @@ if ($_SESSION['accesopermitido']) {
         <body >
             <div id="accion" class="contenedorInmueble" >
                 <header>
-
+       
                     <ul>
                         <li id="homeMenu"><a href="#" >Inmueble</a></li>
                         <li id="usuarioMenu"><a href="usuario.php" >Usuario</a></li>
@@ -37,6 +37,7 @@ if ($_SESSION['accesopermitido']) {
                         <li style="float:right"><a href="./control_usuario.php?cerrar=true">Sign out</a></li>
                     </ul><br>
                 </header>
+                  <input type="text" id="busqueda" />
                 <div id="seleccion"> <b>Order By</b>  <select name="campos" id="campos">
                         <option value="1">Id</option>
                         <option value="2">Fecha</option>

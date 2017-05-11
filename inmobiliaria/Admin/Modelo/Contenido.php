@@ -23,7 +23,6 @@ class Contenido {
     private $visita;
     private $nombreTipo;
 
-
     //, $fecha_alta, $tipo, $operacion, $provincia, $superficie, $precio, $imagen, $vendedor
     function __construct($idinmueble, $fecha_alta, $precio, $direccion, $operacion, $provincia, $tipo, $visita, $nombreTipo) {
         $this->referencia = $idinmueble;
@@ -35,7 +34,6 @@ class Contenido {
         $this->tipo = $tipo;
         $this->visita = $visita;
         $this->nombreTipo = $nombreTipo;
-
     }
 
     public function getId() {
@@ -74,7 +72,6 @@ class Contenido {
         return $this->nombreTipo;
     }
 
-
 //Inserto una fila
     public function insert() {
         require_once 'conexion.php';
@@ -106,36 +103,66 @@ class Contenido {
         $conexion->exec($borrado);
     }
 
-    public static function cuenta() {
+    public static function cuenta($b) {
         require_once 'conexion.php';
         $conexion = Inmobiliaria::conectar();
-        $count_query = $conexion->query("SELECT * FROM inmueble");
+        if (empty($b)) {
+            $count_query = $conexion->query("SELECT * FROM inmueble");
+            //SI EXISTEN FILAS GUARDA LA CANTIDAD DE FILA
+            $numrows = $count_query->rowCount();
+            return $numrows;
+        } else {
+            $count_query = $conexion->query("SELECT * FROM inmueble WHERE operacion LIKE '%" . $b . "%'");
         //SI EXISTEN FILAS GUARDA LA CANTIDAD DE FILA
-        $numrows = $count_query->rowCount();
+         $numrows = $count_query->rowCount();
         return $numrows;
+        }
     }
 
 //El get que muestra la lista de los inmueble
 
 
-    public static function getListInmueble($o, $p) {
+    public static function getListInmueble($b, $o, $p) {
         $ordenar = $o;
         $forma = $p;
+        $nombre_buscar = $b; //el nombre que se mada por ajax
+        $listado = []; //se guarda los valores de la consulta
         require_once 'conexion.php';
         $conexion = Inmobiliaria::conectar();
         include 'pagination.php'; //incluir el archivo de paginación
         include 'listadoPag.php';
 
-        $seleccion = "SELECT p.idinmueble,DATE_FORMAT(p.fecha,'%d/%m/%Y') as FechaAlta,p.idtipo,p.operacion,p.provincia,p.direccion,p.precio,p.visita,t.nombre as nombretipo  FROM inmueble p , tipo t WHERE p.idtipo = t.idtipo ORDER BY  $ordenar $forma LIMIT $offset,$per_page";
-        $consulta = $conexion->query($seleccion);
 
-        $listado = [];
+        /*         * ************************************************************************************* */
+        //Si el buscador no esta vacio 
+        if (!empty($nombre_buscar)) {
+            $query = "SELECT p.idinmueble,DATE_FORMAT(p.fecha,'%d/%m/%Y') as FechaAlta,p.idtipo,p.operacion,p.provincia,p.direccion,p.precio,p.visita,t.nombre as nombretipo  FROM inmueble p , tipo t WHERE p.idtipo = t.idtipo and p.operacion LIKE '%" . $nombre_buscar . "%' ORDER BY $ordenar $forma LIMIT $offset,$per_page";
+            //echo "$query";
+            $sql = $conexion->query($query);
+
+            $contar = $sql->rowCount();
+
+            if ($contar == 0) {
+                echo "<h2>No se han encontrado resultados para '<b>" . $b . "</b>'.</h2>";
+                return $listado;
+            } else {
+                while ($registro = $sql->fetchObject()) {
+                    $listado[] = new contenido($registro->idinmueble, $registro->FechaAlta, $registro->precio, $registro->direccion, $registro->operacion, $registro->provincia, $registro->idtipo, $registro->visita, $registro->nombretipo);
+                }
+                return $listado;
+            }//fin else
+        } else {// Muestra todos los datos
+            $seleccion = "SELECT p.idinmueble,DATE_FORMAT(p.fecha,'%d/%m/%Y') as FechaAlta,p.idtipo,p.operacion,p.provincia,p.direccion,p.precio,p.visita,t.nombre as nombretipo  FROM inmueble p , tipo t WHERE p.idtipo = t.idtipo ORDER BY  $ordenar $forma LIMIT $offset,$per_page";
+            $consulta = $conexion->query($seleccion);
+
+            $listado = [];
 //Creo un nuevo objeto 
-        while ($registro = $consulta->fetchObject()) {
-            $listado[] = new contenido($registro->idinmueble, $registro->FechaAlta, $registro->precio, $registro->direccion, $registro->operacion, $registro->provincia, $registro->idtipo, $registro->visita, $registro->nombretipo);
-        }
+            while ($registro = $consulta->fetchObject()) {
+                $listado[] = new contenido($registro->idinmueble, $registro->FechaAlta, $registro->precio, $registro->direccion, $registro->operacion, $registro->provincia, $registro->idtipo, $registro->visita, $registro->nombretipo);
+            }
 
-        return $listado;
+            return $listado;
+        }//fin else
     }
 
 }
