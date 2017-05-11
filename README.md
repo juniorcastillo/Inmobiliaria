@@ -1,6 +1,6 @@
 # Inmobiliaria
 
-<h2>Este proyecto es sobre una inmobiliaria. Esta dividido en dos partes, <b>interfaz de usuario y de administrador</b></h2>
+<h2>Este proyecto es sobre una inmobiliaria. Esta dividido en dos partes, <b>interfaz de usuario y de administrador.</b></h2>
 <hr>
 <h3>Interfaz de administrador</h3>
 <img src="inmobiliaria/Proyecto-img/Admin-inmueble.PNG" alt="Admin-inmueble" width="1000" height="500">
