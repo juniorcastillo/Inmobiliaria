@@ -1,4 +1,4 @@
-#<h1 Style="text-aling:center;">Inmobiliaria</h1>
+<h1 style="text-aling:center;">Inmobiliaria</h1>
 
 <h2>Este proyecto es sobre una inmobiliaria. Esta dividido en dos partes, <b>interfaz de usuario y de administrador.</b></h2>
 <hr>
