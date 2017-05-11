@@ -37,8 +37,8 @@ if ($_SESSION['accesopermitido']) {
                 </ul>
             </header><br>
             <div id="funciones">
-                <div class="funciones-flex" style="cursor:pointer; width:30px; "><img src="../Vista/img/nuevo.png" width="30" height="30" id="nuevo" title="Nuevo Inmueble"></div>
-                <div class="funciones-flex"><b>Buscar Nombre</b><br> <input type="text" id="busqueda" /></div>
+                <div class="funciones-flex" style="cursor:pointer; width:30px; "><img src="../Vista/img/nuevo.png" width="30" height="30" id="nuevo" title="Nuevo usuario"></div>
+                <div class="funciones-flex"><b>Buscar nombre</b><br> <input type="text" id="busqueda" /></div>
 
                 <div id="seleccion" class="funciones-flex"> <b>Order By</b><br> <select name="campos" id="campos">
                         <option value="1">Id</option>

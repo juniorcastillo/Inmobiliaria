@@ -77,11 +77,12 @@ header ul  li a:hover:not(.active) {
     -webkit-flex-wrap:wrap;
     display: flex;
     align-items:center;
-    margin-left: 28%;
-    border: 1px #333333 solid;
+    margin-left: 26%;
+    
+    border-style: outset;
     margin-top: 20px;
     width: 600px;
-    height: 70px;
+    height: 75px;
     
    
 }
