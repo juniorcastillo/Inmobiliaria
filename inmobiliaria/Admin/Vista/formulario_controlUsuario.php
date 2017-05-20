@@ -40,12 +40,12 @@
               <div class="well">
                   <form id="loginForm" method="POST" action="../Controlador/control_usuario.php" >
                   <div class="form-group">
-                    <label for="username" class="control-label">Username</label>
+                    <label for="username" class="control-label">Email</label>
                     <input type="email" class="form-control"  id="username" name="usuario" required   title="Please enter you username" placeholder="example@gmail.com" autofocus >
                     <span class="help-block"></span>
                   </div>
                   <div class="form-group">
-                    <label for="password" class="control-label">Password</label>
+                    <label for="password" class="control-label">Contraseña</label>
                     <input type="password" class="form-control" id="password" name="clave" required title="Please enter your password"  >
                     <span class="help-block"></span>
                   </div>
@@ -56,22 +56,22 @@
                     </label>
                     <p class="help-block">(if this is a private computer)</p>
                   </div>
-                  <input type="submit" class="btn btn-success btn-block" value="Sign in"/>
-                  <a href="../../Interfaz_Usuario/Controlador/home.php" class="btn btn-default btn-block">Homepage</a>
+                  <input type="submit" class="btn btn-success btn-block" value="Iniciar"/>
+                  <a href="../../Interfaz_Usuario/Controlador/home.php" class="btn btn-default btn-block">Inicio</a>
                 </form>
               </div>
             </div>
             <div class="col-xs-6">
-              <p class="lead">Register now for <span class="text-success">FREE</span></p>
+              <p class="lead">Registrese ahora<span class="text-success"> GRATIS!</span></p>
               <ul class="list-unstyled" style="line-height: 2">
-                <li><span class="fa fa-check text-success"></span> See all your orders</li>
-                <li><span class="fa fa-check text-success"></span> Fast re-order</li>
-                <li><span class="fa fa-check text-success"></span> Save your favorites</li>
-                <li><span class="fa fa-check text-success"></span> Fast checkout</li>
-                <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li>
+                <li><span class="fa fa-check text-success"></span> Vista de inmueble</li>
+                <li><span class="fa fa-check text-success"></span> Subir su propio casa</li>
+                <li><span class="fa fa-check text-success"></span> Agregar a favoritos</li>
+                <li><span class="fa fa-check text-success"></span> Ponerse en contacto</li>
+                <li><span class="fa fa-check text-success"></span> Oferta <small>(only new customers)</small></li>
                 <li><a href="#"><u>Read more</u></a></li>
               </ul>
-              <p><a href="./formulario_registroUsuario.php" class="btn btn-info btn-block">Sign up!</a></p>
+              <p><a href="./formulario_registroUsuario.php" class="btn btn-info btn-block">Registrarse!</a></p>
             </div>
           </div>
         </div>

@@ -33,12 +33,12 @@ if ($_SESSION['accesopermitido']) {
                     <ul>
                         <li id="homeMenu"><a href="#" >Inmueble</a></li>
                         <li id="usuarioMenu"><a href="usuario.php" >Usuario</a></li>
-                        <li><a href="../Vista/interfaz_usuario/index.php">Interfaz_usuario</a></li>
-                        <li style="float:right"><a href="./control_usuario.php?cerrar=true">Sign out</a></li>
+                        <li><a href="../../Interfaz_Usuario/Controlador/home.php">Inicio</a></li>
+                        <li style="float:right"><a href="./control_usuario.php?cerrar=true">Cerrar sesion</a></li>
                     </ul><br>
                 </header>
                 <div id="funciones">
-                    
+
                     <div class="funciones-flex" style="cursor:pointer; width:30px; "><img src="../Vista/img/nuevo.png" width="30" height="30" id="nuevo" title="Nuevo inmueble"></div>
                     <div class="funciones-flex"><b>Buscar operaciones</b><br><input type="text" id="busqueda"/></div>
                     <div id="seleccion" class="funciones-flex"> <b>Order By</b><br> 
@@ -63,8 +63,6 @@ if ($_SESSION['accesopermitido']) {
 
 
                 <div class="container-fluid">
-
-
 
                     <hr>
 

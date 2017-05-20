@@ -68,7 +68,7 @@ class Usuario {
 
     //Inserto una fila
     public function insertUsuario() {
-        require_once 'conexion.php';
+        require_once 'Conexion.php';
         $conexion = Inmobiliaria::conectar();
         $insercion = "INSERT INTO usuario( nombre, password,direccion,telefono, fecha_alta,email,rol) "
                 . "VALUES (\"" . $this->nombre . "\", \"" . $this->password . "\", \"" . $this->direccion . "\", \"" . $this->telefono . "\", \"" . $this->fecha_alta . "\", \"" . $this->email . "\", \"" . $this->rol . "\")";
@@ -79,7 +79,7 @@ class Usuario {
 
     //****************************** Cuenta cuantos usuarios hay creados ************************//
     public static function cuentaUsuario($b) {
-        require_once 'conexion.php';
+        require_once 'Conexion.php';
         $conexion = Inmobiliaria::conectar();
         if (empty($b)) {
             $count_query = $conexion->query("SELECT * FROM usuario");
@@ -97,7 +97,7 @@ class Usuario {
 
 //************************* MOdifica el usuario que se desee *****************************************************//
     public function update() {
-        require_once 'conexion.php';
+        require_once 'Conexion.php';
         $conexion = Inmobiliaria::conectar();
 
         $modificacion = "UPDATE usuario SET  id=\"$this->id\",nombre=\"$this->nombre\",password=\"$this->password\",direccion=\"$this->direccion\",telefono=\"$this->telefono\",fecha_alta=\"$this->fecha_alta\" Where id=\"$this->id\"";
@@ -108,7 +108,7 @@ class Usuario {
 //*********************** Comprueba si el usuario existe ne la base de datos **************************************//
     //Devuelve 0 si el usuario no existe y 1 si existe
     public static function controlUsuario($e) {
-        require_once 'conexion.php';
+        require_once 'Conexion.php';
         $conexion = Inmobiliaria::conectar();
         $existenciaUsuario = "SELECT * FROM usuario WHERE email LIKE '%$e'";
         $consulta = $conexion->query($existenciaUsuario);
@@ -123,7 +123,7 @@ class Usuario {
 //***************** Compruebo que el usuario que queremos registrar no existe*********************************//
 
     public static function validarUsuario($e) {
-        require_once 'conexion.php';
+        require_once 'Conexion.php';
         $conexion = Inmobiliaria::conectar();
         $existenciaUsuario = "SELECT * FROM usuario WHERE email LIKE '%$e'";
         $consulta = $conexion->query($existenciaUsuario);
@@ -135,7 +135,7 @@ class Usuario {
 //************************** Borra el usuario seleccionado ***********************************//
 
     public function delete() {
-        require_once 'conexion.php';
+        require_once 'Conexion.php';
         $conexion = Inmobiliaria::conectar();
         $borrado = "DELETE FROM usuario WHERE id=" . $this->id;
         echo $borrado;
@@ -145,7 +145,7 @@ class Usuario {
 //****Hace un lista de todos los usuarios dados de alta***//
 
     public static function listadoUsuario($b, $o, $p) {
-        require_once 'conexion.php';
+        require_once 'Conexion.php';
         $conexion = Inmobiliaria::conectar();
         include 'pagination.php'; //incluir el archivo de paginación
         include 'cuenta_listado_usuario.php';

@@ -33,7 +33,7 @@ class Tipo {
  
   public static function getListTipo() {
     
-    require_once 'conexion.php';
+    require_once 'Conexion.php';
     $conexion = Inmobiliaria::conectar();
  
     $seleccion = "SELECT idtipo, nombre 

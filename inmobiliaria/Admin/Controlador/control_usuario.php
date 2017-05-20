@@ -38,14 +38,14 @@ if (isset($_REQUEST['cerrar'])) {
 
                 if ($usuario->getRolUsuario() == 1) {//valido si el usuario es administrador 
                     $_SESSION['accesopermitido'] = true;
-                    header("refresh:3; url=./index.php");
+                    header("refresh:2; url=./index.php");
                     echo '<br>';
                     include "../Vista/formulario_controlUsuario.php";
                     echo '<div class="alert alert-success navbar-fixed-top">
                                       <strong>Bienvenido! ' . $_REQUEST['usuario'] . '</strong>
                                       </div>';
                 } else {//Si el usuario no es administrador
-                    header("refresh:3; url=../../Interfaz_Usuario/Controlador/home.php");
+                    header("refresh:2; url=../../Interfaz_Usuario/Controlador/home.php");
                     echo '<br>';
                     include "../Vista/formulario_controlUsuario.php";
 

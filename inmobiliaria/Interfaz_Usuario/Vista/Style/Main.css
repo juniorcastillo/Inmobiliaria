@@ -5,539 +5,692 @@
 */
 
 * {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  border: none;
-  -webkit-box-sizing: border-box; }
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    -webkit-box-sizing: border-box; }
 *:before, *:after {
-  -webkit-box-sizing: border-box;
-  -o-box-sizing: border-box; }
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box; }
 
 html {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 12px; }
+    font-family: Helvetica, arial, sans-serif;
+    font-size: 12px; }
 
 body {
-  background: url("brushed_alu.png"); }
+    background: url("brushed_alu.png"); }
 
 .limpiador:before {
-  display: table;
-  line-height: 0;
-  content: ""; }
+    display: table;
+    line-height: 0;
+    content: ""; }
 .limpiador:after {
-  display: table;
-  line-height: 0;
-  content: "";
-  clear: both; }
+    display: table;
+    line-height: 0;
+    content: "";
+    clear: both; }
 
 .container {
-  width: 80%;
-  margin: 0 auto; }
+    width: 80%;
+    margin: 0 auto; }
 
 header {
-  width: 100%;
-  height: auto;
-  background: black; }
+    width: 100%;
+    height: auto;
+    background: black; }
 
 .header-left, .header-right {
-  position: relative;
-  color: white;
-  float: left; }
+    position: relative;
+    color: white;
+    float: left; }
 
 .header-left {
-  width: 30%; }
+    width: 30%; }
 
 .header-right {
-  width: 70%;
-  text-align: right; }
+    width: 70%;
+    text-align: right; }
 .header-right label {
-  position: absolute;
-  top: -3.7em;
-  right: 0;
-  cursor: pointer; }
+    position: absolute;
+    top: -3.7em;
+    right: 0;
+    cursor: pointer; }
 .header-right span {
-  position: relative;
-  width: 2em;
-  height: 2em;
-  background: rgba(255, 255, 255, 0.3);
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  -o-transition: all .3s ease; }
+    position: relative;
+    width: 2em;
+    height: 2em;
+    background: rgba(255, 255, 255, 0.3);
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease; }
 .header-right span:hover {
-  background: rgba(255, 255, 255, 0.6); }
+    background: rgba(255, 255, 255, 0.6); }
 .header-right span:before {
-  content: '';
-  position: absolute;
-  width: 2em;
-  height: .5em;
-  top: 4px;
-  left: 0;
-  background: black; }
+    content: '';
+    position: absolute;
+    width: 2em;
+    height: .5em;
+    top: 4px;
+    left: 0;
+    background: black; }
 .header-right span:after {
-  content: '';
-  position: absolute;
-  width: 2em;
-  height: .5em;
-  top: 4px;
-  left: 0;
-  background: black;
-  top: 14px; }
+    content: '';
+    position: absolute;
+    width: 2em;
+    height: .5em;
+    top: 4px;
+    left: 0;
+    background: black;
+    top: 14px; }
 
 #open {
-  display: none; }
+    display: none; }
 
 h1 {
-  font-weight: 300;
-  line-height: 40px; }
+    font-weight: 300;
+    line-height: 40px; }
 h1#pagTitulo {
-  color: #F6ECF5;
-  text-shadow: 1px 1px 0px #e6e6e6, 2px 2px 0px #c8c8c8; }
+    color: #F6ECF5;
+    text-shadow: 1px 1px 0px #e6e6e6, 2px 2px 0px #c8c8c8; }
 
 a {
-  text-decoration: none;
-  color: white; }
+    text-decoration: none;
+    color: white; }
 
 nav > a {
-  position: relative;
-  display: inline-block;
-  font-size: 100%;
-  line-height: 40px;
-  padding: 0 2em;
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  transition: all .3s ease; }
+    position: relative;
+    display: inline-block;
+    font-size: 100%;
+    line-height: 40px;
+    padding: 0 2em;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease; }
 nav > a:hover {
-  background: rgba(255, 255, 255, 0.9);
-  color: black; }
+    background: rgba(255, 255, 255, 0.9);
+    color: black; }
 
 .spanMenu {
-  display: none; }
+    display: none; }
 
 section {
-  width: 100%;
-  height: auto;
-  background-image: -o-linear-gradient(#36a6ff 0%, #0e0a10 100%);
-  background-image: -webkit-linear-gradient(#36a6ff 0%, #0e0a10 100%);
-  background-image: linear-gradient(#36a6ff 0%, #0e0a10 100%); }
+    width: 100%;
+    height: auto;
+    background-image: -o-linear-gradient(#36a6ff 0%, #0e0a10 100%);
+    background-image: -webkit-linear-gradient(#36a6ff 0%, #0e0a10 100%);
+    background-image: linear-gradient(#36a6ff 0%, #0e0a10 100%); }
 
 .section-left, .section-right {
-  float: left; }
+    float: left; }
 
 .section-left {
-  width: 70%;
-  padding: 3em 0; }
+    width: 70%;
+    padding: 3em 0; }
 
 .section-right {
-  width: 30%; }
+    width: 30%; }
 
 .section-title, .section-tagline {
-  color: white;
-  font-weight: 300;
-  margin: 0;
-  padding: 0;
-  -webkit-transition: all .4s ease;
-  -moz-transition: all .4s ease;
-  -o-transition: all .4s ease;
-  transition: all .4s ease; }
+    color: white;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease; }
 
 .section-title {
-  font-size: 4em;
-  margin-bottom: .3em;
-  -webkit-text-shadow: 0 3px 0px black, 0 4px 0px rgba(150, 150, 150, 0.5);
-  -moz-text-shadow: 0 3px 0px black, 0 4px 0px rgba(150, 150, 150, 0.5); }
+    font-size: 4em;
+    margin-bottom: .3em;
+    -webkit-text-shadow: 0 3px 0px black, 0 4px 0px rgba(150, 150, 150, 0.5);
+    -moz-text-shadow: 0 3px 0px black, 0 4px 0px rgba(150, 150, 150, 0.5); }
 
 .section-tagline {
-  font-size: 1em; }
+    font-size: 1em; }
 
 .learn-more {
-  display: table;
-  margin: 3em auto 0;
-  padding: 1em 6em;
-  cursor: pointer;
-  border-radius: 3px;
-  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.8);
-  -ms-box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.8);
-  background: #EAAF00;
-  font-size: 1.2em; }
+    display: table;
+    margin: 3em auto 0;
+    padding: 1em 6em;
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.8);
+    -ms-box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.8);
+    background: #EAAF00;
+    font-size: 1.2em; }
 .learn-more:hover {
-  background: #EAAF00;
-  background: -webkit-radial-gradient(ellipse cover, red, #f80, #ffc);
-  background: -ms-radial-gradient(ellipse cover, red, #f80, #ffc);
-  background: -o-radial-gradient(ellipse cover, red, #f80, #ffc); }
+    background: #EAAF00;
+    background: -webkit-radial-gradient(ellipse cover, red, #f80, #ffc);
+    background: -ms-radial-gradient(ellipse cover, red, #f80, #ffc);
+    background: -o-radial-gradient(ellipse cover, red, #f80, #ffc); }
 .learn-more:active {
-  -webkit-box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.8);
-  box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.8);
-  padding: 2em 7em;
-  -webkit-transition: padding 5s ease; }
+    -webkit-box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.8);
+    padding: 2em 7em;
+    -webkit-transition: padding 5s ease; }
 /**
     Created on : 02-dic-2016, 10:51:03
     Author     : Junior Castillo Santana*/
+.producto{
+    font-family: fantasy;
+    font-size: 2.5rem;
+    margin-left: 1%;
+
+}
+
 #casa_disponibles{
     background-color: #F6ECF5;
-    display: block;
+    display: table;
     width: 100%;
-    height: 500px;
+  margin-bottom: 10px;
 }
-#casa_disponibles #venta{
- width: 100%;
+#casa_disponibles .list_img_inmuebles{
+    width: 100%;
+
+
 }
 
-#casa_disponibles #venta img{
-  float: left;
-  width: 20%;
-  height: 150px;
-  margin: 1% 0% 0% 2%;
+#casa_disponibles .list_img_inmuebles img{
+
+    width: 95%;
+    height: 250px;
+    margin: 1% 0% 0% 1%;
 }
+.list_img_inmuebles .contenedor-img_Informacion{
+    width:33%;
+    float: left;
+
+}
+.list_img_inmuebles .contenedor-img_Informacion h2{
+
+    text-align: center;
+
+}
+
+.informacion_inmueble{
+    display: inline-block;
+    width: 95%;
+    background-color: #c4e3f3;
+    height: auto;
+    margin: 1% 0% 0% 1%;
+}
+
 #main {
-  max-width: 100%;
-  width: 100%;
-  height: 483px;
-  background-color: #c4e3f3; }
+    max-width: 100%;
+    width: 100%;
+    height: 483px;
+    background-color: #c4e3f3; }
 
 #contenedorImagenes {
-  text-align: center;
-  width: 89%;
-  max-height: 480px;
-  margin: 0 auto;
-  margin-left: 5.5%;
-  position: relative;
-  background-color: #003399; }
+    text-align: center;
+    width: 89%;
+    max-height: 480px;
+    margin: 0 auto;
+    margin-left: 5.5%;
+    position: relative;
+    background-color: #003399; }
 
 #imageness > img {
-  width: 100%;
-  height: 480px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  color: transparent;
-  opacity: 0;
-  z-index: 0;
-  -webkit-backface-visibility: hidden;
-  /* Chrome, Safari, Opera */
-  backface-visibility: hidden;
-  -webkit-animation: Galeria 42s linear infinite 0s;
-  -moz-animation: Galeria 42s linear infinite 0s;
-  -o-animation: Galeria 42s linear infinite 0s;
-  -ms-animation: Galeria 42s linear infinite 0s;
-  animation: Galeria 42s linear infinite 0s; }
+    width: 100%;
+    height: 480px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    opacity: 0;
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    /* Chrome, Safari, Opera */
+    backface-visibility: hidden;
+    -webkit-animation: Galeria 42s linear infinite 0s;
+    -moz-animation: Galeria 42s linear infinite 0s;
+    -o-animation: Galeria 42s linear infinite 0s;
+    -ms-animation: Galeria 42s linear infinite 0s;
+    animation: Galeria 42s linear infinite 0s; }
 #imageness > img:nth-child(2) {
-  -webkit-animation-delay: 6s;
-  -moz-animation-delay: 6s;
-  -o-animation-delay: 6s;
-  -ms-animation-delay: 6s;
-  animation-delay: 6s; }
+    -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay: 6s; }
 #imageness > img:nth-child(3) {
-  -webkit-animation-delay: 12s;
-  -moz-animation-delay: 12s;
-  -o-animation-delay: 12s;
-  -ms-animation-delay: 12s;
-  animation-delay: 12s; }
+    -webkit-animation-delay: 12s;
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s; }
 #imageness > img:nth-child(4) {
-  -webkit-animation-delay: 18s;
-  -moz-animation-delay: 18s;
-  -o-animation-delay: 18s;
-  -ms-animation-delay: 18s;
-  animation-delay: 18s; }
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    -ms-animation-delay: 18s;
+    animation-delay: 18s; }
 #imageness > img:nth-child(5) {
-  -webkit-animation-delay: 24s;
-  -moz-animation-delay: 24s;
-  -o-animation-delay: 24s;
-  -ms-animation-delay: 24s;
-  animation-delay: 24s; }
+    -webkit-animation-delay: 24s;
+    -moz-animation-delay: 24s;
+    -o-animation-delay: 24s;
+    -ms-animation-delay: 24s;
+    animation-delay: 24s; }
 #imageness > img:nth-child(6) {
-  -webkit-animation-delay: 30s;
-  -moz-animation-delay: 30s;
-  -o-animation-delay: 30s;
-  -ms-animation-delay: 30s;
-  animation-delay: 30s; }
+    -webkit-animation-delay: 30s;
+    -moz-animation-delay: 30s;
+    -o-animation-delay: 30s;
+    -ms-animation-delay: 30s;
+    animation-delay: 30s; }
 #imageness > img:nth-child(7) {
-  -webkit-animation-delay: 36s;
-  -moz-animation-delay: 36s;
-  -o-animation-delay: 36s;
-  -ms-animation-delay: 36s;
-  animation-delay: 36s; }
+    -webkit-animation-delay: 36s;
+    -moz-animation-delay: 36s;
+    -o-animation-delay: 36s;
+    -ms-animation-delay: 36s;
+    animation-delay: 36s; }
 
 
 @-webkit-keyframes Galeria {
-  0% {
-    opacity: 0; }
-  8% {
-    opacity: 1; }
-  22% {
-    opacity: 1; }
-  35% {
-    opacity: 0; }
-  100% {
-    opacity: 0; } }
+    0% {
+        opacity: 0; }
+    8% {
+        opacity: 1; }
+    22% {
+        opacity: 1; }
+    35% {
+        opacity: 0; }
+    100% {
+        opacity: 0; } }
 @keyframes Galeria {
-  0% {
-    opacity: 0; }
-  8% {
-    opacity: 1; }
-  22% {
-    opacity: 1; }
-  35% {
-    opacity: 0; }
-  100% {
-    opacity: 0; } }
+    0% {
+        opacity: 0; }
+    8% {
+        opacity: 1; }
+    22% {
+        opacity: 1; }
+    35% {
+        opacity: 0; }
+    100% {
+        opacity: 0; } }
 h3 {
-  text-align: center; }
+    text-align: center; }
 
 .Subtitulo {
-  font-weight: bold; }
+    font-weight: bold; }
 
 #mapa #googlemap {
-  width: 100%; }
+    width: 100%; }
 
 .datosContacto {
-  background-color: #c4e3f3;
-  height: 370px; }
+    background-color: #c4e3f3;
+    height: 370px; }
 
 #contactoForm {
-  width: 49%;
-  margin-left: 1%;
-  float: left; }
+    width: 49%;
+    margin-left: 1%;
+    float: left; }
 #contactoForm #frm {
-  border-style: solid;
-  border-color: #3c3c3c;
-  border-top-style: none;
-  border-left-style: none;
-  border-bottom-style: none; }
+    border-style: solid;
+    border-color: #3c3c3c;
+    border-top-style: none;
+    border-left-style: none;
+    border-bottom-style: none; }
 #contactoForm .fa {
-  font-size: 150%; }
+    font-size: 150%; }
 #contactoForm .input-contacto {
-  width: 90%;
-  height: 30px;
-  background-color: #F6ECF5; }
+    width: 90%;
+    height: 30px;
+    background-color: #F6ECF5; }
 
 input:hover, input:focus {
-  background-color: #F6ECF5;
-  box-shadow: 0px 0px 1px 2px #122b40;
-  -webkit-box-shadow: 0px 0px 1px 2px #122b40; }
+    background-color: #F6ECF5;
+    box-shadow: 0px 0px 1px 2px #122b40;
+    -webkit-box-shadow: 0px 0px 1px 2px #122b40; }
 
 #textarea_contacto {
-  width: 90%;
-  background-color: #F6ECF5; }
+    width: 90%;
+    background-color: #F6ECF5; }
 
 .direcciones {
-  background-color: #aeb7ab;
-  margin-top: 10px;
-  margin-left: 1%;
-  width: 70%; }
+    background-color: #aeb7ab;
+    margin-top: 10px;
+    margin-left: 1%;
+    width: 70%; }
 .direcciones ul .Subtitulo{
-  font-size: 20px;
+    font-size: 20px;
 }
 .direcciones ul > li {
- 
-  list-style-type: none;
+
+    list-style-type: none;
 
 
 }
 .direcciones i,span{
-  
-  font-size: 15px;
+
+    font-size: 15px;
 }
 .inf{
-  display: inline-block;
-  background-repeat: no-repeat;
-  background-size: 20px;
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 }
 #direccion{
-  background-image: url('../imagen/gps_icono.png');
+    background-image: url('../imagen/gps_icono.png');
 }
 #numero{
-   background-image: url('../imagen/telefono_icono.png');
-  
+    background-image: url('../imagen/telefono_icono.png');
+
 }
 
 
 #logo {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-height:100px;}
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    height:100px;}
 
 footer {
-  width: 100%;
-  max-height: 50px;
-  background-color: #0b0b2d;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end; }
+    width: 100%;
+    max-height: 50px;
+    background-color: #0b0b2d;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end; }
 footer p {
-  background-image: url(../imagen/Sprites.png);
-  background-size: 181px 85px;
-  background-repeat: no-repeat;
-  width: 31px;
-  height: 35px;
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transition: background-position 1s;
-  /* For Safari 3.1 to 6.0 */
-  margin: 5px; }
+    background-image: url(../imagen/Sprites.png);
+    background-size: 181px 85px;
+    background-repeat: no-repeat;
+    width: 31px;
+    height: 35px;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transition: background-position 1s;
+    /* For Safari 3.1 to 6.0 */
+    margin: 5px; }
 
 #Facebook {
-  background-position: -38px -1px; }
+    background-position: -38px -1px; }
 
 #Gmail {
-  background-position: -75px -1px; }
+    background-position: -75px -1px; }
 
 #youtube {
-  background-position: -112px -2px; }
+    background-position: -112px -2px; }
 
 #Twitter {
-  background-position: 0px -2px; }
+    background-position: 0px -2px; }
 
 #Facebook:hover {
-  background-position: -38px -45px;
-  cursor: pointer; }
+    background-position: -38px -45px;
+    cursor: pointer; }
 
 #Gmail:hover {
-  background-position: -75px -44px;
-  cursor: pointer; }
+    background-position: -75px -44px;
+    cursor: pointer; }
 
 #youtube:hover {
-  background-position: -112px -45px;
-  cursor: pointer; }
+    background-position: -112px -45px;
+    cursor: pointer; }
 
 #Twitter:hover {
-  background-position: 0px -45px;
-  cursor: pointer; }
+    background-position: 0px -45px;
+    cursor: pointer; }
 
 /* Portrait tablet to landscape and desktop */
 /* Small monitor */
-@media (max-width: 979px) {
-  nav > a {
-    padding: 0 1.5em;
-    font-size: 100%; }
 
-  .section-left, .section-right {
-    width: 100%; }
 
-  .section-left {
-    text-align: center; }
+@media (max-width: 1330px){
 
-  .section-right {
-    padding: 0 0 2em; }
 
-  .section-title {
-    font-size: 4em;
-    margin-bottom: .2em; }
 
-  .learn-more {
-    margin: 0 auto; } }
+    .list_img_inmuebles .contenedor-img_Informacion{
+        width:33%;
+
+
+    }
+    #casa_disponibles .list_img_inmuebles .contenedor-img_Informacion img{
+
+        width: 95%;
+        height: 250px;
+        margin: 1% 0% 0% 1%;
+    }
+    #casa_disponibles .list_img_inmuebles .contenedor-img_Informacion .informacion_inmueble{
+
+        width: 95%;
+        background-color: #c4e3f3;
+            height: auto;
+        margin: 1% 0% 0% 1%;
+    }
+
+
+}
+@media (max-width: 979px){
+    nav > a {
+        padding: 0 1.5em;
+        font-size: 100%; }
+
+    .section-left, .section-right {
+        width: 100%; }
+
+    .section-left {
+        text-align: center; }
+
+    .section-right {
+        padding: 0 0 2em; }
+
+    .section-title {
+        font-size: 4em;
+        margin-bottom: .2em; }
+
+    .learn-more {
+        margin: 0 auto; }
+
+
+    #casa_disponibles{
+        background-color: #F6ECF5;
+        display: table;
+        width: 100%;
+
+    }
+
+
+
+    #casa_disponibles .img_inmuebles img{
+
+        width: 95%;
+        height: 250px;
+        margin: 1% 0% 0% 1%;
+    }
+
+
+
+    #casa_disponibles .list_img_inmuebles .contenedor-img_Informacion .informacion_inmueble{
+
+        width: 95%;
+        background-color: #c4e3f3;
+            height: auto;
+        margin: 1% 0% 0% 1%;
+    }
+
+
+}
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-  .container {
-    width: 95%; }
+    .container {
+        width: 95%; }
 
-  nav > a {
-    padding: 0 2em; }
+    nav > a {
+        padding: 0 2em; }
 
-  h1 {
-    padding: .5em 0; }
+    h1 {
+        padding: .5em 0; }
 
-  .header-left, .header-right {
-    width: 100%;
-    text-align: center; }
+    .header-left, .header-right {
+        width: 100%;
+        text-align: center; }
 
-  .section-left, .section-right {
-    width: 100%; }
+    .section-left, .section-right {
+        width: 100%; }
 
-  .section-left {
-    text-align: center;
-    padding: 2em 0; }
+    .section-left {
+        text-align: center;
+        padding: 2em 0; }
 
-  .section-right {
-    padding: 1em 0 2em; }
+    .section-right {
+        padding: 1em 0 2em; }
 
-  .section-title {
-    font-size: 3em;
-    margin-bottom: .2em; }
+    .section-title {
+        font-size: 3em;
+        margin-bottom: .2em; }
 
-  .section-tagline {
-    font-size: 1.3em; }
+    .section-tagline {
+        font-size: 1.3em; }
 
-  .learn-more {
-    margin: 0 auto; }
+    .learn-more {
+        margin: 0 auto; }
 
-  #main div.imagen img, .imagen {
-    margin: 0px; } }
+    #main div.imagen img, .imagen {
+        margin: 0px; } 
+
+
+    #casa_disponibles{
+        background-color: #F6ECF5;
+        display: table;
+        width: 100%;
+
+    }
+
+    .list_img_inmuebles .contenedor-img_Informacion{
+        width: 48%;
+        display: table;
+
+    }
+    #casa_disponibles .list_img_inmuebles img{
+
+        width: 100%;
+        height: 250px;
+        margin: 1% 0% 0% 1%;
+    }
+
+
+
+    #casa_disponibles .list_img_inmuebles .contenedor-img_Informacion .informacion_inmueble{
+
+        width: 95%;
+        background-color: #c4e3f3;
+           height: auto;
+        margin: 1% 0% 0% 1%;
+    }
+
+
+}
 /* Landscape phones and down */
 @media (max-width: 480px) {
-  body {
-    padding: 0 .5em; }
+    body {
+        padding: 0 .5em; }
 
-  .container {
-    width: 90%; }
+    .container {
+        width: 90%; }
 
-  nav {
-    height: 0;
-    overflow: hidden;
-    -webkit-transition: all .3s ease;
-    -webkit-transition: all .3s ease; }
+    nav {
+        height: 0;
+        overflow: hidden;
+        -webkit-transition: all .3s ease;
+        -webkit-transition: all .3s ease; }
 
-  input[type="checkbox"]:checked + nav {
-    height: 255px; }
+    input[type="checkbox"]:checked + nav {
+        height: 255px; }
 
-  nav > a {
-    padding: 0 1em;
-    display: block;
-    border-bottom: solid 1px rgba(255, 255, 255, 0.1); }
+    nav > a {
+        padding: 0 1em;
+        display: block;
+        border-bottom: solid 1px rgba(255, 255, 255, 0.1); }
 
-  h1 {
-    padding: .5em 0; }
+    h1 {
+        padding: .5em 0; }
 
-  .header-left, .header-right {
-    width: 100%;
-    text-align: center; }
+    .header-left, .header-right {
+        width: 100%;
+        text-align: center; }
 
-  .section-left, .section-right {
-    width: 100%; }
+    .section-left, .section-right {
+        width: 100%; }
 
-  .section-left {
-    text-align: center;
-    padding: 1em 0; }
+    .section-left {
+        text-align: center;
+        padding: 1em 0; }
 
-  .section-right {
-    text-align: center;
-    padding: 1em 0 2em; }
+    .section-right {
+        text-align: center;
+        padding: 1em 0 2em; }
 
-  .section-title {
-    font-size: 2.4em;
-    margin-bottom: 0; }
+    .section-title {
+        font-size: 2.4em;
+        margin-bottom: 0; }
 
-  .section-tagline {
-    font-size: 1em; }
+    .section-tagline {
+        font-size: 1em; }
 
-  .learn-more {
-    display: table;
-    margin: 0 auto; }
+    .learn-more {
+        display: table;
+        margin: 0 auto; }
 
-  .spanMenu {
-    display: block; }
+    .spanMenu {
+        display: block; }
 
-  #main div.imagen img {
-    max-width: 100%;
-    border-radius: 25px;
-    margin: 0px; }
+    #main div.imagen img {
+        max-width: 100%;
+        border-radius: 25px;
+        margin: 0px; }
 
-  .direcciones ul > li {
-    font-size: 12px; }
+    .direcciones ul > li {
+        font-size: 12px; }
 
-  #imageness > img {
-    width: 100%;
-    -webkit-transition: height 5s;
-    height: 340px; }
+    #imageness > img {
+        width: 100%;
+        -webkit-transition: height 5s;
+        height: 340px; }
 
-  #main {
-    -webkit-transition: height 5s;
-    max-height: 360px; } }
+    #main {
+        -webkit-transition: height 5s;
+        max-height: 360px; } 
+
+
+
+
+    #casa_disponibles{
+        background-color: #F6ECF5;
+        display: table;
+        width: 100%;
+
+    }
+
+    .list_img_inmuebles .contenedor-img_Informacion{
+        width: 100%;
+        display: table;
+
+    }
+    #casa_disponibles .list_img_inmuebles img{
+
+        width: 100%;
+        height: 250px;
+        margin: 1% 0% 0% 1%;
+    }
+
+
+
+    #casa_disponibles .list_img_inmuebles .contenedor-img_Informacion .informacion_inmueble{
+
+        width: 95%;
+        background-color: #c4e3f3;
+        height: auto;
+        margin: 1% 0% 0% 1%;
+    }
+
+
+}
 
 /*# sourceMappingURL=Main.css.map */

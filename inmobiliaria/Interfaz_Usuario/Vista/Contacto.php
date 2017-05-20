@@ -73,18 +73,18 @@ and open the template in the editor.
                     </label>
                     <input type="checkbox" name="" id="open">
                     <nav>
-                        <a href="../Controlador/home.php">Home</a>
-                        <a href="#">Inspiration</a>
-                        <a href="#">Articles</a>
-                        <a href="#">Works</a>
-                        <a href="#">Contact</a>
+                        <a href="../Controlador/home.php">Inicio</a>
+                        <a href="#">Venta</a>
+                        <a href="#">Alquiler</a>
+                        <a href="#">Informacio</a>
+                        <a href="#">Contacto</a>
                         <?php
                         if ($_SESSION['sesisonUser']) {
-                            echo '<a href="../../Admin/Controlador/control_usuario.php?cerrar=true">Sign out</a>';
+                            echo '<a href="../../Admin/Controlador/control_usuario.php?cerrar=true">Cerrar sesion</a>';
                         } else {
                             ?>
 
-                            <a href="../../Admin/Vista/formulario_controlUsuario.php">Login</a>
+                            <a href="../../Admin/Vista/formulario_controlUsuario.php">Iniciar sesion</a>
 
                             <?php
                         }

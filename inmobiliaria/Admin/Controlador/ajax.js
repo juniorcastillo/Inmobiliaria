@@ -275,8 +275,7 @@ function load(page) {
             dire: "El campo direccion esta vacio",
             operacion: {
                 required: "El campo operacion esta vacio",
-                minlength: "la operancion no es correcta",
-                maxlength: "la operancion no es correcta"
+                minlength: "la operancion no es correcta"
             },
             provincia: "El campo provincia esta vacio",
             idtipo: "El campo Mensaje es obligatorio.",
@@ -401,8 +400,7 @@ function load(page) {
             },
             contrasenaNuevoUsuario: {
                 required: true,
-                minlength: 9,
-                maxlength: 16
+                minlength: 9
             },
             direccionNuevoUsuario: {
                 required: true
@@ -432,8 +430,7 @@ function load(page) {
             },
             contrasenaNuevoUsuario: {
                 required: "Campo contraseña obligatorio",
-                minlength: "La contraseña es muy corta",
-                maxlength: "La contraseña es muy larga"
+                minlength: "La contraseña es muy corta"
             },
             direccionNuevoUsuario: {
                 required: "Campo telefono obligatorio",
@@ -466,7 +463,7 @@ function load(page) {
         buttons: {
             "Guardar": function () {
                 if ($("#formulario_alta_usuario").valid()) {
-                    $.get("../Controlador/Anadir_usuario.php", {
+                    $.get("../Controlador/anadir_usuario.php", {
 
                         nombreNuevoUsuario: $("#nombreNuevoUsuario").val(),
                         contrasenaNuevoUsuario: $("#contrasenaNuevoUsuario").val(),
@@ -541,8 +538,7 @@ function load(page) {
             },
             password: {
                 required: true,
-                minlength: 9,
-                maxlength: 16
+                minlength: 9
             },
             direccion: {
                 required: true
@@ -562,8 +558,8 @@ function load(page) {
             },
             password: {
                 required: "Campo contraseña obligatorio",
-                minlength: "La contraseña es muy corta",
-                maxlength: "La contraseña es muy larga"
+                minlength: "La contraseña es muy corta"
+               
             },
             direccion: "Campo direccion obligatorio",
             alta: "Campo fecha obligatorio",

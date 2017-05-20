@@ -74,7 +74,7 @@ class Contenido {
 
 //Inserto una fila
     public function insert() {
-        require_once 'conexion.php';
+        require_once 'Conexion.php';
         $conexion = Inmobiliaria::conectar();
         $insercion = "INSERT INTO inmueble (idinmueble,fecha,precio,direccion,operacion,provincia,idtipo,visita) "
                 . "VALUES (\"" . $this->referencia . "\", \"" . $this->fecha_alta . "\", \"" . $this->precio . "\", \"" . $this->direccion . "\", \"" . $this->operacion . "\", \"" . $this->provincia . "\", \"" . $this->tipo . "\", \"" . $this->visita . "\")";
@@ -86,7 +86,7 @@ class Contenido {
 
 //Modifico el inmueble
     public function update() {
-        require_once 'conexion.php';
+        require_once 'Conexion.php';
         $conexion = Inmobiliaria::conectar();
 
         $modificacion = "UPDATE inmueble SET  idinmueble=\"$this->referencia\",fecha=\"$this->fecha_alta\",precio=\"$this->precio\",direccion=\"$this->direccion\",operacion=\"$this->operacion\",provincia=\"$this->provincia\",idtipo=\"$this->tipo\",visita=\"$this->visita\" WHERE idinmueble=\"$_POST[idModificar]\"";
@@ -96,7 +96,7 @@ class Contenido {
 
 //Borro las filas
     public function delete() {
-        require_once 'conexion.php';
+        require_once 'Conexion.php';
         $conexion = Inmobiliaria::conectar();
         $borrado = "DELETE FROM inmueble WHERE idinmueble=" . $this->referencia;
         echo $borrado;
@@ -104,7 +104,7 @@ class Contenido {
     }
 
     public static function cuenta($b) {
-        require_once 'conexion.php';
+        require_once 'Conexion.php';
         $conexion = Inmobiliaria::conectar();
         if (empty($b)) {
             $count_query = $conexion->query("SELECT * FROM inmueble");
@@ -127,7 +127,7 @@ class Contenido {
         $forma = $p;
         $nombre_buscar = $b; //el nombre que se mada por ajax
         $listado = []; //se guarda los valores de la consulta
-        require_once 'conexion.php';
+        require_once 'Conexion.php';
         $conexion = Inmobiliaria::conectar();
         include 'pagination.php'; //incluir el archivo de paginación
         include 'listadoPag.php';

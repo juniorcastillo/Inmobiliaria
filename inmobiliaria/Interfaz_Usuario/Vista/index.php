@@ -43,18 +43,18 @@ if (!isset($_SESSION['sesisonUser'])) {
                     </label>
                     <input type="checkbox" name="" id="open">
                     <nav>
-                        <a href="#">Home</a>
-                        <a href="Articulo.php">Inspiration</a>
-                        <a href="Articulo.php">Articles</a>
-                        <a href="Articulo.php">Works</a>
-                        <a href="../Vista/Contacto.php">Contact</a>
+                        <a href="#">Inicio</a>
+                        <a href="Articulo.php">Venta</a>
+                        <a href="Articulo.php">Alquiler</a>
+                        <a href="Articulo.php">Informacion</a>
+                        <a href="../Vista/Contacto.php">Contacto</a>
                         <?php
                         if ($_SESSION['sesisonUser']) {
-                            echo '<a href="../../Admin/Controlador/control_usuario.php?cerrar=true">Sign out</a>';
+                            echo '<a href="../../Admin/Controlador/control_usuario.php?cerrar=true">Cerrar sesion</a>';
                         } else {
                             ?>
 
-                        <a href="../../Admin/Vista/formulario_controlUsuario.php">Login</a>
+                            <a href="../../Admin/Vista/formulario_controlUsuario.php">Iniciar sesion</a>
 
                             <?php
                         }
@@ -66,7 +66,7 @@ if (!isset($_SESSION['sesisonUser'])) {
         <section class="limpiador">
             <div class="container">
                 <div class="section-left">
-                    <h1 class="section-title">Live well is your choice</h1>
+                    <h1 class="section-title">Vivi bien es tu Opción</h1>
 
                 </div>
                 <div class="section-right">
@@ -80,14 +80,13 @@ if (!isset($_SESSION['sesisonUser'])) {
             <div id="contenedorImagenes">
                 <div id="imageness">
                     <?php
-                   
                     $data['listado'] = Imagen::list_galeriaIMG();
                     //Esta es la imagen --><td class="imagen"> $casa->getImagen()</td> <th>Imagen</th>
                     foreach ($data['listado'] as $casa) {
                         ?>
 
-                    <img  src="../../Admin/Controlador/<?= $casa->getnomreIMG()?>" alt="<?= $casa->getnomreIMG()?>" >
-                       
+                        <img  src="../../Admin/Controlador/<?= $casa->getnomreIMG() ?>" alt="<?= $casa->getnomreIMG() ?>" >
+
 
                         <?php
                     }
@@ -95,26 +94,54 @@ if (!isset($_SESSION['sesisonUser'])) {
                 </div>
             </div> 
         </div>
+        <h1 class="producto">Ventas</h1> 
+        
         <div id="casa_disponibles">
-            <h1 style="font-family: fantasy">Ventas</h1>  
-            <div id="venta">   
+            
+            <div class="list_img_inmuebles">   
                 <?php
-                   
-                    $data['list_venta'] = Imagen::list_ventaIMG();
-                    //Esta es la imagen --><td class="imagen"> $casa->getImagen()</td> <th>Imagen</th>
-                    foreach ($data['list_venta'] as $casa) {
-                        ?>
-    
-                      <img src="../../Admin/Controlador/<?= $casa->getnomreIMG()?>" alt="<?= $casa->getnomreIMG()?>">
-                       
-
-                        <?php
-                    }
+                $data['list_venta'] = Imagen::list_ventaIMG();
+                //Esta es la imagen --><td class="imagen"> $casa->getImagen()</td> <th>Imagen</th>
+                foreach ($data['list_venta'] as $casa) {
                     ?>
+                   <div class="contenedor-img_Informacion">
+                       <a href="../Vista/Inmueble_seleccionado.php?idInmueble=<?= $casa->getid_inmuebleIMG()?>"> <img src="../../Admin/Controlador/<?= $casa->getnomreIMG() ?>" alt="<?= $casa->getnomreIMG() ?>"></a>
+                    <div class="informacion_inmueble">
+  
+                        <h2><?= $casa->getprovincia_inmuebleIMG()?> </h2>
+                        
+                        
+                    </div>
+                   </div>
+                    <?php
+                }
+                ?>
             </div>
-          
-        </div>
 
+          </div>
+        <h1 class="producto">Alquiler</h1>  
+          <div id="casa_disponibles">
+            <div class="list_img_inmuebles"> 
+                
+                <?php
+                $data['$list_alquiler'] = Imagen::list_alquilerIMG();
+                //Esta es la imagen --><td class="imagen"> $casa->getImagen()</td> <th>Imagen</th>
+                foreach ($data['$list_alquiler'] as $casa) {
+                    ?>
+                <div class="contenedor-img_Informacion">
+                    <a href="../Vista/Inmueble_seleccionado.php?idInmueble=<?= $casa->getid_inmuebleIMG()?>"><img src="../../Admin/Controlador/<?= $casa->getnomreIMG() ?>" alt="<?= $casa->getnomreIMG() ?>"> </a>
+                    <div class="informacion_inmueble">
+                          <h2><?= $casa->getprovincia_inmuebleIMG()?> </h2>
+                     </div>
+                    
+                </div>
+                   
+                    <?php
+                }
+                ?>
+            </div>
+       
+          </div>
 
         <footer>
             <div><a href="https://www.facebook.com/ "  target="_blank"><p id="Facebook" ></p></a></div>
