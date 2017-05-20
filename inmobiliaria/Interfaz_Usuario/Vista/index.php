@@ -105,7 +105,7 @@ if (!isset($_SESSION['sesisonUser'])) {
                 foreach ($data['list_venta'] as $casa) {
                     ?>
                    <div class="contenedor-img_Informacion">
-                       <a href="../Vista/Inmueble_seleccionado.php?idInmueble=<?= $casa->getid_inmuebleIMG()?>"> <img src="../../Admin/Controlador/<?= $casa->getnomreIMG() ?>" alt="<?= $casa->getnomreIMG() ?>"></a>
+                       <a href="../Controlador/detalles.php?idInmueble=<?= $casa->getid_inmuebleIMG()?>"> <img src="../../Admin/Controlador/<?= $casa->getnomreIMG() ?>" alt="<?= $casa->getnomreIMG() ?>"></a>
                     <div class="informacion_inmueble">
   
                         <h2><?= $casa->getprovincia_inmuebleIMG()?> </h2>
@@ -129,7 +129,7 @@ if (!isset($_SESSION['sesisonUser'])) {
                 foreach ($data['$list_alquiler'] as $casa) {
                     ?>
                 <div class="contenedor-img_Informacion">
-                    <a href="../Vista/Inmueble_seleccionado.php?idInmueble=<?= $casa->getid_inmuebleIMG()?>"><img src="../../Admin/Controlador/<?= $casa->getnomreIMG() ?>" alt="<?= $casa->getnomreIMG() ?>"> </a>
+                    <a href="../Controlador/detalles.php?idInmueble=<?= $casa->getid_inmuebleIMG()?>"><img src="../../Admin/Controlador/<?= $casa->getnomreIMG() ?>" alt="<?= $casa->getnomreIMG() ?>"> </a>
                     <div class="informacion_inmueble">
                           <h2><?= $casa->getprovincia_inmuebleIMG()?> </h2>
                      </div>
