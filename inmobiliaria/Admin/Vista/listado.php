@@ -7,8 +7,10 @@
     <th id="t">Direccion</th>
     <th id="o">Operacion</th>
     <th id="m">Provincia</th>
+     <th id="d">Descripciòn</th>
     <th id="s">idTipo</th> 
     <th id="p">Visita</th>
+   
 
     <th colspan="2">Funciones de Admin</th>
 
@@ -25,6 +27,9 @@
       <td class="direccion"><?= $casa->getdireccion() ?></td>
       <td class="operacion"><?= $casa->getOperacion() ?></td>
       <td class="provincia"><?= $casa->getProvincia() ?></td>
+      <td class="descripcion">
+          <div id="descripciondiv"><?= $casa->getDescripcion() ?></div>
+      </td>
       <td class="idtipo" name="<?= $casa->getTipo() ?>"><?= $casa->getNombreTipo() ?></td>
 
       <td class="visita"><?= $casa->getVisita() ?></td>

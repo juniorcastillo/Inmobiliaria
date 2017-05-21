@@ -28,19 +28,27 @@ and open the template in the editor.
         <title>Inmobiliaria Castillo</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <style>
+        <style>
+            body{
+                padding:0px;
+                margin: 0px;
+            }
+            #galeriaydetalle{
+                display: -webkit-flex;
+                display: flex;
+                width: 100%;
+
+
+            }
             #galeria, #galeria * {
                 box-sizing:border-box;
                 -moz-box-sizing:border-box;
 
             }
             #galeria {
-              
-       
-                border: 1px solid #EAEAEA;  /* Borde de la galería */
+
                 padding: 10px;
                 padding-bottom: 0;
-                background: white;  /* Fondo de la galería */
                 width: 50%;  /* Ancho de la galería */
             }
             #galeria_miniaturas {
@@ -66,6 +74,7 @@ and open the template in the editor.
                 cursor: pointer;
                 padding: 5px;
                 margin: 10px 5px;
+
             }
             .miniatura:hover {
                 opacity:.8;   /* Opacidad */
@@ -80,11 +89,62 @@ and open the template in the editor.
                 filter:alpha(opacity=80);
 
             }
+            #contendedor_informacion{
+
+                width: 49%;
+                background-color: #c4e3f3;
+                height: 390px;
+                margin-top: 15px;
+            }
+            #contendedor_informacion h1{
+                text-align: center;
+                font-weight: bold;
+            }
+            #contendedor_informacion ul li{
+                list-style-position:inside;
+                margin-top: 10px;
+                font-size: 1.3rem;
+            }
+            #descripcion_inmueble {
+
+                height: 100%;
+                background-color: #F6ECF5;
+            }
+            #descripcion_inmueble h1{
+                font-weight: bold;
+                text-align: center;
+            }
+            #descripcion_inmueble p{
+                margin-top: 10px;
+                font-size: 1.3rem;
+                text-align: center;
+            }
+            .linea{
+
+                border-top: 1px solid #8c8b8b;
+                border-bottom: 1px solid #fff;
+
+            }
+
+            @media (max-width: 534px){
+                #galeriaydetalle{
+                    display:table;
+                }
+                #galeria {
+
+                    width: 100%;  /* Ancho de la galería */
+                }
+                #contendedor_informacion{
+
+                    width: 100%;
+
+                }
+            }
         </style>
         <link rel="stylesheet" type="text/css" href="../Vista/Style/Main.css">
         <script src="../Vista/svg/snap.svg-min.js"></script>
         <script src="../Vista/svg/codigo.js"></script>
-      
+
     </head>
     <body>
         <div id="logo">
@@ -127,25 +187,69 @@ and open the template in the editor.
                 </div>
             </div>
         </header>
+        <div id="galeriaydetalle">
 
-        <div id="galeria">
-            <div id="galeria_imagen">
-                <img id="imgGaleria" src="../Vista/imagen/2.jpg" /></div>
-            <div id="galeria_miniaturas">
-                <?php
-                require_once '../../Admin/Modelo/Imagen.php';
-                $data['listado'] = Imagen::list_imagenes_inmueble($_REQUEST['idInmueble']);
-                //Esta es la imagen --><td class="imagen"> $casa->getImagen()</td> <th>Imagen</th>
-                foreach ($data['listado'] as $casa) {
-                    ?>
-                    <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src = '../../Admin/Controlador/<?= $casa->getnomreIMG() ?>';" src="../../Admin/Controlador/<?= $casa->getnomreIMG() ?>" alt="Casa" />
+
+            <div id="galeria">
+                <div id="galeria_imagen">
+                    <img id="imgGaleria" src="../Vista/imagen/2.jpg" /></div>
+                <div id="galeria_miniaturas">
                     <?php
-                  
+                    $data['listado'] = Imagen::list_imagenes_inmueble($_REQUEST['idInmueble']);
+                    //Esta es la imagen --><td class="imagen"> $casa->getImagen()</td> <th>Imagen</th>
+                    foreach ($data['listado'] as $casa) {
+                        ?>
+                        <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src = '../../Admin/Controlador/<?= $casa->getnomreIMG() ?>';" src="../../Admin/Controlador/<?= $casa->getnomreIMG() ?>" alt="Casa" />
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+            <div id="contendedor_informacion">
+                <h1>Detalle inmueble</h1><br><br>
+                <?php
+                $data['listado'] = Contenido::getListInmuebleByid($_REQUEST['idInmueble']);
+                //Esta es la imagen --><td class="imagen"> $casa->getImagen()</td> <th>Imagen</th>
+                foreach ($data['listado'] as $inmueble) {
+                    ?>
+                    <ul>
+                        <li><strong>Tipo de propiedad:</strong> <?= $inmueble->getNombreTipo() ?></li>
+                        <li><strong>Tipo de operación:</strong> <?= $inmueble->getOperacion() ?></li>
+                        <li><strong>Precio de propiedad:</strong> <?= $inmueble->getPrecio() ?> €</li>
+                        <li><strong>Provincia:</strong> <?= $inmueble->getProvincia() ?> </li>
+                    </ul>
+                    <?php
                 }
                 ?>
+
             </div>
         </div>
-        <h1>Mostrare los datos</h1>
+        <br>
+        <hr class="linea">
+        <div id="descripcion_inmueble">
 
+            <h1>Descripción</h1>
+            <?php
+            $data['listado'] = Contenido::getListInmuebleByid($_REQUEST['idInmueble']);
+            //Esta es la imagen --><td class="imagen"> $casa->getImagen()</td> <th>Imagen</th>
+            foreach ($data['listado'] as $inmueble) {
+                ?>
+                <p><?= $inmueble->getDescripcion() ?></p>
+                <?php
+            }
+            ?>
+        </div>
+        <footer>
+            <div><a href="https://www.facebook.com/ "  target="_blank"><p id="Facebook" ></p></a></div>
+
+            <div><a href="#">  <p id="Gmail" ></p></a></div>
+
+            <div><a href="#"> <p  id="youtube"><span  class="span"></span></p></a></div>
+
+            <div><a href="#"><p id="Twitter"><span  class="span"></span></p></a></div>
+
+
+
+        </footer>
     </body>
 </html>

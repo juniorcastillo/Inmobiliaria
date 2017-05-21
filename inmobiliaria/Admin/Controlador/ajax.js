@@ -75,6 +75,7 @@ $(document).ready(function () {
                         fechaAltaNuevo: $("#fechaAltaNuevo").val(),
                         precioNuevo: $("#precioNuevo").val(),
                         direccionNuevo: $("#direccionNuevo").val(),
+                        descripcionNuevo:  $("#descripcionNuevo").val(),
                         operacionNuevo: $("select#operacionNuevo").val(),
                         provinciaNuevo: $("select#provinciaNuevo").val(),
                         img: $("input[name='file']").val(),
@@ -301,20 +302,22 @@ function load(page) {
                         precioModificar: $("#precioModificar").val(),
                         direccionModificar: $("#direModificar").val(),
                         operacionModificar: $("select#operacionModificar").val(),
+                        descripcionModificar:$("#descripcionModificar").val(),
                         provinciaModificar: $("select#provinciaModificar").val(),
                         tipoModificar: $("#tipoModificar").val(),
                         visitaModificar: $("#visitaModificar").val()
                                 //Campio los valores antes de que actualize
                     }, function (data, status) {
-                        //$(".container-fluid").html(data);
+                      //  $(".container-fluid").html(data);
                         //Cambio los dadtos al instante 
-                        $("#inmueble_" + idinmueble + " td.alta").html($("#fechaAltaModificar").val());
+                       /***/ $("#inmueble_" + idinmueble + " td.alta").html($("#fechaAltaModificar").val());
                         $("#inmueble_" + idinmueble + " td.precio").html($("#precioModificar").val());
                         $("#inmueble_" + idinmueble + " td.direccion").html($("#direModificar").val());
+                        $("#inmueble_" + idinmueble + " td.descripcion div").html($("#descripcionModificar").val());
                         $("#inmueble_" + idinmueble + " td.operacion").html($("select#operacionModificar").val());
                         $("#inmueble_" + idinmueble + " td.provincia").html($("select#provinciaModificar").val());
                         $("#inmueble_" + idinmueble + " td.idtipo").html($("#tipoModificar").val());
-                        $("#inmueble_" + idinmueble + " td.visita").html($("#visitaModificar").val());
+                     $("#inmueble_" + idinmueble + " td.visita").html($("#visitaModificar").val());//*/
                     })//get			
 
                     $(this).dialog("close");
@@ -340,6 +343,8 @@ function load(page) {
         $("#precioModificar").val($(this).parent().siblings("td.precio").html());
         //direccion del inmueble
         $("#direModificar").val($(this).parent().siblings("td.direccion").html());
+        //Descripcion del inmueble
+        $("#descripcionModificar").val($(this).parent().siblings("td.descripcion").children("#descripciondiv").html());
         //operacion este sera un select
         $('#operacionModificar > option[value="' + $(this).parent().siblings("td.operacion").html() + '"]').attr('selected', 'selected');
 

@@ -12,7 +12,7 @@
 
                 background-image: url(http://www.jonaga.com/imagenes/fondo%20pagina%20fijo.jpg);
             }
-
+         
         </style>
     </head>
 
@@ -51,6 +51,9 @@
                     <option value="Granada">Granada</option>
                 </select>
             </div>
+
+            <div id="th">Descripcion</div>
+            <div id="td"> <textarea rows="4" cols="30" name="comment" id="descripcionModificar" ></textarea></div>
             <div id="th">Tipo</div>
             <div id="td"><select placeholder="Tipo" name="idtipo" id="tipoModificar">
                     <?php

@@ -35,7 +35,7 @@ body .Centrado {
 body .inputfile {
     width: 125px; }
 header ul {
-    
+
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -78,17 +78,21 @@ header ul  li a:hover:not(.active) {
     display: flex;
     align-items:center;
     margin-left: 26%;
-    
+
     border-style: outset;
     margin-top: 20px;
     width: 600px;
     height: 75px;
-    
-   
+
+
+}
+#descripcionModificar,#descripcionNuevo{
+    resize:none;
 }
 
+
 #funciones .funciones-flex {
-   margin-left: 10%;
+    margin-left: 10%;
     height: 30px;
 }
 table#tabladatos {
@@ -112,6 +116,10 @@ table#tabladatos td {
     border-bottom: 1px solid #fff;
     color: #000000;
     border-top: 1px solid transparent; }
+table#tabladatos td div{
+    width: 180px;
+    word-wrap: break-word;
+}
 table#tabladatos tr:hover td {
     background: #d0dafd;
     color: #339; }
