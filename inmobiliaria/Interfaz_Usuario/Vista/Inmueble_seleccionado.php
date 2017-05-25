@@ -144,7 +144,6 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="../Vista/Style/Main.css">
         <script src="../Vista/svg/snap.svg-min.js"></script>
         <script src="../Vista/svg/codigo.js"></script>
-
     </head>
     <body>
         <div id="logo">
@@ -192,7 +191,8 @@ and open the template in the editor.
 
             <div id="galeria">
                 <div id="galeria_imagen">
-                    <img id="imgGaleria" src="../Vista/imagen/2.jpg" /></div>
+                    
+                    <img id="imgGaleria" src="../../Admin/Controlador/<?= Imagen::portadaInmueble($_REQUEST['idInmueble'])?>" /></div>
                 <div id="galeria_miniaturas">
                     <?php
                     $data['listado'] = Imagen::list_imagenes_inmueble($_REQUEST['idInmueble']);

@@ -152,7 +152,25 @@ class Imagen {
 
         return $list_venta;
     }
+//*************************** Me devuelve la foto de portada del inmueble *******************************//
 
+        public static function portadaInmueble($id) {
+        require_once 'Conexion.php';
+        $conexion = Inmobiliaria::conectar();
+        $seleccion = "SELECT nombre_img,promocion,id_inmueble,portada FROM imagen WHERE id_inmueble=$id";
+        $consulta = $conexion->query($seleccion);
+
+    
+//Creo un nuevo objeto 
+        while ($registro = $consulta->fetchObject()) {
+            $portada = $registro->nombre_img;
+        }
+
+        return  $portada;
+    }
+    
+    
+    
     //***************** Muestro listado de las imagenes que estan en alquiler  *********************************//
 
     public static function list_alquilerIMG() {

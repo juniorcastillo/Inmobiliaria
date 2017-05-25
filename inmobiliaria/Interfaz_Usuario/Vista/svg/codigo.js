@@ -3,7 +3,7 @@
 	window.onload =  function(){
 		var status = false;
 		var s = Snap("#svg");
-		Snap.load("svg/casa.svg", function(f){
+		Snap.load("../Vista/svg/casa.svg", function(f){
 			puerta = f.select("#puerta");
 			
 			g = f.select("g");
