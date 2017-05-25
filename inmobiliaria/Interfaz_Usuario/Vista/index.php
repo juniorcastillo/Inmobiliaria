@@ -21,6 +21,7 @@ if (!isset($_SESSION['sesisonUser'])) {
         <link rel="stylesheet" type="text/css" href="../Vista/Style/Main.css">
         <script src="../Vista/svg/snap.svg-min.js"></script>
         <script src="../Vista/svg/codigo.js"></script>
+       
     </head>
     <body>
         <div id="logo">
@@ -144,6 +145,7 @@ if (!isset($_SESSION['sesisonUser'])) {
           </div>
 
         <footer>
+            <span id="copyright">©Junior Miguel Castillo santana</span>
             <div><a href="https://www.facebook.com/ "  target="_blank"><p id="Facebook" ></p></a></div>
 
             <div><a href="#">  <p id="Gmail" ></p></a></div>

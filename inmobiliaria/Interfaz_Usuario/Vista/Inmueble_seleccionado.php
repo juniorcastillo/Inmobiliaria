@@ -144,6 +144,10 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="../Vista/Style/Main.css">
         <script src="../Vista/svg/snap.svg-min.js"></script>
         <script src="../Vista/svg/codigo.js"></script>
+         <script>
+         var audio = new Audio('../Vista/sonido/burbuja.mp3');
+          audio.play();
+          </script>
     </head>
     <body>
         <div id="logo">
@@ -240,6 +244,7 @@ and open the template in the editor.
             ?>
         </div>
         <footer>
+              <span id="copyright">©Junior Miguel Castillo santana</span>
             <div><a href="https://www.facebook.com/ "  target="_blank"><p id="Facebook" ></p></a></div>
 
             <div><a href="#">  <p id="Gmail" ></p></a></div>

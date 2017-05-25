@@ -49,6 +49,7 @@ and open the template in the editor.
                     title: 'Hello World!'
                 });
             }
+         
         </script>
 
     </head>
@@ -168,6 +169,7 @@ and open the template in the editor.
 
         </div>
         <footer>
+              <span id="copyright">©Junior Miguel Castillo santana</span>
             <div><a href="https://www.facebook.com/ "  target="_blank"><p id="Facebook" ></p></a></div>
 
             <div><a href="#">  <p id="Gmail" ></p></a></div>
