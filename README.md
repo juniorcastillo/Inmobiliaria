@@ -8,3 +8,8 @@
 <img src="inmobiliaria/Proyecto-img/Admin-registrar.PNG" alt="Admin-inmueble"  width="1000" height="500">
 <img src="inmobiliaria/Proyecto-img/Admin-usuario.PNG" alt="Admin-inmueble" width="1000" height="500">
 <img src="inmobiliaria/Proyecto-img/Admin-ventana-cerrar.PNG" alt="Admin-inmueble" width="1000" height="500">
+<h3>Interfaz de usuario</h3>
+<img src="inmobiliaria/Proyecto-img/GUI_usuario/home1.PNG" alt="Usuario-inmueble" width="1000" height="500">
+<img src="inmobiliaria/Proyecto-img/GUI_usuario/home2.PNG" alt="Usuario-inmueble" width="1000" height="500">
+<img src="inmobiliaria/Proyecto-img/GUI_usuario/contacto.PNG" alt="Usuario-inmueble" width="1000" height="500">
+<img src="inmobiliaria/Proyecto-img/GUI_usuario/detalle.PNG" alt="Usuario-inmueble" width="1000" height="500">
