@@ -77,7 +77,7 @@ and open the template in the editor.
                         <a href="../Controlador/home.php">Inicio</a>
                         <a href="#">Venta</a>
                         <a href="#">Alquiler</a>
-                        <a href="#">Informacio</a>
+                        <a href="#">Informacion</a>
                         <a href="#">Contacto</a>
                         <?php
                         if ($_SESSION['sesisonUser']) {
