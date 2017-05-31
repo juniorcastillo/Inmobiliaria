@@ -1,1 +1,1 @@
- <?php header("Location: Interfaz_Usuario/Controlador/home.php");
+ <?php header("Location: ./aplicacion/Interfaz_Usuario/Controlador/home.php");
