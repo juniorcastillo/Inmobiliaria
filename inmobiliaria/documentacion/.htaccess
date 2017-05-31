@@ -1,8 +1,0 @@
-
-# DO NOT REMOVE THIS LINE AND THE LINES BELOW PWPROTECTID:ateMaWaSyh
-AuthType Basic
-AuthName "Restricted Access"
-AuthUserFile /home/u664511945/public_html/documentacion/.htpasswd
-Require user junior
-# DO NOT REMOVE THIS LINE AND THE LINES ABOVE ateMaWaSyh:PWPROTECTID
-
