@@ -23,8 +23,9 @@ class Contenido {
     private $visita;
     private $nombreTipo;
     private $descripcion;
+
     //, $fecha_alta, $tipo, $operacion, $provincia, $superficie, $precio, $imagen, $vendedor
-    function __construct($idinmueble, $fecha_alta, $precio, $direccion, $operacion, $provincia, $tipo, $visita,$descripcion, $nombreTipo) {
+    function __construct($idinmueble, $fecha_alta, $precio, $direccion, $operacion, $provincia, $tipo, $visita, $descripcion, $nombreTipo) {
         $this->referencia = $idinmueble;
         $this->fecha_alta = $fecha_alta;
         $this->precio = $precio;
@@ -72,15 +73,17 @@ class Contenido {
     public function getNombreTipo() {
         return $this->nombreTipo;
     }
+
     public function getDescripcion() {
         return $this->descripcion;
     }
+
 //Inserto una fila
     public function insert() {
         require_once 'Conexion.php';
         $conexion = Inmobiliaria::conectar();
         $insercion = "INSERT INTO inmueble (idinmueble,fecha,precio,direccion,operacion,provincia,idtipo,descripcion,visita) "
-                . "VALUES (\"" . $this->referencia . "\", \"" . $this->fecha_alta . "\", \"" . $this->precio . "\", \"" . $this->direccion . "\", \"" . $this->operacion . "\", \"" . $this->provincia . "\", \"" . $this->tipo . "\", \"" . $this->descripcion . "\", \"". $this->visita . "\")";
+                . "VALUES (\"" . $this->referencia . "\", \"" . $this->fecha_alta . "\", \"" . $this->precio . "\", \"" . $this->direccion . "\", \"" . $this->operacion . "\", \"" . $this->provincia . "\", \"" . $this->tipo . "\", \"" . $this->descripcion . "\", \"" . $this->visita . "\")";
 
         //echo $insercion;
 
@@ -93,6 +96,16 @@ class Contenido {
         $conexion = Inmobiliaria::conectar();
 
         $modificacion = "UPDATE inmueble SET  idinmueble=\"$this->referencia\",fecha=\"$this->fecha_alta\",precio=\"$this->precio\",direccion=\"$this->direccion\",operacion=\"$this->operacion\",descripcion=\"$this->descripcion\",provincia=\"$this->provincia\",idtipo=\"$this->tipo\",visita=\"$this->visita\" WHERE idinmueble=\"$_POST[idModificar]\"";
+        //  echo $modificacion. " Esta es la consulta"; 
+        $conexion->exec($modificacion);
+    }
+
+//Incrementar visitas 
+    public static function incrementaVisita($id,$visitas) {
+        require_once 'Conexion.php';
+        $conexion = Inmobiliaria::conectar();
+
+        $modificacion = "UPDATE inmueble SET visita=\"$visitas\" WHERE idinmueble=\"$id\"";
         //  echo $modificacion. " Esta es la consulta"; 
         $conexion->exec($modificacion);
     }
@@ -116,38 +129,33 @@ class Contenido {
             return $numrows;
         } else {
             $count_query = $conexion->query("SELECT * FROM inmueble WHERE operacion LIKE '%" . $b . "%'");
-        //SI EXISTEN FILAS GUARDA LA CANTIDAD DE FILA
-         $numrows = $count_query->rowCount();
-        return $numrows;
+            //SI EXISTEN FILAS GUARDA LA CANTIDAD DE FILA
+            $numrows = $count_query->rowCount();
+            return $numrows;
         }
     }
 
-    
-    
     //Devuelve una array con el inmueble solicitado
-      public static function getListInmuebleByid($id) {
-       
+    public static function getListInmuebleByid($id) {
+
         $listado = []; //se guarda los valores de la consulta
         require_once 'Conexion.php';
         $conexion = Inmobiliaria::conectar();
-       
-       
-            $seleccion = "SELECT p.idinmueble,DATE_FORMAT(p.fecha,'%d/%m/%Y') as FechaAlta,p.idtipo,p.operacion,p.provincia,p.direccion,p.precio,p.visita,p.descripcion,t.nombre as nombretipo  FROM inmueble p , tipo t WHERE p.idtipo = t.idtipo and p.idinmueble=$id";
-            $consulta = $conexion->query($seleccion);
 
-            $listado = [];
+
+        $seleccion = "SELECT p.idinmueble,DATE_FORMAT(p.fecha,'%d/%m/%Y') as FechaAlta,p.idtipo,p.operacion,p.provincia,p.direccion,p.precio,p.visita,p.descripcion,t.nombre as nombretipo  FROM inmueble p , tipo t WHERE p.idtipo = t.idtipo and p.idinmueble=$id";
+        $consulta = $conexion->query($seleccion);
+
+        $listado = [];
 //Creo un nuevo objeto 
-            while ($registro = $consulta->fetchObject()) {
-                $listado[] = new contenido($registro->idinmueble, $registro->FechaAlta, $registro->precio, $registro->direccion, $registro->operacion, $registro->provincia, $registro->idtipo, $registro->visita,$registro->descripcion, $registro->nombretipo);
-            }
+        while ($registro = $consulta->fetchObject()) {
+            $listado[] = new contenido($registro->idinmueble, $registro->FechaAlta, $registro->precio, $registro->direccion, $registro->operacion, $registro->provincia, $registro->idtipo, $registro->visita, $registro->descripcion, $registro->nombretipo);
+        }
 
-            return $listado;
+        return $listado;
         //fin else
     }
-    
-    
-    
-    
+
 //El get que muestra la lista de los inmueble
 
 
@@ -176,7 +184,7 @@ class Contenido {
                 return $listado;
             } else {
                 while ($registro = $sql->fetchObject()) {
-                    $listado[] = new contenido($registro->idinmueble, $registro->FechaAlta, $registro->precio, $registro->direccion, $registro->operacion, $registro->provincia, $registro->idtipo, $registro->visita,$registro->descripcion, $registro->nombretipo);
+                    $listado[] = new contenido($registro->idinmueble, $registro->FechaAlta, $registro->precio, $registro->direccion, $registro->operacion, $registro->provincia, $registro->idtipo, $registro->visita, $registro->descripcion, $registro->nombretipo);
                 }
                 return $listado;
             }//fin else
@@ -187,7 +195,7 @@ class Contenido {
             $listado = [];
 //Creo un nuevo objeto 
             while ($registro = $consulta->fetchObject()) {
-                $listado[] = new contenido($registro->idinmueble, $registro->FechaAlta, $registro->precio, $registro->direccion, $registro->operacion, $registro->provincia, $registro->idtipo, $registro->visita,$registro->descripcion, $registro->nombretipo);
+                $listado[] = new contenido($registro->idinmueble, $registro->FechaAlta, $registro->precio, $registro->direccion, $registro->operacion, $registro->provincia, $registro->idtipo, $registro->visita, $registro->descripcion, $registro->nombretipo);
             }
 
             return $listado;

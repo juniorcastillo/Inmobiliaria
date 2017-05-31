@@ -238,14 +238,16 @@ and open the template in the editor.
             $data['listado'] = Contenido::getListInmuebleByid($_REQUEST['idInmueble']);
             //Esta es la imagen --><td class="imagen"> $casa->getImagen()</td> <th>Imagen</th>
             foreach ($data['listado'] as $inmueble) {
+                $visitas_calculada=$inmueble->getVisita() + 1;
                 ?>
                 <p><?= $inmueble->getDescripcion() ?></p>
+                 
                 <?php
             }
             ?>
         </div>
         <footer>
-            <span id="copyright">©Junior Castillo</span>
+              <span id="copyright">©Junior Miguel Castillo santana</span>
             <div><a href="https://www.facebook.com/ "  target="_blank"><p id="Facebook" ></p></a></div>
 
             <div><a href="#">  <p id="Gmail" ></p></a></div>
