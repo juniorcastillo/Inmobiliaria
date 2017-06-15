@@ -12,3 +12,6 @@
 <img src="inmobiliaria/Proyecto-img/GUI_usuario/home2.PNG" alt="Usuario-inmueble" width="1000" height="500">
 <img src="inmobiliaria/Proyecto-img/GUI_usuario/contacto.PNG" alt="Usuario-inmueble" width="1000" height="500">
 <img src="inmobiliaria/Proyecto-img/GUI_usuario/detalle.PNG" alt="Usuario-inmueble" width="1000" height="500">
+
+<div>Enlace Hostinguer-->https://cpanel.hostinger.es/hosting/index/aid/28655369#</div>
+<div>Enlace Inmobiliaria Castillo-->http://inmobcast.hol.es</div>
